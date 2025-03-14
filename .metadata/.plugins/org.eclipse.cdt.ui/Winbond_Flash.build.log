@@ -1,10 +1,27 @@
-21:28:33 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+21:39:33 **** Build of configuration Debug for project Winbond_Flash ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:175:40: warning: pointer targets in passing argument 2 of 'Write_Data_Buffer' differ in signedness [-Wpointer-sign]
+  175 |                   Write_Data_Buffer(0, &Tx[0], strlen(Tx));
+      |                                        ^~~~~~
+      |                                        |
+      |                                        char *
+In file included from ../Core/Src/main.c:24:
+../Core/Inc/Flash_driver.h:16:55: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   16 | void Write_Data_Buffer(uint16_t Buffer_Addr, uint8_t *Data, uint16_t len);
+      |                                              ~~~~~~~~~^~~~
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
 arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
    text	   data	    bss	    dec	    hex	filename
-  27372	     76	   3956	  31404	   7aac	Winbond_Flash.elf
+  27372	     80	   3960	  31412	   7ab4	Winbond_Flash.elf
 Finished building: default.size.stdout
  
+Finished building: Winbond_Flash.list
+ 
 
-21:28:33 Build Finished. 0 errors, 0 warnings. (took 308ms)
+21:39:34 Build Finished. 0 errors, 1 warnings. (took 1s.16ms)
 
