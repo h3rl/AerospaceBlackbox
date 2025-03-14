@@ -1,0 +1,10 @@
+21:28:33 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27372	     76	   3956	  31404	   7aac	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+
+21:28:33 Build Finished. 0 errors, 0 warnings. (took 308ms)
+

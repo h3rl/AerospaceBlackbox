@@ -1,0 +1,165 @@
+/*
+ * Flash_driver.c
+ *
+ *  Created on: Feb 22, 2025
+ *      Author: Thomas
+ */
+#include "main.h"
+#include "Flash_driver.h"
+
+extern SPI_HandleTypeDef hspi1;
+
+#define Flash hspi1
+#define csLOW() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_RESET)
+#define csHIGH() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_SET)
+#define numBLOCK 1024  //Antall blokker
+#define numPAGES 65536 //Antall sider totalt. 64 sider per. blokk
+#define numBYTES 2048  //Antall bytes per. side
+
+//Buffer for Tx and Rx
+uint8_t Tx_Buffer[5]={0};
+uint8_t Rx_Buffer[5]={0};
+
+//OPCODE FOR FLASH
+uint8_t OP_Dev_Res = 0xFF;
+uint8_t OP_JEDEC_ID[2] = {0x9F, 0x00};
+
+//Register constants
+uint8_t OP_Read_Register = 0x0F;
+uint8_t OP_Write_Register = 0x1F;
+uint8_t SR_1_Addr = 0xA0;
+uint8_t SR_2_Addr = 0xB0;
+uint8_t SR_3_Addr = 0xC0;
+
+uint8_t OP_Write_Enable = 0x06;
+uint8_t OP_Write_Disable = 0x04;
+uint8_t OP_Block_Erase = 0xD8;
+uint8_t OP_Load_Program_Data = 0x02;
+uint8_t OP_Program_Ex = 0x10;
+uint8_t OP_Page_Data_Read = 0x13;
+uint8_t OP_Read_Data = 0x03;
+uint8_t OP_Fast_Read = 0x0B;
+
+void W25N_WaitForReady() {
+	HAL_Delay(1);
+    while (Read_Status_Register(SR_3_Addr) & 0x01) {
+        HAL_Delay(1);  // Wait until flash is ready
+    }
+}
+
+void Write_Enable(void){
+	csLOW();
+	HAL_SPI_Transmit(&Flash, &OP_Write_Enable, 1, 100);
+	csHIGH();
+	HAL_Delay(1);
+}
+
+void Write_Disable(void){
+	csLOW();
+	HAL_SPI_Transmit(&Flash, &OP_Write_Disable, 1, 100);
+	csHIGH();
+	HAL_Delay(1);
+}
+
+void Flash_Init(uint8_t BUF){
+	HAL_Delay(1000);
+	if(BUF){
+		uint8_t data = Read_Status_Register(SR_2_Addr);
+		data|=0x08;
+		Write_Status_Register(SR_2_Addr, data);
+	}
+	else{
+		uint8_t data = Read_Status_Register(SR_2_Addr);
+		data&=0xF7;
+		Write_Status_Register(SR_2_Addr, data);
+	}
+	uint8_t data = Read_Status_Register(SR_1_Addr);
+	data|=0x02;
+	Write_Status_Register(SR_1_Addr, data);
+}
+
+uint8_t Read_Status_Register(uint8_t SR){
+	Tx_Buffer[0]=OP_Read_Register;
+	Tx_Buffer[1]=SR;
+	csLOW();
+	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0], 2, 100);
+	HAL_SPI_Receive(&Flash, &Rx_Buffer[0], 1, 100);
+	csHIGH();
+	return Rx_Buffer[0];
+}
+
+void Write_Status_Register(uint8_t SR, uint8_t REG_DATA){
+	Tx_Buffer[0]=OP_Write_Register;
+	Tx_Buffer[1]=SR;
+	Tx_Buffer[2]=REG_DATA;
+	csLOW();
+	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0], 3, 100);
+	csHIGH();
+}
+
+uint32_t Read_ID(void){
+	uint8_t Buffer[3]={0};
+	csLOW();
+	HAL_SPI_Transmit(&Flash, &OP_JEDEC_ID[0], 2, 100);
+	HAL_SPI_Receive(&Flash, &Buffer[0], 3, 100);
+	csHIGH();
+	return ((Buffer[0]<<16)|(Buffer[1]<<8|Buffer[2]));
+}
+
+void Write_Data_Buffer(uint16_t Buffer_Addr, uint8_t *Data, uint16_t len){
+	Write_Enable();
+	Tx_Buffer[0]=OP_Load_Program_Data;
+	Tx_Buffer[1]=(uint8_t)(Buffer_Addr>>8);
+	Tx_Buffer[2]=(uint8_t)Buffer_Addr;
+	csLOW();
+	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0], 3, 100);
+	HAL_SPI_Transmit(&Flash, Data, len, 1000);
+	csHIGH();
+	HAL_Delay(5);
+}
+
+void Write_Data_Flash(uint16_t Page_Addr){
+	Tx_Buffer[0]=OP_Program_Ex;
+	Tx_Buffer[1]=0x00;
+	Tx_Buffer[2]=(uint8_t)(Page_Addr>>8);
+	Tx_Buffer[3]=(uint8_t)(Page_Addr);
+	csLOW();
+	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0], 4, 100);
+	csHIGH();
+	W25N_WaitForReady();
+}
+
+void Select_Page_Read(uint16_t Page_Addr){
+	Tx_Buffer[0]=OP_Page_Data_Read;
+	Tx_Buffer[1]=0x00;
+	Tx_Buffer[2]=(uint8_t)(Page_Addr>>8);
+	Tx_Buffer[3]=(uint8_t)(Page_Addr);
+	csLOW();
+	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0],4,100);
+	csHIGH();
+}
+
+void Read_Data_Buffer(uint8_t *Data, uint16_t len){
+	Tx_Buffer[0]=OP_Read_Data;
+	Tx_Buffer[1]=0x00;
+	Tx_Buffer[2]=0x00;
+	Tx_Buffer[3]=0x00;
+	//W25N_WaitForReady();
+	HAL_Delay(1);
+	csLOW();
+	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0],4,100);
+	HAL_SPI_Receive(&Flash, Data, len, 100);
+	csHIGH();
+}
+
+void Block_Erase(uint16_t Page_Addr){
+	Write_Enable();
+	Tx_Buffer[0]=OP_Block_Erase;
+	Tx_Buffer[1]=0x00;
+	Tx_Buffer[2]=(uint8_t)(Page_Addr>>8);
+	Tx_Buffer[3]=(uint8_t)(Page_Addr);
+	csLOW();
+	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0], 4, 100);
+	csHIGH();
+	W25N_WaitForReady();
+}
