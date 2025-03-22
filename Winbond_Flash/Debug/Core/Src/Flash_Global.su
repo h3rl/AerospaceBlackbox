@@ -1,0 +1,4 @@
+../Core/Src/Flash_Global.c:25:6:Read_Register	8	static
+../Core/Src/Flash_Global.c:34:6:Write_Data	24	static
+../Core/Src/Flash_Global.c:54:6:Write_to_page	8	static
+../Core/Src/Flash_Global.c:60:6:Read_Data	16	static

@@ -1,0 +1,62 @@
+/*
+ * Flash_Global.c
+ *
+ *  Created on: Mar 22, 2025
+ *      Author: Thomas
+ */
+
+#include "main.h"
+#include "Flash_driver.h"
+#include "Flash_Global.h"
+
+//Variabler
+uint8_t SR_1=0;
+uint8_t SR_2=0;
+uint8_t SR_3=0;
+uint8_t write_data[2048]={[0 ... 2047] = 0xFF};
+uint8_t Read_data[2048];
+uint16_t Buffer_Index=0;
+uint16_t Page_Index=0;
+
+//pointer
+uint8_t* Buffer=&write_data[0];
+
+
+void Read_Register(void){
+	SR_1 = Read_Status_Register(SR_1_Addr);
+	delay_ns(DELAY_NS);
+	SR_2 = Read_Status_Register(SR_2_Addr);
+	delay_ns(DELAY_NS);
+	SR_3 = Read_Status_Register(SR_3_Addr);
+	delay_ns(DELAY_NS);
+}
+
+void Write_Data(uint8_t* data, uint16_t lenght){
+	if((Page_Index==0)&&(Buffer_Index==0)){
+		Block_Erase(0);
+	}
+	uint16_t count=0;
+	while(count<lenght){
+		*Buffer=*data;
+		Buffer++;
+		data++;
+		Buffer_Index++;
+		count++;
+		if(Buffer_Index>=50){
+			Write_to_page();
+			Buffer_Index=0;
+			Buffer=&write_data[0];
+		}
+	}
+}
+
+void Write_to_page(void){
+	Write_Data_Buffer(0, &write_data[0], Buffer_Index);
+	Write_Data_Flash(Page_Index);
+	Page_Index++;
+}
+
+void Read_Data(uint16_t page, uint8_t* data){
+	Select_Page_Read(page);
+	Read_Data_Buffer(&Read_data[0], 2048);
+}

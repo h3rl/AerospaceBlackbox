@@ -22,8 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Flash_driver.h"
-#include "string.h"
-#include <stdint.h>
+#include "Flash_Global.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,16 +48,13 @@ SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN PV */
 uint32_t ID;
-uint8_t command = 0;
+uint8_t command = 0x31;
 char Tx[]="Hello world!:)\r\n";
-uint8_t Rx=0;
-uint8_t Read_Data[2048];
+uint8_t Rx_buffer[8];
 
-uint8_t tst_data[1024]={ [0 ... 1023] = 0x30 };;
+uint8_t UART_Status=1;
 
-uint8_t SR_1=0;
-uint8_t SR_2=0;
-uint8_t SR_3=0;
+//uint8_t tst_data[1024]={ [0 ... 1023] = 0x30 };
 
 uint8_t Read=0;
 uint8_t Print_SR=0;
@@ -90,6 +86,18 @@ void send_byte_as_binary(uint8_t byte) {
     send_uart("\r\n");       // Newline for readability
 }
 
+void DWT_Init(void) {
+    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;  // Enable DWT
+    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;            // Enable cycle counter
+}
+
+void delay_ns(uint32_t ns) {
+    uint32_t cycles_per_ns = SystemCoreClock / 1000000000; // Convert clock speed to cycles per ns
+    uint32_t start = DWT->CYCCNT;                         // Get start cycle count
+    uint32_t delay_cycles = ns * cycles_per_ns;           // Calculate required cycles
+
+    while ((DWT->CYCCNT - start) < delay_cycles);         // Wait until delay is met
+}
 
 /* USER CODE END 0 */
 
@@ -148,37 +156,33 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  DWT_Init();
   Flash_Init(0);
   ID=Read_ID();
   while (1)
   {
-	  SR_1 = Read_Status_Register(SR_1_Addr);
-	  HAL_Delay(1);
-	  SR_2 = Read_Status_Register(SR_2_Addr);
-	  HAL_Delay(1);
-	  SR_3 = Read_Status_Register(SR_3_Addr);
-	  HAL_Delay(1);
-	  HAL_UART_Receive(&hcom_uart[COM1], &command,1, 100);
+	  Read_Register();
+	  UART_Status=HAL_UART_Receive(&hcom_uart[COM1], &command,1, 100);
+	  if(UART_Status==0){
+		  UART_Status=HAL_UART_Receive(&hcom_uart[COM1], &Rx_buffer[0],8, 100);
+		  while(UART_Status!=0){
+			  UART_Status=HAL_UART_Receive(&hcom_uart[COM1], &Rx_buffer[0],8, 100);
+		  }
+	  }
 
 	  //Read
 	  if(command==0x31){
-		  Select_Page_Read(150);
-		  Read_Data_Buffer(Read_Data, 2048);
-		  BSP_LED_Toggle(LED_GREEN);
-		  HAL_UART_Transmit(&hcom_uart[COM1], &Read_Data[0], 2048, HAL_MAX_DELAY);
+		  Read_Data(0, &Read_data[0]);
+		  HAL_UART_Transmit(&hcom_uart[COM1], &Read_data[0], 2048, HAL_MAX_DELAY);
+		  Read_Data(1, &Read_data[0]);
+		  HAL_UART_Transmit(&hcom_uart[COM1], &Read_data[0], 2048, HAL_MAX_DELAY);
 		  command = 0;
 	  }
 
 	  //Write
 	  if(command==0x32){
-		  //Block_Erase(150);
-		  Write_Data_Buffer(0, &Tx[0], strlen(Tx));
-		  Write_Data_Flash(150);
+		  Write_Data(&Rx_buffer[0], sizeof(Rx_buffer));
 		  BSP_LED_Toggle(LED_RED);
-		  command=0;
-	  }
-	  if(command==0x33){
-		  Block_Erase(150);
 		  command=0;
 	  }
     /* USER CODE END WHILE */
@@ -270,7 +274,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;

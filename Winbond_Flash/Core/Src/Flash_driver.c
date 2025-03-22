@@ -12,9 +12,6 @@ extern SPI_HandleTypeDef hspi1;
 #define Flash hspi1
 #define csLOW() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_RESET)
 #define csHIGH() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_SET)
-#define numBLOCK 1024  //Antall blokker
-#define numPAGES 65536 //Antall sider totalt. 64 sider per. blokk
-#define numBYTES 2048  //Antall bytes per. side
 
 //Buffer for Tx and Rx
 uint8_t Tx_Buffer[5]={0};
@@ -41,9 +38,9 @@ uint8_t OP_Read_Data = 0x03;
 uint8_t OP_Fast_Read = 0x0B;
 
 void W25N_WaitForReady() {
-	HAL_Delay(1);
+	delay_ns(DELAY_NS);
     while (Read_Status_Register(SR_3_Addr) & 0x01) {
-        HAL_Delay(1);  // Wait until flash is ready
+    	delay_ns(DELAY_NS);  // Wait until flash is ready
     }
 }
 
@@ -51,14 +48,14 @@ void Write_Enable(void){
 	csLOW();
 	HAL_SPI_Transmit(&Flash, &OP_Write_Enable, 1, 100);
 	csHIGH();
-	HAL_Delay(1);
+	delay_ns(DELAY_NS);
 }
 
 void Write_Disable(void){
 	csLOW();
 	HAL_SPI_Transmit(&Flash, &OP_Write_Disable, 1, 100);
 	csHIGH();
-	HAL_Delay(1);
+	delay_ns(DELAY_NS);
 }
 
 void Flash_Init(uint8_t BUF){
@@ -114,9 +111,9 @@ void Write_Data_Buffer(uint16_t Buffer_Addr, uint8_t *Data, uint16_t len){
 	Tx_Buffer[2]=(uint8_t)Buffer_Addr;
 	csLOW();
 	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0], 3, 100);
-	HAL_SPI_Transmit(&Flash, Data, len, 1000);
+	HAL_SPI_Transmit(&Flash, Data, len, HAL_MAX_DELAY);
 	csHIGH();
-	HAL_Delay(5);
+	delay_ns(DELAY_NS);
 }
 
 void Write_Data_Flash(uint16_t Page_Addr){
@@ -138,6 +135,7 @@ void Select_Page_Read(uint16_t Page_Addr){
 	csLOW();
 	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0],4,100);
 	csHIGH();
+	W25N_WaitForReady();
 }
 
 void Read_Data_Buffer(uint8_t *Data, uint16_t len){
@@ -145,11 +143,9 @@ void Read_Data_Buffer(uint8_t *Data, uint16_t len){
 	Tx_Buffer[1]=0x00;
 	Tx_Buffer[2]=0x00;
 	Tx_Buffer[3]=0x00;
-	//W25N_WaitForReady();
-	HAL_Delay(1);
 	csLOW();
 	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0],4,100);
-	HAL_SPI_Receive(&Flash, Data, len, 100);
+	HAL_SPI_Receive(&Flash, Data, len, HAL_MAX_DELAY);
 	csHIGH();
 }
 

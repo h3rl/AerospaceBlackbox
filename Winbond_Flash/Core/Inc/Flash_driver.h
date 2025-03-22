@@ -8,6 +8,10 @@
 #ifndef INC_FLASH_DRIVER_H_
 #define INC_FLASH_DRIVER_H_
 
+#define numBLOCK 1024  //Antall blokker
+#define numPAGES 65536 //Antall sider totalt. 64 sider per. blokk
+#define numBYTES 2048  //Antall bytes per. side
+
 void Flash_Init(uint8_t BUF);
 uint8_t Read_Status_Register(uint8_t SR);
 void Write_Status_Register(uint8_t SR, uint8_t REG_DATA);

@@ -1,0 +1,25 @@
+/*
+ * Flash_Global.c
+ *
+ *  Created on: Mar 22, 2025
+ *      Author: Thomas
+ */
+
+#include "main.h"
+#include "Flash_driver.h"
+#include "Flash_Global.h"
+
+//Variabler
+uint8_t SR_1=0;
+uint8_t SR_2=0;
+uint8_t SR_3=0;
+
+
+void Read_Register(void){
+	SR_1 = Read_Status_Register(SR_1_Addr);
+	HAL_Delay(1);
+	SR_2 = Read_Status_Register(SR_2_Addr);
+	HAL_Delay(1);
+	SR_3 = Read_Status_Register(SR_3_Addr);
+	HAL_Delay(1);
+}
