@@ -42,11 +42,30 @@ void Write_Data(uint8_t* data, uint16_t lenght){
 		data++;
 		Buffer_Index++;
 		count++;
-		if(Buffer_Index>=50){
+		if(Buffer_Index>=2048){
 			Write_Data_Buffer(0, &write_data[0], 2048);
 			Write_to_page();
-			Buffer_Index=0;
-			Buffer=&write_data[0];
+		}
+	}
+}
+
+void Write_Data_CAN(uint8_t CAN_ID, uint8_t* data, uint16_t lenght){
+	if((Page_Index==0)&&(Buffer_Index==0)){
+		Block_Erase(0);
+	}
+	uint16_t count=0;
+	*Buffer=CAN_ID;
+	Buffer++;
+	Buffer_Index++;
+	while(count<lenght){
+		*Buffer=*data;
+		Buffer++;
+		data++;
+		Buffer_Index++;
+		count++;
+		if(Buffer_Index>=2048){
+			Write_Data_Buffer(0, &write_data[0], 2048);
+			Write_to_page();
 		}
 	}
 }
@@ -55,6 +74,9 @@ void Write_to_page(void){
 	Write_Data_Buffer(0, &write_data[0], Buffer_Index);
 	Write_Data_Flash(Page_Index);
 	Page_Index++;
+	Buffer_Index=0;
+	Buffer=&write_data[0];
+	memset(write_data, 0xFF, sizeof(write_data));
 }
 
 void Read_Data(uint16_t page, uint8_t* data){

@@ -1,4 +1,5 @@
 ../Core/Src/Flash_Global.c:25:6:Read_Register	1
 ../Core/Src/Flash_Global.c:34:6:Write_Data	5
-../Core/Src/Flash_Global.c:54:6:Write_to_page	1
-../Core/Src/Flash_Global.c:60:6:Read_Data	1
+../Core/Src/Flash_Global.c:52:6:Write_Data_CAN	5
+../Core/Src/Flash_Global.c:73:6:Write_to_page	1
+../Core/Src/Flash_Global.c:82:6:Read_Data	1

@@ -11,6 +11,7 @@
 void Read_Register(void);
 void Write_to_page(void);
 void Write_Data(uint8_t* data, uint16_t lenght);
+void Write_Data_CAN(uint8_t CAN_ID, uint8_t* data, uint16_t lenght);
 void Read_Data(uint16_t page, uint8_t* data);
 
 extern uint8_t SR_1;
