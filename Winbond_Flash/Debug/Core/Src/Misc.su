@@ -1,0 +1,3 @@
+../Core/Src/Misc.c:11:6:send_uart	16	static
+../Core/Src/Misc.c:15:6:send_byte_as_binary	32	static
+../Core/Src/Misc.c:27:6:delay_ns	32	static

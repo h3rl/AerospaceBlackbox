@@ -30,8 +30,7 @@ extern "C" {
 #include "stm32h7xx_hal.h"
 #include "stm32h7xx_nucleo.h"
 #include <stdio.h>
-#include "string.h"
-#include <stdint.h>
+#include <string.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -43,6 +42,9 @@ extern "C" {
 extern uint8_t command;
 extern uint8_t Rx;
 extern uint8_t Print_SR;
+extern uint8_t Start_Flight_Recording;
+extern uint8_t Write_To_Flightdata;
+extern uint8_t Rx_buffer[10];
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

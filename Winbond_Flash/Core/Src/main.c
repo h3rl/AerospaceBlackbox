@@ -46,13 +46,15 @@ COM_InitTypeDef BspCOMInit;
 
 SPI_HandleTypeDef hspi1;
 
+UART_HandleTypeDef huart1;
+DMA_HandleTypeDef hdma_usart1_rx;
+
 /* USER CODE BEGIN PV */
 uint32_t ID;
 uint8_t command = 0x31;
-char Tx[]="Hello world!:)\r\n";
-uint8_t Rx_buffer[8];
-
-uint8_t UART_Status=1;
+uint8_t Rx_buffer[10];
+uint8_t Start_Flight_Recording=0;
+uint8_t Write_To_Flightdata=0;
 
 //uint8_t tst_data[1024]={ [0 ... 1023] = 0x30 };
 
@@ -63,41 +65,15 @@ uint8_t Print_SR=0;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void send_uart(char *string) {
-    HAL_UART_Transmit(&hcom_uart[COM1], (uint8_t*)string, strlen(string), HAL_MAX_DELAY);
-}
-
-void send_byte_as_binary(uint8_t byte) {
-    char binaryString[9];  // 8 bits + null terminator
-
-    for (int i = 0; i < 8; i++) {
-        binaryString[i] = (byte & (1 << (7 - i))) ? '1' : '0';
-    }
-    binaryString[8] = '\0';  // Null-terminate the string
-
-    send_uart(binaryString); // Send the binary string
-    send_uart("\r\n");       // Newline for readability
-}
-
-void DWT_Init(void) {
-    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;  // Enable DWT
-    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;            // Enable cycle counter
-}
-
-void delay_ns(uint32_t ns) {
-    uint32_t cycles_per_ns = SystemCoreClock / 1000000000; // Convert clock speed to cycles per ns
-    uint32_t start = DWT->CYCCNT;                         // Get start cycle count
-    uint32_t delay_cycles = ns * cycles_per_ns;           // Calculate required cycles
-
-    while ((DWT->CYCCNT - start) < delay_cycles);         // Wait until delay is met
-}
 
 /* USER CODE END 0 */
 
@@ -130,7 +106,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_SPI1_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -156,19 +134,20 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  DWT_Init();
+
+  CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;  // Enable DWT
+  DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;            // Enable cycle counter
+
+  HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], 10);
+
   Flash_Init(0);
   ID=Read_ID();
   while (1)
   {
+//	  printf("CANID:%u,DATA:%u;\r\n", CAN_ID_TEST, (unsigned int)CAN_DATA);
+//	  CAN_DATA++;
 	  Read_Register();
-	  UART_Status=HAL_UART_Receive(&hcom_uart[COM1], &command,1, 100);
-	  if(UART_Status==0){
-		  UART_Status=HAL_UART_Receive(&hcom_uart[COM1], &Rx_buffer[0],8, 100);
-		  while(UART_Status!=0){
-			  UART_Status=HAL_UART_Receive(&hcom_uart[COM1], &Rx_buffer[0],8, 100);
-		  }
-	  }
+	  HAL_UART_Receive(&hcom_uart[COM1], &command,1, 100);
 
 	  //Read
 	  if(command==0x31){
@@ -179,10 +158,17 @@ int main(void)
 		  command = 0;
 	  }
 
-	  //Write
+	  //Start
 	  if(command==0x32){
-		  Write_Data(&Rx_buffer[0], sizeof(Rx_buffer));
-		  BSP_LED_Toggle(LED_RED);
+		  Start_Flight_Recording=1;
+		  BSP_LED_Toggle(LED_GREEN);
+		  command=0;
+	  }
+
+	  //Stop
+	  if(command==0x33){
+		  Start_Flight_Recording=0;
+		  BSP_LED_Toggle(LED_GREEN);
 		  command=0;
 	  }
     /* USER CODE END WHILE */
@@ -296,6 +282,70 @@ static void MX_SPI1_Init(void)
   /* USER CODE BEGIN SPI1_Init 2 */
 
   /* USER CODE END SPI1_Init 2 */
+
+}
+
+/**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart1, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart1, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
 
 }
 

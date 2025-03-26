@@ -43,6 +43,7 @@
 /* USER CODE BEGIN PV */
 
 uint16_t Time = 0;
+uint32_t CLK_SIM=0;		//CLK in ms
 
 /* USER CODE END PV */
 
@@ -57,7 +58,8 @@ uint16_t Time = 0;
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-
+extern DMA_HandleTypeDef hdma_usart1_rx;
+extern UART_HandleTypeDef huart1;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -185,16 +187,21 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-	Time++;
 
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-  	if(Time>=1000){
-  		Print_SR=1;
-  		Time=0;
-  	}
-
+  if(Start_Flight_Recording){
+	  CLK_SIM++;
+	  Time++;
+	  if(Time>=100){
+	    	Write_To_Flightdata=1;
+	    	Time=0;
+	  }
+  }
+  else{
+	  Time=0;
+  }
   /* USER CODE END SysTick_IRQn 1 */
 }
 
@@ -204,6 +211,34 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32h7xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles DMA1 stream0 global interrupt.
+  */
+void DMA1_Stream0_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
+
+  /* USER CODE END DMA1_Stream0_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_usart1_rx);
+  /* USER CODE BEGIN DMA1_Stream0_IRQn 1 */
+
+  /* USER CODE END DMA1_Stream0_IRQn 1 */
+}
+
+/**
+  * @brief This function handles USART1 global interrupt.
+  */
+void USART1_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART1_IRQn 0 */
+
+  /* USER CODE END USART1_IRQn 0 */
+  HAL_UART_IRQHandler(&huart1);
+  /* USER CODE BEGIN USART1_IRQn 1 */
+
+  /* USER CODE END USART1_IRQn 1 */
+}
 
 /**
   * @brief This function handles EXTI line[15:10] interrupts.
@@ -222,8 +257,7 @@ void EXTI15_10_IRQHandler(void)
 /* USER CODE BEGIN 1 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-		BSP_LED_Toggle(LED_BLUE);
-		command=Rx;
-		HAL_UART_Receive_IT(huart, &Rx, 1);
+		HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], 10);
+		BSP_LED_Toggle(LED_RED);
 }
 /* USER CODE END 1 */

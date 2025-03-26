@@ -1,5 +1,6 @@
 "./Core/Src/Flash_Global.o"
 "./Core/Src/Flash_driver.o"
+"./Core/Src/Misc.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32h7xx_hal_msp.o"
 "./Core/Src/stm32h7xx_it.o"
