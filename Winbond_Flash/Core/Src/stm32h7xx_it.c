@@ -19,6 +19,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "Flash_Global.h"
 #include "stm32h7xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -257,6 +258,25 @@ void EXTI15_10_IRQHandler(void)
 /* USER CODE BEGIN 1 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
+		uint8_t Temp[14];
+
+		Temp[0]=Rx_buffer[0];
+		Temp[1]=Rx_buffer[1];
+		Temp[2]=Rx_buffer[2];
+		Temp[3]=Rx_buffer[3];
+		Temp[4]=Rx_buffer[4];
+		Temp[5]=Rx_buffer[5];
+		Temp[6]=Rx_buffer[6];
+		Temp[7]=Rx_buffer[7];
+		Temp[8]=Rx_buffer[8];
+		Temp[9]=Rx_buffer[9];
+		Temp[10]=(uint8_t)(CLK_SIM>>24);
+		Temp[11]=(uint8_t)(CLK_SIM>>16);
+		Temp[12]=(uint8_t)(CLK_SIM>>8);
+		Temp[13]=(uint8_t)(CLK_SIM);
+
+		Write_Data(&Temp[0], sizeof(Temp));
+
 		HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], 10);
 		BSP_LED_Toggle(LED_RED);
 }
