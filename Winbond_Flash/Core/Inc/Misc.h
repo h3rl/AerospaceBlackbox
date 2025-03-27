@@ -11,5 +11,6 @@
 void send_uart(char *string);
 void send_byte_as_binary(uint8_t byte);
 void delay_ns(uint32_t ns);
+void USART1_Printf(const char *format, ...);
 
 #endif /* INC_MISC_H_ */

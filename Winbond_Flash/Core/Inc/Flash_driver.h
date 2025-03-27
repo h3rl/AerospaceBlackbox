@@ -21,6 +21,7 @@ void Write_Data_Buffer(uint16_t Buffer_Addr, uint8_t *Data, uint16_t len);
 void Write_Data_Flash(uint16_t Page_Addr);
 void Select_Page_Read(uint16_t Page_Addr);
 void Read_Data_Buffer(uint8_t *Data, uint16_t len);
+void Read_Data_Cont(uint16_t len);
 
 extern uint8_t SR_1_Addr;
 extern uint8_t SR_2_Addr;

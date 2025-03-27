@@ -51,8 +51,8 @@ DMA_HandleTypeDef hdma_usart1_rx;
 
 /* USER CODE BEGIN PV */
 uint32_t ID;
-uint8_t command = 0x31;
-uint8_t Rx_buffer[10];
+uint8_t command = 0;
+uint8_t Rx_buffer[10]={ [0 ... 9]= 0xFF};
 uint8_t Start_Flight_Recording=0;
 uint8_t Write_To_Flightdata=0;
 
@@ -139,7 +139,6 @@ int main(void)
   DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;            // Enable cycle counter
 
   HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], 10);
-
   Flash_Init(0);
   ID=Read_ID();
   while (1)
@@ -151,10 +150,11 @@ int main(void)
 
 	  //Read
 	  if(command==0x31){
-		  Read_Data(0, &Read_data[0]);
-		  HAL_UART_Transmit(&hcom_uart[COM1], &Read_data[0], 2048, HAL_MAX_DELAY);
-		  Read_Data(1, &Read_data[0]);
-		  HAL_UART_Transmit(&hcom_uart[COM1], &Read_data[0], 2048, HAL_MAX_DELAY);
+		  Read_Data_Cont(16);
+//		  Read_Data(15, Read_data);
+//		  HAL_UART_Transmit(&hcom_uart[COM1], &Read_data[0], 2048, HAL_MAX_DELAY);
+//		  Read_Data(1, &Read_data[0]);
+//		  HAL_UART_Transmit(&hcom_uart[COM1], &Read_data[0], 2048, HAL_MAX_DELAY);
 		  command = 0;
 	  }
 
@@ -405,10 +405,10 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+  //__disable_irq();
+  //while (1)
+  //{
+  //}
   /* USER CODE END Error_Handler_Debug */
 }
 

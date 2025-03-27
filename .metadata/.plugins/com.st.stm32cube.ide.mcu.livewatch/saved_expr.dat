@@ -1,9 +1,2 @@
-temp
-Read_Data[0]
-Read_Data[1000]
-Read_Data[2000]
-SR_1
-SR_2
-SR_3
-ID
-command
+Buffer_Index
+Page_Index

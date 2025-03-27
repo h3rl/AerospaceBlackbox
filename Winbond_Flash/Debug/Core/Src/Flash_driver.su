@@ -9,4 +9,5 @@
 ../Core/Src/Flash_driver.c:119:6:Write_Data_Flash	16	static
 ../Core/Src/Flash_driver.c:130:6:Select_Page_Read	16	static
 ../Core/Src/Flash_driver.c:141:6:Read_Data_Buffer	16	static
-../Core/Src/Flash_driver.c:152:6:Block_Erase	16	static
+../Core/Src/Flash_driver.c:152:6:Read_Data_Cont	64	dynamic
+../Core/Src/Flash_driver.c:180:6:Block_Erase	16	static

@@ -149,6 +149,34 @@ void Read_Data_Buffer(uint8_t *Data, uint16_t len){
 	csHIGH();
 }
 
+void Read_Data_Cont(uint16_t len){
+	Select_Page_Read(0);
+	uint8_t Data_Buffer[len];
+
+	Tx_Buffer[0]=OP_Read_Data;
+	Tx_Buffer[1]=0x00;
+	Tx_Buffer[2]=0x00;
+	Tx_Buffer[3]=0x00;
+	csLOW();
+
+	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0],4,100);
+	HAL_SPI_Receive(&Flash, Data_Buffer, len, HAL_MAX_DELAY);
+
+	uint16_t CAN_Temp = *(uint16_t*)&Data_Buffer[1];
+	uint32_t Data_Temp = *(uint32_t*)&Data_Buffer[3];
+	uint32_t Time_Temp = *(uint32_t*)&Data_Buffer[11];
+
+	while((Data_Buffer[0]==0xFF)&&(Data_Buffer[15]==0x00)){
+		USART1_Printf("CANID:%u, DATA:%u, Time:%u\r\n", (unsigned int)CAN_Temp, (unsigned int)Data_Temp, (unsigned int)Time_Temp);
+		HAL_SPI_Receive(&Flash, Data_Buffer, len, HAL_MAX_DELAY);
+
+		CAN_Temp = *(uint16_t*)&Data_Buffer[1];
+		Data_Temp = *(uint32_t*)&Data_Buffer[3];
+		Time_Temp = *(uint32_t*)&Data_Buffer[11];
+	}
+	csHIGH();
+}
+
 void Block_Erase(uint16_t Page_Addr){
 	Write_Enable();
 	Tx_Buffer[0]=OP_Block_Erase;

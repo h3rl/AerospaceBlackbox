@@ -11,3 +11,4 @@
 ../Core/Src/stm32h7xx_it.c:233:6:USART1_IRQHandler	8	static
 ../Core/Src/stm32h7xx_it.c:247:6:EXTI15_10_IRQHandler	8	static
 ../Core/Src/stm32h7xx_it.c:259:6:HAL_UART_RxCpltCallback	32	static
+../Core/Src/stm32h7xx_it.c:294:6:HAL_UART_ErrorCallback	24	static
