@@ -59,6 +59,8 @@ uint32_t CLK_SIM=0;		//CLK in ms
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern DMA_HandleTypeDef hdma_spi1_tx;
+extern SPI_HandleTypeDef hspi1;
 extern DMA_HandleTypeDef hdma_usart1_rx;
 extern UART_HandleTypeDef huart1;
 /* USER CODE BEGIN EV */
@@ -221,10 +223,38 @@ void DMA1_Stream0_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
 
   /* USER CODE END DMA1_Stream0_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_usart1_rx);
+  HAL_DMA_IRQHandler(&hdma_spi1_tx);
   /* USER CODE BEGIN DMA1_Stream0_IRQn 1 */
 
   /* USER CODE END DMA1_Stream0_IRQn 1 */
+}
+
+/**
+  * @brief This function handles DMA1 stream1 global interrupt.
+  */
+void DMA1_Stream1_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Stream1_IRQn 0 */
+
+  /* USER CODE END DMA1_Stream1_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_usart1_rx);
+  /* USER CODE BEGIN DMA1_Stream1_IRQn 1 */
+
+  /* USER CODE END DMA1_Stream1_IRQn 1 */
+}
+
+/**
+  * @brief This function handles SPI1 global interrupt.
+  */
+void SPI1_IRQHandler(void)
+{
+  /* USER CODE BEGIN SPI1_IRQn 0 */
+
+  /* USER CODE END SPI1_IRQn 0 */
+  HAL_SPI_IRQHandler(&hspi1);
+  /* USER CODE BEGIN SPI1_IRQn 1 */
+
+  /* USER CODE END SPI1_IRQn 1 */
 }
 
 /**
@@ -256,6 +286,36 @@ void EXTI15_10_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
+//void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi){
+//	if (hspi->Instance == SPI2){
+//		uint8_t Temp[16];
+//
+//		Temp[0]=0xFF;
+//		Temp[1]=Rx_buffer[0];
+//		Temp[2]=Rx_buffer[1];
+//		Temp[3]=Rx_buffer[2];
+//		Temp[4]=Rx_buffer[3];
+//		Temp[5]=Rx_buffer[4];
+//		Temp[6]=Rx_buffer[5];
+//		Temp[7]=Rx_buffer[6];
+//		Temp[8]=Rx_buffer[7];
+//		Temp[9]=Rx_buffer[8];
+//		Temp[10]=Rx_buffer[9];
+//		Temp[11]=(uint8_t)(CLK_SIM);
+//		Temp[12]=(uint8_t)(CLK_SIM>>8);
+//		Temp[13]=(uint8_t)(CLK_SIM>>16);
+//		Temp[14]=(uint8_t)(CLK_SIM>>24);
+//		Temp[15]=0x00;
+//
+//		if((Start_Flight_Recording==1)&&(Temp[1]==200)){
+//			Write_Data(&Temp[0], sizeof(Temp));
+//		}
+//
+//		HAL_SPI_Receive_DMA(&hspi2, &Rx_buffer[0], 9);
+//		BSP_LED_Toggle(LED_RED);
+//	}
+//}
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if (huart->Instance == USART1){
@@ -278,11 +338,16 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		Temp[14]=(uint8_t)(CLK_SIM>>24);
 		Temp[15]=0x00;
 
-		if((Start_Flight_Recording==1)&&(Temp[1]==200)){
+		if((Start_Flight_Recording==1)&&(Temp[1]==100)){
 			Write_Data(&Temp[0], sizeof(Temp));
 		}
 		else{
 			HAL_UART_AbortReceive(&huart1);
+			while(huart1.Instance->ISR&0x0020){
+				uint8_t trash = huart1.Instance->RDR;
+				trash = huart1.Instance->ISR;
+				(void)trash;
+			}
 		}
 
 		HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], 10);
@@ -317,5 +382,13 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart) {
         HAL_UART_AbortReceive(&huart1); // Abort current RX DMA transfer
         HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], sizeof(Rx_buffer));
     }
+}
+
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
+//	if(hspi->Instance == SPI1){
+//		csHIGH();
+//		SPI_BUSY = 0;
+//		delay_ns(DELAY_NS);
+//	}
 }
 /* USER CODE END 1 */

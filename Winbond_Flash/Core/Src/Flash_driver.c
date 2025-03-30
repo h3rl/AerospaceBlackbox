@@ -10,8 +10,6 @@
 extern SPI_HandleTypeDef hspi1;
 
 #define Flash hspi1
-#define csLOW() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_RESET)
-#define csHIGH() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_SET)
 
 //Buffer for Tx and Rx
 uint8_t Tx_Buffer[5]={0};
@@ -112,6 +110,7 @@ void Write_Data_Buffer(uint16_t Buffer_Addr, uint8_t *Data, uint16_t len){
 	csLOW();
 	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0], 3, 100);
 	HAL_SPI_Transmit(&Flash, Data, len, HAL_MAX_DELAY);
+//	SPI_BUSY = 1;
 	csHIGH();
 	delay_ns(DELAY_NS);
 }

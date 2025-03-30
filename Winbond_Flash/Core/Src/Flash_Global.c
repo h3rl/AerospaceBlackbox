@@ -44,7 +44,6 @@ void Write_Data(uint8_t* data, uint16_t lenght){
 		Buffer_Index++;
 		count++;
 		if(Buffer_Index>=2048){
-			Write_Data_Buffer(0, &write_data[0], 2048);
 			Write_to_page();
 		}
 	}
@@ -65,7 +64,6 @@ void Write_Data_CAN(uint8_t CAN_ID, uint8_t* data, uint16_t lenght){
 		Buffer_Index++;
 		count++;
 		if(Buffer_Index>=2048){
-			Write_Data_Buffer(0, &write_data[0], 2048);
 			Write_to_page();
 		}
 	}
@@ -94,5 +92,23 @@ void Automatic_Block_Managment(uint16_t Page_Index){
 	}
 	else{
 		Block_Mem=Block;
+	}
+}
+
+void Chip_Erase(void){
+	uint8_t UART_buffer;
+	USART1_Printf("Vil du slette alt minne for lagra flydata? Y/N\r\n");
+	HAL_UART_Receive(&hcom_uart[COM1], &UART_buffer,1, HAL_MAX_DELAY);
+	if(UART_buffer == 0x59){
+		USART1_Printf("Sletter minne...\r\n");
+		for(int i = 0; i <= 1024; i++){
+			Block_Erase(i*64);
+		}
+		Buffer_Index=0;
+		Page_Index=0;
+		USART1_Printf("Ferdig\r\n");
+	}
+	else{
+		USART1_Printf("Sletter IKKE minne\r\n");
 	}
 }

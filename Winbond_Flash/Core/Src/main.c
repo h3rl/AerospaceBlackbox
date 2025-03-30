@@ -45,6 +45,7 @@
 COM_InitTypeDef BspCOMInit;
 
 SPI_HandleTypeDef hspi1;
+DMA_HandleTypeDef hdma_spi1_tx;
 
 UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_usart1_rx;
@@ -52,9 +53,10 @@ DMA_HandleTypeDef hdma_usart1_rx;
 /* USER CODE BEGIN PV */
 uint32_t ID;
 uint8_t command = 0;
-uint8_t Rx_buffer[10]={ [0 ... 9]= 0xFF};
+uint8_t Rx_buffer[15]={ [0 ... 14]= 0xFF};
 uint8_t Start_Flight_Recording=0;
 uint8_t Write_To_Flightdata=0;
+uint8_t SPI_BUSY = 0;
 
 //uint8_t tst_data[1024]={ [0 ... 1023] = 0x30 };
 
@@ -171,6 +173,11 @@ int main(void)
 		  BSP_LED_Toggle(LED_GREEN);
 		  command=0;
 	  }
+
+	  if(command==0x34){
+		  Chip_Erase();
+		  command=0;
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -260,7 +267,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -346,6 +353,9 @@ static void MX_DMA_Init(void)
   /* DMA1_Stream0_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
+  /* DMA1_Stream1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream1_IRQn);
 
 }
 

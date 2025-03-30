@@ -47,7 +47,8 @@ extern uint8_t Rx;
 extern uint8_t Print_SR;
 extern uint8_t Start_Flight_Recording;
 extern uint8_t Write_To_Flightdata;
-extern uint8_t Rx_buffer[10];
+extern uint8_t Rx_buffer[15];
+extern uint8_t SPI_BUSY;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -75,6 +76,8 @@ void delay_ns(uint32_t ns);
 
 /* USER CODE BEGIN Private defines */
 #define DELAY_NS 100
+#define csLOW() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_RESET)
+#define csHIGH() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_SET)
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
