@@ -14,7 +14,6 @@ extern uint16_t Page_Index;
 extern uint8_t TxData[8];
 extern uint8_t RxData[8];
 extern uint8_t write_data[2048];
-extern uint8_t Read_data[2048];
 extern uint16_t Buffer_Index;
 extern uint16_t Block_Mem;
 

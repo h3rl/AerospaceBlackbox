@@ -14,7 +14,6 @@ uint16_t Page_Index=0;
 uint8_t TxData[8] = {0xAA, 0xBB, 0xCC, 0xDD, 0x11, 0x22, 0x33, 0x44};
 uint8_t RxData[8];
 uint8_t write_data[2048]={[0 ... 2047] = 0xFF};
-uint8_t Read_data[2048];
 uint16_t Buffer_Index=0;
 uint16_t Block_Mem=0;
 
