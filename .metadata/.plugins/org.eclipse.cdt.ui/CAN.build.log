@@ -1,0 +1,28 @@
+18:24:02 **** Incremental Build of configuration Debug for project CAN ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_FDCAN_RxFifo0Callback':
+../Core/Src/main.c:97:48: warning: format '%X' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   97 |             printf("Interrupt: Received ID: 0x%X, Data: %X %X %X %X %X %X %X %X\r\n",
+      |                                               ~^
+      |                                                |
+      |                                                unsigned int
+      |                                               %lX
+   98 |                    RxHeader.Identifier, RxData[0], RxData[1], RxData[2], RxData[3],
+      |                    ~~~~~~~~~~~~~~~~~~~          
+      |                            |
+      |                            uint32_t {aka long unsigned int}
+arm-none-eabi-gcc -o "CAN.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\CAN\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN.elf
+ 
+arm-none-eabi-size  CAN.elf 
+arm-none-eabi-objdump -h -S CAN.elf  > "CAN.list"
+   text	   data	    bss	    dec	    hex	filename
+  31168	    132	   2316	  33616	   8350	CAN.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN.list
+ 
+
+18:24:03 Build Finished. 0 errors, 1 warnings. (took 1s.26ms)
+
