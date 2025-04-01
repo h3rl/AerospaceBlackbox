@@ -1,0 +1,13 @@
+/*
+ * EX_Global_var.h
+ *
+ *  Created on: Apr 1, 2025
+ *      Author: Thomas
+ */
+
+#ifndef INC_EX_GLOBAL_VAR_H_
+#define INC_EX_GLOBAL_VAR_H_
+
+extern uint8_t Start_Flight_Recording;
+
+#endif /* INC_EX_GLOBAL_VAR_H_ */

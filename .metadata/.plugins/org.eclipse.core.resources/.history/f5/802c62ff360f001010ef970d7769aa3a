@@ -1,0 +1,30 @@
+/*
+ * EX_Global_var.h
+ *
+ *  Created on: Apr 1, 2025
+ *      Author: Thomas
+ */
+
+#ifndef INC_EX_GLOBAL_VAR_H_
+#define INC_EX_GLOBAL_VAR_H_
+
+//Variabler
+extern uint8_t Start_Flight_Recording;
+extern uint16_t Page_Index;
+extern uint8_t TxData[8];
+extern uint8_t RxData[8];
+extern uint8_t write_data[2048];
+extern uint8_t Read_data[2048];
+
+
+extern uint8_t SR_1;
+extern uint8_t SR_2;
+extern uint8_t SR_3;
+//TypeDef
+extern FDCAN_RxHeaderTypeDef RxHeader;
+extern FDCAN_TxHeaderTypeDef TxHeader;
+extern FDCAN_HandleTypeDef hfdcan1;
+extern DMA_HandleTypeDef hdma_spi1_tx;
+extern SPI_HandleTypeDef hspi1;
+
+#endif /* INC_EX_GLOBAL_VAR_H_ */

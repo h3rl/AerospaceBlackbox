@@ -22,7 +22,9 @@
 #include "stm32h7xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "Flash_Global.h"
+#include "EX_Global_var.h"
+#include "Flash_driver.h"
+#include "CAN.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,7 +45,6 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
-uint16_t Time = 0;
 uint32_t CLK_SIM=0;		//CLK in ms
 
 /* USER CODE END PV */
@@ -62,8 +63,6 @@ uint32_t CLK_SIM=0;		//CLK in ms
 extern FDCAN_HandleTypeDef hfdcan1;
 extern DMA_HandleTypeDef hdma_spi1_tx;
 extern SPI_HandleTypeDef hspi1;
-extern DMA_HandleTypeDef hdma_usart1_rx;
-extern UART_HandleTypeDef huart1;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -197,14 +196,6 @@ void SysTick_Handler(void)
   /* USER CODE BEGIN SysTick_IRQn 1 */
   if(Start_Flight_Recording){
 	  CLK_SIM++;
-	  Time++;
-	  if(Time>=100){
-	    	Write_To_Flightdata=1;
-	    	Time=0;
-	  }
-  }
-  else{
-	  Time=0;
   }
   /* USER CODE END SysTick_IRQn 1 */
 }
@@ -228,20 +219,6 @@ void DMA1_Stream0_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream0_IRQn 1 */
 
   /* USER CODE END DMA1_Stream0_IRQn 1 */
-}
-
-/**
-  * @brief This function handles DMA1 stream1 global interrupt.
-  */
-void DMA1_Stream1_IRQHandler(void)
-{
-  /* USER CODE BEGIN DMA1_Stream1_IRQn 0 */
-
-  /* USER CODE END DMA1_Stream1_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_usart1_rx);
-  /* USER CODE BEGIN DMA1_Stream1_IRQn 1 */
-
-  /* USER CODE END DMA1_Stream1_IRQn 1 */
 }
 
 /**
@@ -273,20 +250,6 @@ void SPI1_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles USART1 global interrupt.
-  */
-void USART1_IRQHandler(void)
-{
-  /* USER CODE BEGIN USART1_IRQn 0 */
-
-  /* USER CODE END USART1_IRQn 0 */
-  HAL_UART_IRQHandler(&huart1);
-  /* USER CODE BEGIN USART1_IRQn 1 */
-
-  /* USER CODE END USART1_IRQn 1 */
-}
-
-/**
   * @brief This function handles EXTI line[15:10] interrupts.
   */
 void EXTI15_10_IRQHandler(void)
@@ -301,8 +264,43 @@ void EXTI15_10_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-//void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi){
-//	if (hspi->Instance == SPI2){
+
+void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs){
+	if (HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK){
+		uint8_t Temp[16];
+
+		Temp[0]=0xFF;
+
+		//CAN ID Stored in 2 first bytes
+		*(uint16_t*)&Temp[1] = (uint16_t)RxHeader.Identifier;
+
+		//8 bytes with CAN data
+		Temp[3]=RxData[0];
+		Temp[4]=RxData[1];
+		Temp[5]=RxData[2];
+		Temp[6]=RxData[3];
+		Temp[7]=RxData[4];
+		Temp[8]=RxData[5];
+		Temp[9]=RxData[6];
+		Temp[10]=RxData[7];
+
+		//Clock (uint32_t)
+		Temp[11]=(uint8_t)(CLK_SIM);
+		Temp[12]=(uint8_t)(CLK_SIM>>8);
+		Temp[13]=(uint8_t)(CLK_SIM>>16);
+		Temp[14]=(uint8_t)(CLK_SIM>>24);
+		Temp[15]=0x00;
+
+		//Write to flash if when start
+		if(Start_Flight_Recording==1){
+			Write_Data(Temp, sizeof(Temp));
+		}
+	}
+}
+
+//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+//{
+//	if (huart->Instance == USART1){
 //		uint8_t Temp[16];
 //
 //		Temp[0]=0xFF;
@@ -322,88 +320,57 @@ void EXTI15_10_IRQHandler(void)
 //		Temp[14]=(uint8_t)(CLK_SIM>>24);
 //		Temp[15]=0x00;
 //
-//		if((Start_Flight_Recording==1)&&(Temp[1]==200)){
+//		if((Start_Flight_Recording==1)&&(Temp[1]==100)){
 //			Write_Data(&Temp[0], sizeof(Temp));
 //		}
+//		else{
+//			HAL_UART_AbortReceive(&huart1);
+//			while(huart1.Instance->ISR&0x0020){
+//				uint8_t trash = huart1.Instance->RDR;
+//				trash = huart1.Instance->ISR;
+//				(void)trash;
+//			}
+//		}
 //
-//		HAL_SPI_Receive_DMA(&hspi2, &Rx_buffer[0], 9);
+//		HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], 10);
 //		BSP_LED_Toggle(LED_RED);
 //	}
 //}
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	if (huart->Instance == USART1){
-		uint8_t Temp[16];
-
-		Temp[0]=0xFF;
-		Temp[1]=Rx_buffer[0];
-		Temp[2]=Rx_buffer[1];
-		Temp[3]=Rx_buffer[2];
-		Temp[4]=Rx_buffer[3];
-		Temp[5]=Rx_buffer[4];
-		Temp[6]=Rx_buffer[5];
-		Temp[7]=Rx_buffer[6];
-		Temp[8]=Rx_buffer[7];
-		Temp[9]=Rx_buffer[8];
-		Temp[10]=Rx_buffer[9];
-		Temp[11]=(uint8_t)(CLK_SIM);
-		Temp[12]=(uint8_t)(CLK_SIM>>8);
-		Temp[13]=(uint8_t)(CLK_SIM>>16);
-		Temp[14]=(uint8_t)(CLK_SIM>>24);
-		Temp[15]=0x00;
-
-		if((Start_Flight_Recording==1)&&(Temp[1]==100)){
-			Write_Data(&Temp[0], sizeof(Temp));
-		}
-		else{
-			HAL_UART_AbortReceive(&huart1);
-			while(huart1.Instance->ISR&0x0020){
-				uint8_t trash = huart1.Instance->RDR;
-				trash = huart1.Instance->ISR;
-				(void)trash;
-			}
-		}
-
-		HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], 10);
-		BSP_LED_Toggle(LED_RED);
-	}
-}
-
 /* USART1 Error Callback */
-void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart) {
-    if (huart->Instance == USART1) {
-        uint32_t error = HAL_UART_GetError(huart);
+//void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart) {
+//    if (huart->Instance == USART1) {
+//        uint32_t error = HAL_UART_GetError(huart);
+//
+//        if (error & HAL_UART_ERROR_ORE) {
+//            // Overrun error occurred
+//            __HAL_UART_CLEAR_OREFLAG(huart);
+//        }
+//
+//        if (error & HAL_UART_ERROR_NE) {
+//            // Noise error occurred
+//        }
+//
+//        if (error & HAL_UART_ERROR_FE) {
+//            // Framing error occurred
+//        }
+//
+//        if (error & HAL_UART_ERROR_PE) {
+//            // Parity error occurred
+//        }
+//
+//        // Restart USART1 DMA Reception in case of an error
+//        memset(Rx_buffer, 0x00, sizeof(Rx_buffer));
+//        HAL_UART_AbortReceive(&huart1); // Abort current RX DMA transfer
+//        HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], sizeof(Rx_buffer));
+//    }
+//}
 
-        if (error & HAL_UART_ERROR_ORE) {
-            // Overrun error occurred
-            __HAL_UART_CLEAR_OREFLAG(huart);
-        }
-
-        if (error & HAL_UART_ERROR_NE) {
-            // Noise error occurred
-        }
-
-        if (error & HAL_UART_ERROR_FE) {
-            // Framing error occurred
-        }
-
-        if (error & HAL_UART_ERROR_PE) {
-            // Parity error occurred
-        }
-
-        // Restart USART1 DMA Reception in case of an error
-        memset(Rx_buffer, 0x00, sizeof(Rx_buffer));
-        HAL_UART_AbortReceive(&huart1); // Abort current RX DMA transfer
-        HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], sizeof(Rx_buffer));
-    }
-}
-
-void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
+//void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
 //	if(hspi->Instance == SPI1){
 //		csHIGH();
 //		SPI_BUSY = 0;
 //		delay_ns(DELAY_NS);
 //	}
-}
+
 /* USER CODE END 1 */

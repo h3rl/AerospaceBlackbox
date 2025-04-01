@@ -1,0 +1,13 @@
+/*
+ * Gloval_Var.h
+ *
+ *  Created on: Apr 1, 2025
+ *      Author: Thomas
+ */
+
+#ifndef INC_GLOBAL_VAR_H_
+#define INC_GLOBAL_VAR_H_
+
+uint8_t Start_Flight_Recording=0;
+
+#endif /* INC_GLOBAL_VAR_H_ */

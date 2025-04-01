@@ -6,6 +6,7 @@
  */
 
 #include "main.h"
+#include "EX_Global_var.h"
 #include "Misc.h"
 
 void send_uart(char *string) {
@@ -39,4 +40,12 @@ void USART1_Printf(const char *format, ...) {
     vsnprintf(buffer, sizeof(buffer), format, args);
     va_end(args);
     HAL_UART_Transmit(&hcom_uart[COM1], (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
+}
+
+//Function for delay in nanosecond
+void W25N_WaitForReady(void) {
+	delay_ns(DELAY_NS);
+    while (Read_Status_Register(SR_3_Addr) & 0x01) {
+    	delay_ns(DELAY_NS);  // Wait until flash is ready
+    }
 }

@@ -1,4 +1,5 @@
-../Core/Src/Misc.c:11:6:send_uart	1
-../Core/Src/Misc.c:15:6:send_byte_as_binary	3
-../Core/Src/Misc.c:27:6:delay_ns	2
-../Core/Src/Misc.c:35:6:USART1_Printf	1
+../Core/Src/Misc.c:12:6:send_uart	1
+../Core/Src/Misc.c:16:6:send_byte_as_binary	3
+../Core/Src/Misc.c:28:6:delay_ns	2
+../Core/Src/Misc.c:36:6:USART1_Printf	1
+../Core/Src/Misc.c:46:6:W25N_WaitForReady	2

@@ -1,7 +1,0 @@
-../Core/Src/Flash_Global.c:26:6:Read_Register	8	static
-../Core/Src/Flash_Global.c:35:6:Write_Data	24	static
-../Core/Src/Flash_Global.c:52:6:Write_Data_CAN	24	static
-../Core/Src/Flash_Global.c:72:6:Write_to_page	8	static
-../Core/Src/Flash_Global.c:82:6:Read_Data	16	static
-../Core/Src/Flash_Global.c:87:6:Automatic_Block_Managment	24	static
-../Core/Src/Flash_Global.c:98:6:Chip_Erase	16	static

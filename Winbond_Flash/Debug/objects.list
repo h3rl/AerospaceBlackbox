@@ -1,4 +1,4 @@
-"./Core/Src/Flash_Global.o"
+"./Core/Src/CAN.o"
 "./Core/Src/Flash_driver.o"
 "./Core/Src/Misc.o"
 "./Core/Src/main.o"

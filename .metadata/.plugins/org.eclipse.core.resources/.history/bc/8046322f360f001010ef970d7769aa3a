@@ -1,0 +1,19 @@
+/*
+ * CAN.h
+ *
+ *  Created on: Apr 1, 2025
+ *      Author: Thomas
+ */
+
+#ifndef INC_CAN_H_
+#define INC_CAN_H_
+
+void CAN_ReceiveMessage(void);
+void CAN_SendMessage(uint16_t ID);
+
+extern FDCAN_RxHeaderTypeDef RxHeader;
+extern FDCAN_TxHeaderTypeDef TxHeader;
+
+extern uint8_t TxData[8];
+extern uint8_t RxData[8];
+#endif /* INC_CAN_H_ */
