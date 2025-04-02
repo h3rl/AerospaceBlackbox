@@ -121,6 +121,7 @@ void Chip_Erase(void){
 		Buffer_Index=0;
 		Page_Index=0;
 		Block_Mem=0;
+		Buffer=&write_data[0];
 		memset(write_data, 0xFF, sizeof(write_data));
 		USART1_Printf("Ferdig\r\n");
 	}
