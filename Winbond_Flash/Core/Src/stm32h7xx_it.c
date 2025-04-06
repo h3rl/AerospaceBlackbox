@@ -61,8 +61,6 @@ uint32_t CLK_SIM=0;		//CLK in ms
 
 /* External variables --------------------------------------------------------*/
 extern FDCAN_HandleTypeDef hfdcan1;
-extern DMA_HandleTypeDef hdma_spi1_tx;
-extern SPI_HandleTypeDef hspi1;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -190,12 +188,16 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
+	GPIOG->ODR^=GPIO_PIN_0;
 
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
   if(Start_Flight_Recording){
 	  CLK_SIM++;
+  }
+  else{
+	  CLK_SIM=0;
   }
   /* USER CODE END SysTick_IRQn 1 */
 }
@@ -206,20 +208,6 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32h7xx.s).                    */
 /******************************************************************************/
-
-/**
-  * @brief This function handles DMA1 stream0 global interrupt.
-  */
-void DMA1_Stream0_IRQHandler(void)
-{
-  /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
-
-  /* USER CODE END DMA1_Stream0_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_spi1_tx);
-  /* USER CODE BEGIN DMA1_Stream0_IRQn 1 */
-
-  /* USER CODE END DMA1_Stream0_IRQn 1 */
-}
 
 /**
   * @brief This function handles FDCAN1 interrupt 0.
@@ -233,20 +221,6 @@ void FDCAN1_IT0_IRQHandler(void)
   /* USER CODE BEGIN FDCAN1_IT0_IRQn 1 */
 
   /* USER CODE END FDCAN1_IT0_IRQn 1 */
-}
-
-/**
-  * @brief This function handles SPI1 global interrupt.
-  */
-void SPI1_IRQHandler(void)
-{
-  /* USER CODE BEGIN SPI1_IRQn 0 */
-
-  /* USER CODE END SPI1_IRQn 0 */
-  HAL_SPI_IRQHandler(&hspi1);
-  /* USER CODE BEGIN SPI1_IRQn 1 */
-
-  /* USER CODE END SPI1_IRQn 1 */
 }
 
 /**
@@ -266,9 +240,10 @@ void EXTI15_10_IRQHandler(void)
 /* USER CODE BEGIN 1 */
 
 void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs){
-	if (HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK){
+	while(HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK){
 		uint8_t Temp[16];
 
+		//Start byte
 		Temp[0]=0xFF;
 
 		//CAN ID Stored in 2 first bytes
@@ -289,9 +264,11 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 		Temp[12]=(uint8_t)(CLK_SIM>>8);
 		Temp[13]=(uint8_t)(CLK_SIM>>16);
 		Temp[14]=(uint8_t)(CLK_SIM>>24);
+
+		//Stop bytez
 		Temp[15]=0x00;
 
-		//Write to flash if when start
+		//Write to flash
 		if(Start_Flight_Recording==1){
 			Write_Data(Temp, sizeof(Temp));
 		}
@@ -367,10 +344,12 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 //}
 
 //void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
-//	if(hspi->Instance == SPI1){
-//		csHIGH();
-//		SPI_BUSY = 0;
-//		delay_ns(DELAY_NS);
-//	}
+////	if(hspi->Instance == SPI1){
+////		csHIGH();
+////		SPI_DMA = 0;
+////		Write_Flag = 1;
+////		delay_ns(DELAY_NS);
+////	}
+//}
 
 /* USER CODE END 1 */

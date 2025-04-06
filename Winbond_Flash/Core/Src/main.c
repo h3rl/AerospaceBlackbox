@@ -48,7 +48,6 @@ COM_InitTypeDef BspCOMInit;
 FDCAN_HandleTypeDef hfdcan1;
 
 SPI_HandleTypeDef hspi1;
-DMA_HandleTypeDef hdma_spi1_tx;
 
 /* USER CODE BEGIN PV */
 uint32_t ID;
@@ -58,7 +57,6 @@ uint8_t command = 0;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_FDCAN1_Init(void);
 /* USER CODE BEGIN PFP */
@@ -101,7 +99,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_SPI1_Init();
   MX_FDCAN1_Init();
   /* USER CODE BEGIN 2 */
@@ -137,18 +134,12 @@ int main(void)
   ID=Read_ID();
   while (1)
   {
-//	  printf("CANID:%u,DATA:%u;\r\n", CAN_ID_TEST, (unsigned int)CAN_DATA);
-//	  CAN_DATA++;
-	  Read_Register();
+	  //Read_Register();
 	  HAL_UART_Receive(&hcom_uart[COM1], &command,1, 100);
 
 	  //Read
 	  if(command==0x31){
 		  Read_Data_Cont(16);
-//		  Read_Data(15, Read_data);
-//		  HAL_UART_Transmit(&hcom_uart[COM1], &Read_data[0], 2048, HAL_MAX_DELAY);
-//		  Read_Data(1, &Read_data[0]);
-//		  HAL_UART_Transmit(&hcom_uart[COM1], &Read_data[0], 2048, HAL_MAX_DELAY);
 		  command = 0;
 	  }
 
@@ -172,6 +163,7 @@ int main(void)
 		  Chip_Erase();
 		  command=0;
 	  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -209,7 +201,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLM = 4;
   RCC_OscInitStruct.PLL.PLLN = 60;
   RCC_OscInitStruct.PLL.PLLP = 2;
-  RCC_OscInitStruct.PLL.PLLQ = 5;
+  RCC_OscInitStruct.PLL.PLLQ = 10;
   RCC_OscInitStruct.PLL.PLLR = 2;
   RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_3;
   RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
@@ -261,12 +253,12 @@ static void MX_FDCAN1_Init(void)
   hfdcan1.Init.ProtocolException = DISABLE;
   hfdcan1.Init.NominalPrescaler = 1;
   hfdcan1.Init.NominalSyncJumpWidth = 2;
-  hfdcan1.Init.NominalTimeSeg1 = 13;
+  hfdcan1.Init.NominalTimeSeg1 = 5;
   hfdcan1.Init.NominalTimeSeg2 = 2;
   hfdcan1.Init.DataPrescaler = 1;
-  hfdcan1.Init.DataSyncJumpWidth = 7;
-  hfdcan1.Init.DataTimeSeg1 = 8;
-  hfdcan1.Init.DataTimeSeg2 = 7;
+  hfdcan1.Init.DataSyncJumpWidth = 3;
+  hfdcan1.Init.DataTimeSeg1 = 4;
+  hfdcan1.Init.DataTimeSeg2 = 3;
   hfdcan1.Init.MessageRAMOffset = 0;
   hfdcan1.Init.StdFiltersNbr = 0;
   hfdcan1.Init.ExtFiltersNbr = 0;
@@ -321,7 +313,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -347,22 +339,6 @@ static void MX_SPI1_Init(void)
 }
 
 /**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Stream0_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -378,12 +354,16 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOE_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(CS_PIN_GPIO_Port, CS_PIN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_0, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
@@ -394,6 +374,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(CS_PIN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PG0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PB15 */
   GPIO_InitStruct.Pin = GPIO_PIN_15;

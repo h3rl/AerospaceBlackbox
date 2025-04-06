@@ -1,4 +1,4 @@
-23:10:58 **** Clean-only build of configuration Debug for project Winbond_Flash ****
+14:06:53 **** Clean-only build of configuration Debug for project Winbond_Flash ****
 make -j8 clean 
 rm -rf ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_usart.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_usart.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_usart.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_usart.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_usart_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_usart_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_usart_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_usart_ex.su
 rm -rf ./Drivers/BSP/STM32H7xx_Nucleo/stm32h7xx_nucleo.cyclo ./Drivers/BSP/STM32H7xx_Nucleo/stm32h7xx_nucleo.d ./Drivers/BSP/STM32H7xx_Nucleo/stm32h7xx_nucleo.o ./Drivers/BSP/STM32H7xx_Nucleo/stm32h7xx_nucleo.su
@@ -6,7 +6,7 @@ rm -rf ./Core/Startup/startup_stm32h753zitx.d ./Core/Startup/startup_stm32h753zi
 rm -rf ./Core/Src/CAN.cyclo ./Core/Src/CAN.d ./Core/Src/CAN.o ./Core/Src/CAN.su ./Core/Src/Flash_driver.cyclo ./Core/Src/Flash_driver.d ./Core/Src/Flash_driver.o ./Core/Src/Flash_driver.su ./Core/Src/Misc.cyclo ./Core/Src/Misc.d ./Core/Src/Misc.o ./Core/Src/Misc.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32h7xx_hal_msp.cyclo ./Core/Src/stm32h7xx_hal_msp.d ./Core/Src/stm32h7xx_hal_msp.o ./Core/Src/stm32h7xx_hal_msp.su ./Core/Src/stm32h7xx_it.cyclo ./Core/Src/stm32h7xx_it.d ./Core/Src/stm32h7xx_it.o ./Core/Src/stm32h7xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32h7xx.cyclo ./Core/Src/system_stm32h7xx.d ./Core/Src/system_stm32h7xx.o ./Core/Src/system_stm32h7xx.su
 rm -rf Winbond_Flash.elf Winbond_Flash.list Winbond_Flash.map default.size.stdout
  
-23:11:00 **** Build of configuration Debug for project Winbond_Flash ****
+14:06:54 **** Build of configuration Debug for project Winbond_Flash ****
 make -j8 all 
 arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o"
 arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o"
@@ -41,17 +41,6 @@ arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -
 arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
 arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
 arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:136:3: warning: implicit declaration of function 'Flash_Init' [-Wimplicit-function-declaration]
-  136 |   Flash_Init(0);
-      |   ^~~~~~~~~~
-../Core/Src/main.c:137:6: warning: implicit declaration of function 'Read_ID' [-Wimplicit-function-declaration]
-  137 |   ID=Read_ID();
-      |      ^~~~~~~
-../Core/Src/Misc.c: In function 'W25N_WaitForReady':
-../Core/Src/Misc.c:48:12: warning: implicit declaration of function 'Read_Status_Register' [-Wimplicit-function-declaration]
-   48 |     while (Read_Status_Register(SR_3_Addr) & 0x01) {
-      |            ^~~~~~~~~~~~~~~~~~~~
 arm-none-eabi-gcc "../Core/Src/system_stm32h7xx.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32h7xx.d" -MT"Core/Src/system_stm32h7xx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32h7xx.o"
 arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Winbond_Flash.elf
@@ -59,19 +48,45 @@ Finished building target: Winbond_Flash.elf
 arm-none-eabi-size  Winbond_Flash.elf 
 arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
    text	   data	    bss	    dec	    hex	filename
-  45780	   2200	   2608	  50588	   c59c	Winbond_Flash.elf
+  45700	   4248	   2608	  52556	   cd4c	Winbond_Flash.elf
 Finished building: default.size.stdout
  
 Finished building: Winbond_Flash.list
  
-23:11:06 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+14:08:19 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  45648	   4248	   2608	  52504	   cd18	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+14:08:22 **** Incremental Build of configuration Debug for project Winbond_Flash ****
 make -j8 all 
 arm-none-eabi-size  Winbond_Flash.elf 
    text	   data	    bss	    dec	    hex	filename
-  45780	   2200	   2608	  50588	   c59c	Winbond_Flash.elf
+  45648	   4248	   2608	  52504	   cd18	Winbond_Flash.elf
 Finished building: default.size.stdout
  
-18:53:30 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+14:11:19 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+../Core/Src/Flash_driver.c: In function 'Write_to_page':
+../Core/Src/Flash_driver.c:118:9: error: too few arguments to function 'Write_Data_Flash'
+  118 |         Write_Data_Flash();
+      |         ^~~~~~~~~~~~~~~~
+../Core/Src/Flash_driver.c:20:6: note: declared here
+   20 | void Write_Data_Flash(uint16_t Page_Addr);
+      |      ^~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:43: Core/Src/Flash_driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:11:43 **** Incremental Build of configuration Debug for project Winbond_Flash ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
 arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -80,42 +95,428 @@ Finished building target: Winbond_Flash.elf
 arm-none-eabi-size  Winbond_Flash.elf 
 arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
    text	   data	    bss	    dec	    hex	filename
-  45748	   2200	   2608	  50556	   c57c	Winbond_Flash.elf
+  45764	   4248	   2608	  52620	   cd8c	Winbond_Flash.elf
 Finished building: default.size.stdout
  
 Finished building: Winbond_Flash.list
  
-22:05:03 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+14:13:15 **** Incremental Build of configuration Debug for project Winbond_Flash ****
 make -j8 all 
 arm-none-eabi-size  Winbond_Flash.elf 
    text	   data	    bss	    dec	    hex	filename
-  45748	   2200	   2608	  50556	   c57c	Winbond_Flash.elf
+  45764	   4248	   2608	  52620	   cd8c	Winbond_Flash.elf
 Finished building: default.size.stdout
  
-22:07:04 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+14:19:05 **** Incremental Build of configuration Debug for project Winbond_Flash ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:172:11: warning: statement with no effect [-Wunused-value]
+  172 |           (Write_Flag){
+      |           ^
+../Core/Src/main.c:172:23: error: expected ';' before '{' token
+  172 |           (Write_Flag){
+      |                       ^
+      |                       ;
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:19:18 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Winbond_Flash.elf
  
 arm-none-eabi-size  Winbond_Flash.elf 
 arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
    text	   data	    bss	    dec	    hex	filename
-  45756	   2200	   2608	  50564	   c584	Winbond_Flash.elf
+  48680	   4248	   2608	  55536	   d8f0	Winbond_Flash.elf
 Finished building: default.size.stdout
  
 Finished building: Winbond_Flash.list
  
-22:07:27 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+14:23:18 **** Incremental Build of configuration Debug for project Winbond_Flash ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
 arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Winbond_Flash.elf
  
 arm-none-eabi-size  Winbond_Flash.elf 
 arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
    text	   data	    bss	    dec	    hex	filename
-  45792	   2200	   2608	  50600	   c5a8	Winbond_Flash.elf
+  48692	   4248	   2608	  55548	   d8fc	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+14:23:48 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  48692	   4248	   2608	  55548	   d8fc	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+14:37:31 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  45848	   4248	   2608	  52704	   cde0	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+14:37:43 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  45796	   4248	   2608	  52652	   cdac	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+14:39:04 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  45796	   4248	   2608	  52652	   cdac	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+14:41:03 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  45752	   4248	   2608	  52608	   cd80	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+15:17:10 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  45756	   4248	   2608	  52612	   cd84	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+15:38:52 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  45764	   4248	   2608	  52620	   cd8c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+15:54:00 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  45836	   4248	   2608	  52692	   cdd4	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+15:54:47 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  45852	   4248	   2608	  52708	   cde4	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+15:54:53 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  45852	   4248	   2608	  52708	   cde4	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+16:03:13 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  45852	   4248	   2608	  52708	   cde4	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:03:46 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  45852	   4248	   2608	  52708	   cde4	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:07:13 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  45852	   4248	   2608	  52708	   cde4	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:07:17 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  45852	   4248	   2608	  52708	   cde4	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+16:09:26 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:09:38 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+16:11:17 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:11:30 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:11:33 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+16:12:24 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:12:25 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+16:13:42 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:13:44 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+16:14:26 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:14:28 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+16:15:19 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:17:33 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+16:24:38 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+16:40:16 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:40:19 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+16:54:10 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  36840	   4248	   2488	  43576	   aa38	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+16:56:46 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H7xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  36844	   4248	   2488	  43580	   aa3c	Winbond_Flash.elf
 Finished building: default.size.stdout
  
 Finished building: Winbond_Flash.list

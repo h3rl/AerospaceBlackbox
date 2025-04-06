@@ -23,7 +23,7 @@ void Read_Data_Buffer(uint8_t *Data, uint16_t len);
 void Block_Erase(uint16_t Page_Addr);
 
 //pointer
-uint8_t* Buffer=&write_data[0];
+uint8_t* Buffer_p=&write_data_0[0];
 
 //SPI Buffer for Tx and Rx
 uint8_t Tx_Buffer[5]={0};
@@ -51,6 +51,28 @@ uint8_t OP_Fast_Read = 0x0B;
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 
+
+//Initialize flash IC
+//BUF=1-> Buffer Read
+//BUF=0-> Continuous Read
+void Flash_Init(uint8_t BUF){
+	HAL_Delay(1000);
+	if(BUF){
+		uint8_t data = Read_Status_Register(SR_2_Addr);
+		data|=0x08;
+		Write_Status_Register(SR_2_Addr, data);
+	}
+	else{
+		uint8_t data = Read_Status_Register(SR_2_Addr);
+		data&=0xF7;
+		Write_Status_Register(SR_2_Addr, data);
+	}
+	uint8_t data = Read_Status_Register(SR_1_Addr);
+	data|=0x02;
+	data&=0x83;
+	Write_Status_Register(SR_1_Addr, data);
+}
+
 //Read all status registers
 void Read_Register(void){
 	SR_1 = Read_Status_Register(SR_1_Addr);
@@ -68,8 +90,8 @@ void Write_Data(uint8_t* data, uint16_t lenght){
 	}
 	uint16_t count=0;
 	while(count<lenght){
-		*Buffer=*data;
-		Buffer++;
+		*Buffer_p=*data;
+		Buffer_p++;
 		data++;
 		Buffer_Index++;
 		count++;
@@ -81,12 +103,23 @@ void Write_Data(uint8_t* data, uint16_t lenght){
 
 //Write data to buffer in flash IC, then write buffer to page
 void Write_to_page(void){
-	Write_Data_Buffer(0, &write_data[0], Buffer_Index);
+	if(Buffer_flip==0){
+		Buffer_flip=1;
+		//memset(write_data_1, 0xFF, sizeof(write_data_1));
+		Buffer_p=&write_data_1[0];
+		Buffer_Index=0;
+		Write_Data_Buffer(0, &write_data_0[0], sizeof(write_data_0));
+	}
+	else{
+		Buffer_flip=0;
+		//memset(write_data_0, 0xFF, sizeof(write_data_0));
+		Buffer_p=&write_data_0[0];
+		Buffer_Index=0;
+		Write_Data_Buffer(0, &write_data_1[0], sizeof(write_data_1));
+	}
 	Write_Data_Flash(Page_Index);
 	Page_Index++;
 	Buffer_Index=0;
-	Buffer=&write_data[0];
-	memset(write_data, 0xFF, sizeof(write_data));
 	Automatic_Block_Managment(Page_Index);
 }
 
@@ -121,8 +154,10 @@ void Chip_Erase(void){
 		Buffer_Index=0;
 		Page_Index=0;
 		Block_Mem=0;
-		Buffer=&write_data[0];
-		memset(write_data, 0xFF, sizeof(write_data));
+		Buffer_flip=0;
+		Buffer_p=&write_data_0[0];
+		memset(write_data_0, 0xFF, sizeof(write_data_0));
+		memset(write_data_1, 0xFF, sizeof(write_data_1));
 		USART1_Printf("Ferdig\r\n");
 	}
 	else{
@@ -182,27 +217,6 @@ void Write_Disable(void){
 	delay_ns(DELAY_NS);
 }
 
-//Initialize flash IC
-//BUF=1-> Buffer Read
-//BUF=0-> Continuous Read
-void Flash_Init(uint8_t BUF){
-	HAL_Delay(1000);
-	if(BUF){
-		uint8_t data = Read_Status_Register(SR_2_Addr);
-		data|=0x08;
-		Write_Status_Register(SR_2_Addr, data);
-	}
-	else{
-		uint8_t data = Read_Status_Register(SR_2_Addr);
-		data&=0xF7;
-		Write_Status_Register(SR_2_Addr, data);
-	}
-	uint8_t data = Read_Status_Register(SR_1_Addr);
-	data|=0x02;
-	data&=0x83;
-	Write_Status_Register(SR_1_Addr, data);
-}
-
 //Read status register.
 //SR->Select register address to read
 uint8_t Read_Status_Register(uint8_t SR){
@@ -245,6 +259,8 @@ void Write_Data_Buffer(uint16_t Buffer_Addr, uint8_t *Data, uint16_t len){
 	Tx_Buffer[2]=(uint8_t)Buffer_Addr;
 	csLOW();
 	HAL_SPI_Transmit(&Flash, &Tx_Buffer[0], 3, 100);
+//	HAL_SPI_Transmit_DMA(&Flash, Data, len);
+//	SPI_DMA=1;
 	HAL_SPI_Transmit(&Flash, Data, len, HAL_MAX_DELAY);
 	csHIGH();
 	delay_ns(DELAY_NS);
@@ -252,6 +268,7 @@ void Write_Data_Buffer(uint16_t Buffer_Addr, uint8_t *Data, uint16_t len){
 
 //Write buffer data to page
 void Write_Data_Flash(uint16_t Page_Addr){
+	Write_Enable();
 	Tx_Buffer[0]=OP_Program_Ex;
 	Tx_Buffer[1]=0x00;
 	Tx_Buffer[2]=(uint8_t)(Page_Addr>>8);

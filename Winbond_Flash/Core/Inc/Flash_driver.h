@@ -20,4 +20,9 @@ void Read_Data(uint16_t page, uint8_t* data);
 void Automatic_Block_Managment(uint16_t Page_Index);
 void Chip_Erase(void);
 void Read_Data_Cont(uint16_t len);
+void Flash_Init(uint8_t BUF);
+uint32_t Read_ID(void);
+uint8_t Read_Status_Register(uint8_t SR); //To be removed
+
+void Write_Data_Flash(uint16_t Page_Addr);
 #endif /* INC_FLASH_DRIVER_H_ */
