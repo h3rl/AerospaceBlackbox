@@ -30,20 +30,20 @@ uint8_t Tx_Buffer[5]={0};
 uint8_t Rx_Buffer[5]={0};
 
 //Register constants
-uint8_t OP_Read_Register = 0x0F;
-uint8_t OP_Write_Register = 0x1F;
+#define OP_Read_Register 0x0F
+#define OP_Write_Register 0x1F
 
 //OPCODE FOR FLASH
-uint8_t OP_Dev_Res = 0xFF;
+#define OP_Dev_Res 0xFF
 uint8_t OP_JEDEC_ID[2] = {0x9F, 0x00};
 uint8_t OP_Write_Enable = 0x06;
 uint8_t OP_Write_Disable = 0x04;
-uint8_t OP_Block_Erase = 0xD8;
-uint8_t OP_Load_Program_Data = 0x02;
-uint8_t OP_Program_Ex = 0x10;
-uint8_t OP_Page_Data_Read = 0x13;
-uint8_t OP_Read_Data = 0x03;
-uint8_t OP_Fast_Read = 0x0B;
+#define OP_Block_Erase 0xD8
+#define OP_Load_Program_Data 0x02
+#define OP_Program_Ex 0x10
+#define OP_Page_Data_Read 0x13
+#define OP_Read_Data 0x03
+#define OP_Fast_Read 0x0B
 
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
@@ -165,7 +165,7 @@ void Chip_Erase(void){
 	}
 }
 
-//Read data continuous from IC, then print data to Virtual USART
+//Read data continuous from IC, then print data to Virtual COM PORT
 void Read_Data_Cont(uint16_t len){
 	Select_Page_Read(0);
 	uint8_t Data_Buffer[len];
