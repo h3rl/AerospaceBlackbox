@@ -13,6 +13,8 @@ extern uint8_t Start_Flight_Recording;
 extern uint16_t Page_Index;
 extern uint8_t TxData[8];
 extern uint8_t RxData[8];
+extern uint8_t command;
+extern uint32_t ID;
 
 //Buffer
 extern uint8_t write_data_0[2048];

@@ -51,7 +51,6 @@ UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
 uint32_t ID;
-uint8_t command = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -108,6 +107,7 @@ int main(void)
   MX_SPI1_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
+  HAL_UART_Receive_IT(&huart3, &command,1);
 
   /* USER CODE END 2 */
 
@@ -121,8 +121,7 @@ int main(void)
   ID=Read_ID();
   while (1)
   {
-	  //Read_Register();
-	  HAL_UART_Receive(&huart3, &command,1, 100);
+	  Read_Register();
 
 	  //Read
 	  if(command==0x31){

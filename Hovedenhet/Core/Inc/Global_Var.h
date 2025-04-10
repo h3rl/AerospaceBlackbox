@@ -13,6 +13,8 @@ uint8_t Start_Flight_Recording=0;
 uint16_t Page_Index=0;
 uint8_t TxData[8] = {0xAA, 0xBB, 0xCC, 0xDD, 0x11, 0x22, 0x33, 0x44};
 uint8_t RxData[8];
+uint8_t command = 0;
+uint32_t ID;
 
 //Buffer
 uint8_t write_data_0[2048]={[0 ... 2047] = 0xFF};

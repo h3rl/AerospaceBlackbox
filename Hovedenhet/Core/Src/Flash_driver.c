@@ -105,14 +105,12 @@ void Write_Data(uint8_t* data, uint16_t lenght){
 void Write_to_page(void){
 	if(Buffer_flip==0){
 		Buffer_flip=1;
-		//memset(write_data_1, 0xFF, sizeof(write_data_1));
 		Buffer_p=&write_data_1[0];
 		Buffer_Index=0;
 		Write_Data_Buffer(0, &write_data_0[0], sizeof(write_data_0));
 	}
 	else{
 		Buffer_flip=0;
-		//memset(write_data_0, 0xFF, sizeof(write_data_0));
 		Buffer_p=&write_data_0[0];
 		Buffer_Index=0;
 		Write_Data_Buffer(0, &write_data_1[0], sizeof(write_data_1));
@@ -144,10 +142,10 @@ void Automatic_Block_Managment(uint16_t Page_Index){
 //Erase all flash memory on IC
 void Chip_Erase(void){
 	uint8_t UART_buffer;
-	USART1_Printf("Vil du slette alt minne for lagra flydata? Y/N\r\n");
+	USART3_Printf("Vil du slette alt minne for lagra flydata? Y/N\r\n");
 	HAL_UART_Receive(&huart3, &UART_buffer,1, HAL_MAX_DELAY);
 	if(UART_buffer == 0x59){
-		USART1_Printf("Sletter minne...\r\n");
+		USART3_Printf("Sletter minne ...\r\n");
 		for(int i = 0; i <= 1024; i++){
 			Block_Erase(i*64);
 		}
@@ -158,10 +156,10 @@ void Chip_Erase(void){
 		Buffer_p=&write_data_0[0];
 		memset(write_data_0, 0xFF, sizeof(write_data_0));
 		memset(write_data_1, 0xFF, sizeof(write_data_1));
-		USART1_Printf("Ferdig\r\n");
+		USART3_Printf("Ferdig\r\n");
 	}
 	else{
-		USART1_Printf("Sletter IKKE minne\r\n");
+		USART3_Printf("Sletter IKKE minne\r\n");
 	}
 }
 
@@ -184,7 +182,7 @@ void Read_Data_Cont(uint16_t len){
 	uint32_t Time_Temp = *(uint32_t*)&Data_Buffer[11];
 
 	while((Data_Buffer[0]==0xFF)&&(Data_Buffer[15]==0x00)){
-		USART1_Printf("CANID:%u, DATA:%u, Time:%u\r\n", (unsigned int)CAN_Temp, (unsigned int)Data_Temp, (unsigned int)Time_Temp);
+		USART3_Printf("CANID:%u, DATA:%u, Time:%u\r\n", (unsigned int)CAN_Temp, (unsigned int)Data_Temp, (unsigned int)Time_Temp);
 		HAL_SPI_Receive(&Flash, Data_Buffer, len, HAL_MAX_DELAY);
 
 		CAN_Temp = *(uint16_t*)&Data_Buffer[1];

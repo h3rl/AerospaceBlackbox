@@ -34,7 +34,7 @@ void delay_ns(uint32_t ns) {
     while ((DWT->CYCCNT - start) < delay_cycles);         // Wait until delay is met
 }
 
-void USART1_Printf(const char *format, ...) {
+void USART3_Printf(const char *format, ...) {
     char buffer[128];  // Adjust size as needed
     va_list args;
     va_start(args, format);

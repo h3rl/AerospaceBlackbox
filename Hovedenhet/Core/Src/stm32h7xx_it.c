@@ -61,6 +61,7 @@ uint32_t CLK_SIM=0;		//CLK in ms
 
 /* External variables --------------------------------------------------------*/
 extern FDCAN_HandleTypeDef hfdcan1;
+extern UART_HandleTypeDef huart3;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -188,7 +189,6 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-	GPIOG->ODR^=GPIO_PIN_0;
 
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
@@ -223,6 +223,20 @@ void FDCAN1_IT0_IRQHandler(void)
   /* USER CODE END FDCAN1_IT0_IRQn 1 */
 }
 
+/**
+  * @brief This function handles USART3 global interrupt.
+  */
+void USART3_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART3_IRQn 0 */
+
+  /* USER CODE END USART3_IRQn 0 */
+  HAL_UART_IRQHandler(&huart3);
+  /* USER CODE BEGIN USART3_IRQn 1 */
+
+  /* USER CODE END USART3_IRQn 1 */
+}
+
 /* USER CODE BEGIN 1 */
 
 void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs){
@@ -251,7 +265,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 		Temp[13]=(uint8_t)(CLK_SIM>>16);
 		Temp[14]=(uint8_t)(CLK_SIM>>24);
 
-		//Stop bytez
+		//Stop byte
 		Temp[15]=0x00;
 
 		//Write to flash
@@ -261,44 +275,12 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 	}
 }
 
-//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-//{
-//	if (huart->Instance == USART1){
-//		uint8_t Temp[16];
-//
-//		Temp[0]=0xFF;
-//		Temp[1]=Rx_buffer[0];
-//		Temp[2]=Rx_buffer[1];
-//		Temp[3]=Rx_buffer[2];
-//		Temp[4]=Rx_buffer[3];
-//		Temp[5]=Rx_buffer[4];
-//		Temp[6]=Rx_buffer[5];
-//		Temp[7]=Rx_buffer[6];
-//		Temp[8]=Rx_buffer[7];
-//		Temp[9]=Rx_buffer[8];
-//		Temp[10]=Rx_buffer[9];
-//		Temp[11]=(uint8_t)(CLK_SIM);
-//		Temp[12]=(uint8_t)(CLK_SIM>>8);
-//		Temp[13]=(uint8_t)(CLK_SIM>>16);
-//		Temp[14]=(uint8_t)(CLK_SIM>>24);
-//		Temp[15]=0x00;
-//
-//		if((Start_Flight_Recording==1)&&(Temp[1]==100)){
-//			Write_Data(&Temp[0], sizeof(Temp));
-//		}
-//		else{
-//			HAL_UART_AbortReceive(&huart1);
-//			while(huart1.Instance->ISR&0x0020){
-//				uint8_t trash = huart1.Instance->RDR;
-//				trash = huart1.Instance->ISR;
-//				(void)trash;
-//			}
-//		}
-//
-//		HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], 10);
-//		BSP_LED_Toggle(LED_RED);
-//	}
-//}
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if (huart->Instance == USART3){
+		HAL_UART_Receive_IT(&huart3, &command,1);
+	}
+}
 
 /* USART1 Error Callback */
 //void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart) {
