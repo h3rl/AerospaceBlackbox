@@ -1,0 +1,44 @@
+/*
+ * EX_Global_var.h
+ *
+ *  Created on: Apr 1, 2025
+ *      Author: Thomas
+ */
+
+#ifndef INC_EX_GLOBAL_VAR_H_
+#define INC_EX_GLOBAL_VAR_H_
+
+//Variabler
+extern uint8_t Start_Flight_Recording;
+extern uint16_t Page_Index;
+extern uint8_t TxData[8];
+extern uint8_t RxData[8];
+
+//Buffer
+extern uint8_t write_data_0[2048];
+extern uint8_t write_data_1[2048];
+extern uint16_t Buffer_Index;
+extern uint16_t Block_Mem;
+extern uint8_t Buffer_flip;
+extern uint8_t SPI_DMA;
+
+//Flag
+extern uint8_t Write_Flag;
+extern uint8_t Register_Flag;
+
+
+extern uint8_t SR_1;
+extern uint8_t SR_2;
+extern uint8_t SR_3;
+extern uint8_t SR_1_Addr;
+extern uint8_t SR_2_Addr;
+extern uint8_t SR_3_Addr;
+//TypeDef
+extern FDCAN_RxHeaderTypeDef RxHeader;
+extern FDCAN_TxHeaderTypeDef TxHeader;
+extern FDCAN_HandleTypeDef hfdcan1;
+extern DMA_HandleTypeDef hdma_spi1_tx;
+extern SPI_HandleTypeDef hspi1;
+extern UART_HandleTypeDef huart3;
+
+#endif /* INC_EX_GLOBAL_VAR_H_ */
