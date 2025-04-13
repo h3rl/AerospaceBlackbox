@@ -52,9 +52,9 @@ uint8_t OP_Write_Disable = 0x04;
 ///////////////////////////////////////////////////////////
 
 
-//Initialize flash IC
-//BUF=1-> Buffer Read
-//BUF=0-> Continuous Read
+/*Initialize flash IC
+BUF=1-> Buffer Read
+BUF=0-> Continuous Read*/
 void Flash_Init(uint8_t BUF){
 	W25N_WaitForReady();
 	//Retrive data from register 2 and set BUF=1
@@ -69,8 +69,8 @@ void Flash_Init(uint8_t BUF){
 		data&=0xF7;
 		Write_Status_Register(SR_2_Addr, data);
 	}
-	//Retrive data from register 1 and set WP-E=1, BP3=0, BP2=0, BP1=0, BP0 and TP=0
-	//This unlocks every block for writing and activates write protect switch
+	/*Retrive data from register 1 and set WP-E=1, BP3=0, BP2=0, BP1=0, BP0 and TP=0.
+	This unlocks every block for writing and activates write protect switch*/
 	uint8_t data = Read_Status_Register(SR_1_Addr);
 	data|=0x02;
 	data&=0x83;
@@ -83,12 +83,12 @@ void Flash_Init(uint8_t BUF){
 	uint16_t Page_Bit=0x0000;
 	uint16_t Temp_Page=0;
 
-	//While loop running through first page of each block. When the first 16 bytes = 0xFF,
-	//go back to previous page (Temp_Page -= 64) and exit while loop.
+	/*While loop running through first page of each block. When the first 16 bytes = 0xFF,
+	go back to previous block (Temp_Page -= 64) and exit while loop.*/
 	while(Page_Bit!=0xFFFF){
+		Page_Bit = 0x0000;
 
 		Read_Data(Temp_Page, &Page_Data[0], sizeof(Page_Data));
-		Page_Bit = 0x0000;
 
 		for(int i = 0; i < 16; i++){
 			if(Page_Data[i]==0xFF){
@@ -104,14 +104,14 @@ void Flash_Init(uint8_t BUF){
 			Temp_Page -= 64;
 		}
 	}
-	//While loop running through every page of the block. When the first 16 bytes = 0xFF,
-	//exit while loop. This page will be the first available page on flash IC.
 	Page_Bit=0x0000;
+	/*While loop running through every page of the block. When the first 16 bytes = 0xFF,
+	exit while loop. This page will be the first available page on flash IC.*/
 	while(Page_Bit!=0xFFFF){
-
 		Temp_Page++;
-		Read_Data(Temp_Page, &Page_Data[0], sizeof(Page_Data));
 		Page_Bit = 0x0000;
+
+		Read_Data(Temp_Page, &Page_Data[0], sizeof(Page_Data));
 
 		for(int i = 0; i < 16; i++){
 			if(Page_Data[i]==0xFF){
@@ -267,8 +267,8 @@ void Write_Disable(void){
 	delay_ns(DELAY_NS);
 }
 
-//Read status register.
-//SR->Select register address to read
+/*Read status register.
+SR->Select register address to read*/
 uint8_t Read_Status_Register(uint8_t SR){
 	Tx_Buffer[0]=OP_Read_Register;
 	Tx_Buffer[1]=SR;
@@ -279,9 +279,9 @@ uint8_t Read_Status_Register(uint8_t SR){
 	return Rx_Buffer[0];
 }
 
-//Write to status register
-//SR->register address to write
-//REG_DATA->Register data to write to register
+/*Write to status register
+SR->register address to write
+REG_DATA->Register data to write to register*/
 void Write_Status_Register(uint8_t SR, uint8_t REG_DATA){
 	Tx_Buffer[0]=OP_Write_Register;
 	Tx_Buffer[1]=SR;
@@ -341,8 +341,8 @@ void Select_Page_Read(uint16_t Page_Addr){
 	W25N_WaitForReady();
 }
 
-//Read data from selected page
-//NB: First use Select_Page_Read to select page
+/*Read data from selected page
+NB: First use Select_Page_Read to select page*/
 void Read_Data_Buffer(uint8_t *Data, uint16_t len){
 	Tx_Buffer[0]=OP_Read_Data;
 	Tx_Buffer[1]=0x00;
@@ -354,8 +354,8 @@ void Read_Data_Buffer(uint8_t *Data, uint16_t len){
 	csHIGH();
 }
 
-//Erase Block where page is located
-//Page_Addr-> Address to page, where the block which includes page is erased
+/*Erase Block where page is located
+Page_Addr-> Address to page, where the block which includes page is erased*/
 void Block_Erase(uint16_t Page_Addr){
 	Write_Enable();
 	Tx_Buffer[0]=OP_Block_Erase;

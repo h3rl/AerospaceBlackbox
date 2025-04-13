@@ -33,11 +33,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  14 .debug_macro  00039a78  00000000  00000000  0002c591  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_line   000182fc  00000000  00000000  00066009  2**0
+ 15 .debug_line   000182fa  00000000  00000000  00066009  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_str    0016a43f  00000000  00000000  0007e305  2**0
+ 16 .debug_str    0016a43f  00000000  00000000  0007e303  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .comment      00000043  00000000  00000000  001e8744  2**0
+ 17 .comment      00000043  00000000  00000000  001e8742  2**0
                   CONTENTS, READONLY
  18 .debug_frame  00004d90  00000000  00000000  001e8788  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -508,9 +508,9 @@ void CAN_SendMessage(uint16_t ID) {
 08000724 <Flash_Init>:
 
 
-//Initialize flash IC
-//BUF=1-> Buffer Read
-//BUF=0-> Continuous Read
+/*Initialize flash IC
+BUF=1-> Buffer Read
+BUF=0-> Continuous Read*/
 void Flash_Init(uint8_t BUF){
  8000724:	b580      	push	{r7, lr}
  8000726:	b08a      	sub	sp, #40	@ 0x28
@@ -565,8 +565,8 @@ void Flash_Init(uint8_t BUF){
  800077c:	4618      	mov	r0, r3
  800077e:	f000 fac9 	bl	8000d14 <Write_Status_Register>
 	}
-	//Retrive data from register 1 and set WP-E=1, BP3=0, BP2=0, BP1=0, BP0 and TP=0
-	//This unlocks every block for writing and activates write protect switch
+	/*Retrive data from register 1 and set WP-E=1, BP3=0, BP2=0, BP1=0, BP0 and TP=0.
+	This unlocks every block for writing and activates write protect switch*/
 	uint8_t data = Read_Status_Register(SR_1_Addr);
  8000782:	4b49      	ldr	r3, [pc, #292]	@ (80008a8 <Flash_Init+0x184>)
  8000784:	781b      	ldrb	r3, [r3, #0]
@@ -607,20 +607,20 @@ void Flash_Init(uint8_t BUF){
  80007c0:	2300      	movs	r3, #0
  80007c2:	84bb      	strh	r3, [r7, #36]	@ 0x24
 
-	//While loop running through first page of each block. When the first 16 bytes = 0xFF,
-	//go back to previous page (Temp_Page -= 64) and exit while loop.
+	/*While loop running through first page of each block. When the first 16 bytes = 0xFF,
+	go back to previous block (Temp_Page -= 64) and exit while loop.*/
 	while(Page_Bit!=0xFFFF){
  80007c4:	e02e      	b.n	8000824 <Flash_Init+0x100>
+		Page_Bit = 0x0000;
+ 80007c6:	2300      	movs	r3, #0
+ 80007c8:	84fb      	strh	r3, [r7, #38]	@ 0x26
 
 		Read_Data(Temp_Page, &Page_Data[0], sizeof(Page_Data));
- 80007c6:	f107 0108 	add.w	r1, r7, #8
- 80007ca:	8cbb      	ldrh	r3, [r7, #36]	@ 0x24
- 80007cc:	2210      	movs	r2, #16
- 80007ce:	4618      	mov	r0, r3
- 80007d0:	f000 f92a 	bl	8000a28 <Read_Data>
-		Page_Bit = 0x0000;
- 80007d4:	2300      	movs	r3, #0
- 80007d6:	84fb      	strh	r3, [r7, #38]	@ 0x26
+ 80007ca:	f107 0108 	add.w	r1, r7, #8
+ 80007ce:	8cbb      	ldrh	r3, [r7, #36]	@ 0x24
+ 80007d0:	2210      	movs	r2, #16
+ 80007d2:	4618      	mov	r0, r3
+ 80007d4:	f000 f928 	bl	8000a28 <Read_Data>
 
 		for(int i = 0; i < 16; i++){
  80007d8:	2300      	movs	r3, #0
@@ -676,27 +676,27 @@ void Flash_Init(uint8_t BUF){
  800082c:	d1cb      	bne.n	80007c6 <Flash_Init+0xa2>
 		}
 	}
-	//While loop running through every page of the block. When the first 16 bytes = 0xFF,
-	//exit while loop. This page will be the first available page on flash IC.
 	Page_Bit=0x0000;
  800082e:	2300      	movs	r3, #0
  8000830:	84fb      	strh	r3, [r7, #38]	@ 0x26
+	/*While loop running through every page of the block. When the first 16 bytes = 0xFF,
+	exit while loop. This page will be the first available page on flash IC.*/
 	while(Page_Bit!=0xFFFF){
  8000832:	e025      	b.n	8000880 <Flash_Init+0x15c>
-
 		Temp_Page++;
  8000834:	8cbb      	ldrh	r3, [r7, #36]	@ 0x24
  8000836:	3301      	adds	r3, #1
  8000838:	84bb      	strh	r3, [r7, #36]	@ 0x24
-		Read_Data(Temp_Page, &Page_Data[0], sizeof(Page_Data));
- 800083a:	f107 0108 	add.w	r1, r7, #8
- 800083e:	8cbb      	ldrh	r3, [r7, #36]	@ 0x24
- 8000840:	2210      	movs	r2, #16
- 8000842:	4618      	mov	r0, r3
- 8000844:	f000 f8f0 	bl	8000a28 <Read_Data>
 		Page_Bit = 0x0000;
- 8000848:	2300      	movs	r3, #0
- 800084a:	84fb      	strh	r3, [r7, #38]	@ 0x26
+ 800083a:	2300      	movs	r3, #0
+ 800083c:	84fb      	strh	r3, [r7, #38]	@ 0x26
+
+		Read_Data(Temp_Page, &Page_Data[0], sizeof(Page_Data));
+ 800083e:	f107 0108 	add.w	r1, r7, #8
+ 8000842:	8cbb      	ldrh	r3, [r7, #36]	@ 0x24
+ 8000844:	2210      	movs	r2, #16
+ 8000846:	4618      	mov	r0, r3
+ 8000848:	f000 f8ee 	bl	8000a28 <Read_Data>
 
 		for(int i = 0; i < 16; i++){
  800084c:	2300      	movs	r3, #0
@@ -1336,8 +1336,8 @@ void Write_Enable(void){
 	delay_ns(DELAY_NS);
 }
 
-//Read status register.
-//SR->Select register address to read
+/*Read status register.
+SR->Select register address to read*/
 uint8_t Read_Status_Register(uint8_t SR){
  8000cb4:	b580      	push	{r7, lr}
  8000cb6:	b082      	sub	sp, #8
@@ -1390,9 +1390,9 @@ uint8_t Read_Status_Register(uint8_t SR){
 
 08000d14 <Write_Status_Register>:
 
-//Write to status register
-//SR->register address to write
-//REG_DATA->Register data to write to register
+/*Write to status register
+SR->register address to write
+REG_DATA->Register data to write to register*/
 void Write_Status_Register(uint8_t SR, uint8_t REG_DATA){
  8000d14:	b580      	push	{r7, lr}
  8000d16:	b082      	sub	sp, #8
@@ -1682,8 +1682,8 @@ void Select_Page_Read(uint16_t Page_Addr){
 
 08000f1c <Read_Data_Buffer>:
 
-//Read data from selected page
-//NB: First use Select_Page_Read to select page
+/*Read data from selected page
+NB: First use Select_Page_Read to select page*/
 void Read_Data_Buffer(uint8_t *Data, uint16_t len){
  8000f1c:	b580      	push	{r7, lr}
  8000f1e:	b082      	sub	sp, #8
@@ -1741,8 +1741,8 @@ void Read_Data_Buffer(uint8_t *Data, uint16_t len){
 
 08000f84 <Block_Erase>:
 
-//Erase Block where page is located
-//Page_Addr-> Address to page, where the block which includes page is erased
+/*Erase Block where page is located
+Page_Addr-> Address to page, where the block which includes page is erased*/
 void Block_Erase(uint16_t Page_Addr){
  8000f84:	b580      	push	{r7, lr}
  8000f86:	b082      	sub	sp, #8
