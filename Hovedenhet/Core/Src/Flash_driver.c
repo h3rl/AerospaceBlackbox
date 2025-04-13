@@ -85,12 +85,12 @@ void Flash_Init(uint8_t BUF){
 
 	//While loop running through first page of each block. When the first 16 bytes = 0xFF,
 	//go back to previous page (Temp_Page -= 64) and exit while loop.
-	while(!(Page_Bit==0xFFFF)){
+	while(Page_Bit!=0xFFFF){
 
 		Read_Data(Temp_Page, &Page_Data[0], sizeof(Page_Data));
 		Page_Bit = 0x0000;
 
-		for(int i = 0; i > 15; i++){
+		for(int i = 0; i < 16; i++){
 			if(Page_Data[i]==0xFF){
 				Page_Bit |= 0x01 << i;
 			}
@@ -102,18 +102,18 @@ void Flash_Init(uint8_t BUF){
 
 		else{
 			Temp_Page -= 64;
-			Page_Bit=0x0000;
 		}
 	}
 	//While loop running through every page of the block. When the first 16 bytes = 0xFF,
 	//exit while loop. This page will be the first available page on flash IC.
-	while(!(Page_Bit==0xFFFF)){
+	Page_Bit=0x0000;
+	while(Page_Bit!=0xFFFF){
 
 		Temp_Page++;
 		Read_Data(Temp_Page, &Page_Data[0], sizeof(Page_Data));
 		Page_Bit = 0x0000;
 
-		for(int i = 0; i > 15; i++){
+		for(int i = 0; i < 16; i++){
 			if(Page_Data[i]==0xFF){
 				Page_Bit |= 0x01 << i;
 			}

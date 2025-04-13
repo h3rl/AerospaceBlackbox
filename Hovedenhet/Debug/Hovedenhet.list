@@ -609,8 +609,8 @@ void Flash_Init(uint8_t BUF){
 
 	//While loop running through first page of each block. When the first 16 bytes = 0xFF,
 	//go back to previous page (Temp_Page -= 64) and exit while loop.
-	while(!(Page_Bit==0xFFFF)){
- 80007c4:	e030      	b.n	8000828 <Flash_Init+0x104>
+	while(Page_Bit!=0xFFFF){
+ 80007c4:	e02e      	b.n	8000824 <Flash_Init+0x100>
 
 		Read_Data(Temp_Page, &Page_Data[0], sizeof(Page_Data));
  80007c6:	f107 0108 	add.w	r1, r7, #8
@@ -622,7 +622,7 @@ void Flash_Init(uint8_t BUF){
  80007d4:	2300      	movs	r3, #0
  80007d6:	84fb      	strh	r3, [r7, #38]	@ 0x26
 
-		for(int i = 0; i > 15; i++){
+		for(int i = 0; i < 16; i++){
  80007d8:	2300      	movs	r3, #0
  80007da:	623b      	str	r3, [r7, #32]
  80007dc:	e013      	b.n	8000806 <Flash_Init+0xe2>
@@ -642,13 +642,13 @@ void Flash_Init(uint8_t BUF){
  80007fa:	4313      	orrs	r3, r2
  80007fc:	b21b      	sxth	r3, r3
  80007fe:	84fb      	strh	r3, [r7, #38]	@ 0x26
-		for(int i = 0; i > 15; i++){
+		for(int i = 0; i < 16; i++){
  8000800:	6a3b      	ldr	r3, [r7, #32]
  8000802:	3301      	adds	r3, #1
  8000804:	623b      	str	r3, [r7, #32]
  8000806:	6a3b      	ldr	r3, [r7, #32]
  8000808:	2b0f      	cmp	r3, #15
- 800080a:	dce8      	bgt.n	80007de <Flash_Init+0xba>
+ 800080a:	dde8      	ble.n	80007de <Flash_Init+0xba>
 			}
 		}
 
@@ -661,7 +661,7 @@ void Flash_Init(uint8_t BUF){
  8000816:	8cbb      	ldrh	r3, [r7, #36]	@ 0x24
  8000818:	3340      	adds	r3, #64	@ 0x40
  800081a:	84bb      	strh	r3, [r7, #36]	@ 0x24
- 800081c:	e004      	b.n	8000828 <Flash_Init+0x104>
+ 800081c:	e002      	b.n	8000824 <Flash_Init+0x100>
 		}
 
 		else{
@@ -669,19 +669,19 @@ void Flash_Init(uint8_t BUF){
  800081e:	8cbb      	ldrh	r3, [r7, #36]	@ 0x24
  8000820:	3b40      	subs	r3, #64	@ 0x40
  8000822:	84bb      	strh	r3, [r7, #36]	@ 0x24
-			Page_Bit=0x0000;
- 8000824:	2300      	movs	r3, #0
- 8000826:	84fb      	strh	r3, [r7, #38]	@ 0x26
-	while(!(Page_Bit==0xFFFF)){
- 8000828:	8cfb      	ldrh	r3, [r7, #38]	@ 0x26
- 800082a:	f64f 72ff 	movw	r2, #65535	@ 0xffff
- 800082e:	4293      	cmp	r3, r2
- 8000830:	d1c9      	bne.n	80007c6 <Flash_Init+0xa2>
+	while(Page_Bit!=0xFFFF){
+ 8000824:	8cfb      	ldrh	r3, [r7, #38]	@ 0x26
+ 8000826:	f64f 72ff 	movw	r2, #65535	@ 0xffff
+ 800082a:	4293      	cmp	r3, r2
+ 800082c:	d1cb      	bne.n	80007c6 <Flash_Init+0xa2>
 		}
 	}
 	//While loop running through every page of the block. When the first 16 bytes = 0xFF,
 	//exit while loop. This page will be the first available page on flash IC.
-	while(!(Page_Bit==0xFFFF)){
+	Page_Bit=0x0000;
+ 800082e:	2300      	movs	r3, #0
+ 8000830:	84fb      	strh	r3, [r7, #38]	@ 0x26
+	while(Page_Bit!=0xFFFF){
  8000832:	e025      	b.n	8000880 <Flash_Init+0x15c>
 
 		Temp_Page++;
@@ -698,7 +698,7 @@ void Flash_Init(uint8_t BUF){
  8000848:	2300      	movs	r3, #0
  800084a:	84fb      	strh	r3, [r7, #38]	@ 0x26
 
-		for(int i = 0; i > 15; i++){
+		for(int i = 0; i < 16; i++){
  800084c:	2300      	movs	r3, #0
  800084e:	61fb      	str	r3, [r7, #28]
  8000850:	e013      	b.n	800087a <Flash_Init+0x156>
@@ -718,14 +718,14 @@ void Flash_Init(uint8_t BUF){
  800086e:	4313      	orrs	r3, r2
  8000870:	b21b      	sxth	r3, r3
  8000872:	84fb      	strh	r3, [r7, #38]	@ 0x26
-		for(int i = 0; i > 15; i++){
+		for(int i = 0; i < 16; i++){
  8000874:	69fb      	ldr	r3, [r7, #28]
  8000876:	3301      	adds	r3, #1
  8000878:	61fb      	str	r3, [r7, #28]
  800087a:	69fb      	ldr	r3, [r7, #28]
  800087c:	2b0f      	cmp	r3, #15
- 800087e:	dce8      	bgt.n	8000852 <Flash_Init+0x12e>
-	while(!(Page_Bit==0xFFFF)){
+ 800087e:	dde8      	ble.n	8000852 <Flash_Init+0x12e>
+	while(Page_Bit!=0xFFFF){
  8000880:	8cfb      	ldrh	r3, [r7, #38]	@ 0x26
  8000882:	f64f 72ff 	movw	r2, #65535	@ 0xffff
  8000886:	4293      	cmp	r3, r2
