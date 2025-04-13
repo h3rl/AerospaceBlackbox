@@ -11,7 +11,7 @@
 //Variabel
 uint8_t Start_Flight_Recording=0;
 uint16_t Page_Index=0;
-uint8_t TxData[8] = {0xAA, 0xBB, 0xCC, 0xDD, 0x11, 0x22, 0x33, 0x44};
+uint8_t TxData[8];
 uint8_t RxData[8];
 uint8_t command = 0;
 uint32_t ID;
@@ -22,7 +22,6 @@ uint8_t write_data_1[2048]={[0 ... 2047] = 0xFF};
 uint16_t Buffer_Index=0;
 uint16_t Block_Mem=0;
 uint8_t Buffer_flip=0;
-uint8_t SPI_DMA=0;
 
 //Flag
 uint8_t Write_Flag=0;

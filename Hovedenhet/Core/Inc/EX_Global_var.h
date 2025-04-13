@@ -22,7 +22,6 @@ extern uint8_t write_data_1[2048];
 extern uint16_t Buffer_Index;
 extern uint16_t Block_Mem;
 extern uint8_t Buffer_flip;
-extern uint8_t SPI_DMA;
 
 //Flag
 extern uint8_t Write_Flag;

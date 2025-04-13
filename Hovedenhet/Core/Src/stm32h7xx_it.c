@@ -244,7 +244,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 		uint8_t Temp[16];
 
 		//Start byte
-		Temp[0]=0xFF;
+		Temp[0]=0xF0;
 
 		//CAN ID Stored in 2 first bytes
 		*(uint16_t*)&Temp[1] = (uint16_t)RxHeader.Identifier;
@@ -266,7 +266,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 		Temp[14]=(uint8_t)(CLK_SIM>>24);
 
 		//Stop byte
-		Temp[15]=0x00;
+		Temp[15]=0x0F;
 
 		//Write to flash
 		if(Start_Flight_Recording==1){
