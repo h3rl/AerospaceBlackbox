@@ -223,20 +223,6 @@ void FDCAN1_IT0_IRQHandler(void)
   /* USER CODE END FDCAN1_IT0_IRQn 1 */
 }
 
-/**
-  * @brief This function handles EXTI line[15:10] interrupts.
-  */
-void EXTI15_10_IRQHandler(void)
-{
-  /* USER CODE BEGIN EXTI15_10_IRQn 0 */
-
-  /* USER CODE END EXTI15_10_IRQn 0 */
-  BSP_PB_IRQHandler(BUTTON_USER);
-  /* USER CODE BEGIN EXTI15_10_IRQn 1 */
-
-  /* USER CODE END EXTI15_10_IRQn 1 */
-}
-
 /* USER CODE BEGIN 1 */
 
 void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs){
@@ -244,7 +230,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 		uint8_t Temp[16];
 
 		//Start byte
-		Temp[0]=0xFF;
+		Temp[0]=0xF0;
 
 		//CAN ID Stored in 2 first bytes
 		*(uint16_t*)&Temp[1] = (uint16_t)RxHeader.Identifier;
@@ -266,7 +252,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 		Temp[14]=(uint8_t)(CLK_SIM>>24);
 
 		//Stop bytez
-		Temp[15]=0x00;
+		Temp[15]=0x0F;
 
 		//Write to flash
 		if(Start_Flight_Recording==1){

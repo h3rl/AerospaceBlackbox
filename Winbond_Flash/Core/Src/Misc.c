@@ -11,7 +11,7 @@
 #include "Flash_driver.h"
 
 void send_uart(char *string) {
-    HAL_UART_Transmit(&hcom_uart[COM1], (uint8_t*)string, strlen(string), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&huart3, (uint8_t*)string, strlen(string), HAL_MAX_DELAY);
 }
 
 void send_byte_as_binary(uint8_t byte) {
@@ -34,13 +34,13 @@ void delay_ns(uint32_t ns) {
     while ((DWT->CYCCNT - start) < delay_cycles);         // Wait until delay is met
 }
 
-void USART1_Printf(const char *format, ...) {
+void USART3_Printf(const char *format, ...) {
     char buffer[128];  // Adjust size as needed
     va_list args;
     va_start(args, format);
     vsnprintf(buffer, sizeof(buffer), format, args);
     va_end(args);
-    HAL_UART_Transmit(&hcom_uart[COM1], (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&huart3, (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
 }
 
 //Function for delay in nanosecond

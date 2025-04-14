@@ -13,6 +13,8 @@ extern uint8_t Start_Flight_Recording;
 extern uint16_t Page_Index;
 extern uint8_t TxData[8];
 extern uint8_t RxData[8];
+extern uint8_t command;
+extern uint32_t ID;
 
 //Buffer
 extern uint8_t write_data_0[2048];
@@ -20,7 +22,6 @@ extern uint8_t write_data_1[2048];
 extern uint16_t Buffer_Index;
 extern uint16_t Block_Mem;
 extern uint8_t Buffer_flip;
-extern uint8_t SPI_DMA;
 
 //Flag
 extern uint8_t Write_Flag;
@@ -39,5 +40,6 @@ extern FDCAN_TxHeaderTypeDef TxHeader;
 extern FDCAN_HandleTypeDef hfdcan1;
 extern DMA_HandleTypeDef hdma_spi1_tx;
 extern SPI_HandleTypeDef hspi1;
+extern UART_HandleTypeDef huart3;
 
 #endif /* INC_EX_GLOBAL_VAR_H_ */

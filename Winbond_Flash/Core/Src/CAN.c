@@ -12,11 +12,11 @@ extern FDCAN_HandleTypeDef hfdcan1;
 
 void CAN_ReceiveMessage(void) {
     if (HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK) {
-    	USART1_Printf("Received CAN Message: ");
+    	USART3_Printf("Received CAN Message: ");
         for (int i = 0; i < 8; i++) {
-        	USART1_Printf("%02X ", RxData[i]);
+        	USART3_Printf("%02X ", RxData[i]);
         }
-        USART1_Printf("\r\n");
+        USART3_Printf("\r\n");
     }
 }
 

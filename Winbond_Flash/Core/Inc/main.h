@@ -28,8 +28,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32h7xx_hal.h"
-#include "stm32h7xx_nucleo.h"
-#include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -37,6 +35,7 @@ extern "C" {
 #include "string.h"
 #include <unistd.h>
 #include <stdarg.h>
+#include "stdio.h"
 
 /* USER CODE END Includes */
 
@@ -65,8 +64,14 @@ void delay_ns(uint32_t ns);
 /* Private defines -----------------------------------------------------------*/
 #define CS_PIN_Pin GPIO_PIN_4
 #define CS_PIN_GPIO_Port GPIOA
-#define LD2_Pin GPIO_PIN_1
-#define LD2_GPIO_Port GPIOE
+#define LD1_Pin GPIO_PIN_0
+#define LD1_GPIO_Port GPIOB
+#define LD3_Pin GPIO_PIN_14
+#define LD3_GPIO_Port GPIOB
+#define LD2_Pin GPIO_PIN_7
+#define LD2_GPIO_Port GPIOB
+#define LD2E1_Pin GPIO_PIN_1
+#define LD2E1_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
 #define DELAY_NS 100
