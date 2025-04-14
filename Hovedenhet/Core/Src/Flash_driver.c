@@ -56,7 +56,7 @@ uint8_t OP_Write_Disable = 0x04;
 BUF=1-> Buffer Read
 BUF=0-> Continuous Read*/
 void Flash_Init(uint8_t BUF){
-	W25N_WaitForReady();
+	HAL_Delay(1000);
 	//Retrive data from register 2 and set BUF=1
 	if(BUF){
 		uint8_t data = Read_Status_Register(SR_2_Addr);
@@ -101,14 +101,18 @@ void Flash_Init(uint8_t BUF){
 		}
 
 		else{
-			Temp_Page -= 64;
+			if(Temp_Page == 0){
+				break;
+			}
+			else{
+				Temp_Page -= 64;
+			}
 		}
 	}
 	Page_Bit=0x0000;
 	/*While loop running through every page of the block. When the first 16 bytes = 0xFF,
 	exit while loop. This page will be the first available page on flash IC.*/
 	while(Page_Bit!=0xFFFF){
-		Temp_Page++;
 		Page_Bit = 0x0000;
 
 		Read_Data(Temp_Page, &Page_Data[0], sizeof(Page_Data));
@@ -118,11 +122,15 @@ void Flash_Init(uint8_t BUF){
 				Page_Bit |= 0x01 << i;
 			}
 		}
+		if(Page_Bit!=0xFFFF){
+			Temp_Page++;
+		}
 
 	}
 	//Update global variables
 	Page_Index=Temp_Page;
 	Block_Mem=(Page_Index/64);
+	USART3_Printf("Current page is: %u\r\n", Page_Index);
 }
 
 //Read all status registers
@@ -193,10 +201,15 @@ void Automatic_Block_Managment(uint16_t Page_Index){
 
 //Erase all flash memory on IC
 void Chip_Erase(void){
-	uint8_t UART_buffer;
 	USART3_Printf("Vil du slette alt minne for lagra flydata? Y/N\r\n");
-	HAL_UART_Receive(&huart3, &UART_buffer,1, HAL_MAX_DELAY);
-	if(UART_buffer == 0x59){
+	while(command==0x00)
+	{
+
+	}
+
+	//ASCII for Y
+	if(command == 0x59){
+		command = 0x00;
 		USART3_Printf("Sletter minne ...\r\n");
 		for(int i = 0; i <= 1024; i++){
 			Block_Erase(i*64);
@@ -217,7 +230,7 @@ void Chip_Erase(void){
 
 //Read data continuous from IC, then print data to Virtual COM PORT
 void Read_Data_Cont(uint16_t len){
-	Select_Page_Read(0);
+	Select_Page_Read(1);
 	uint8_t Data_Buffer[len];
 
 	Tx_Buffer[0]=OP_Read_Data;
