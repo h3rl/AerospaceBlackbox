@@ -24,5 +24,10 @@ void Flash_Init(uint8_t BUF);
 uint32_t Read_ID(void);
 uint8_t Read_Status_Register(uint8_t SR);
 
+typedef struct{
+	uint8_t Tx_Buffer[5];
+	uint8_t Rx_Buffer[5];
+}SPI_Data;
+
 void Write_Data_Flash(uint16_t Page_Addr);
 #endif /* INC_FLASH_DRIVER_H_ */
