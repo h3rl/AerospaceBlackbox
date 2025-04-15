@@ -46,7 +46,7 @@ void USART3_Printf(const char *format, ...) {
 //Function for delay in nanosecond
 void W25N_WaitForReady(void) {
 	delay_ns(DELAY_NS);
-    while (Read_Status_Register(SR_3_Addr) & 0x01) {
+    while (Read_Status_Register(SR.SR_3_Addr) & 0x01) {
     	delay_ns(DELAY_NS);  // Wait until flash is ready
     }
 }

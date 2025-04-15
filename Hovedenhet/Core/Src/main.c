@@ -50,7 +50,7 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
-uint32_t ID;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -61,7 +61,7 @@ static void MX_FDCAN1_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
-
+static void init(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -98,7 +98,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  init();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -107,21 +107,19 @@ int main(void)
   MX_SPI1_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Receive_IT(&huart3, &command,1);
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;  // Enable DWT
-  DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;            // Enable cycle counter
 
   Flash_Init(0);
-  ID=Read_ID();
+  Flash.ID=Read_ID();
   while (1)
   {
-	  Read_Register();
+	  Read_Register(SR);
+	  HAL_UART_Receive(&huart3, &command,1, 100);
 
 	  //Read
 	  if(command==0x31){
@@ -143,6 +141,7 @@ int main(void)
 		  CAN_SendMessage(0x101);
 	  }
 
+	  //Erase
 	  if(command==0x34){
 		  command=0;
 		  Chip_Erase();
@@ -414,7 +413,30 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+static void init(void){
 
+	//Assigning status register addresses
+	SR.SR_1 = 0;
+	SR.SR_1_Addr = 0xA0;
+	SR.SR_2 = 0;
+	SR.SR_2_Addr = 0xB0;
+	SR.SR_3 = 0;
+	SR.SR_3_Addr = 0xC0;
+
+	Flash_Data* pointer = &Flash;
+
+	memset(pointer->Buffer_0, 0xFF, sizeof(pointer->Buffer_0));
+	memset(pointer->Buffer_1, 0xFF, sizeof(pointer->Buffer_1));
+	Flash.Buffer_Index = 0;
+	Flash.Buffer_flip = 0;
+	Flash.Block_Mem = 0;
+	Flash.Page_Index = 0;
+	Flash.ID = 0;
+	Flash.Buffer_p = Flash.Buffer_0;
+
+	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;  // Enable DWT
+	DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;            // Enable cycle counter
+}
 /* USER CODE END 4 */
 
  /* MPU Configuration */
