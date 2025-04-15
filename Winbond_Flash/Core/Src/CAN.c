@@ -11,10 +11,10 @@
 extern FDCAN_HandleTypeDef hfdcan1;
 
 void CAN_ReceiveMessage(void) {
-    if (HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK) {
+    if (HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, CAN.Rx_Buffer) == HAL_OK) {
     	USART3_Printf("Received CAN Message: ");
         for (int i = 0; i < 8; i++) {
-        	USART3_Printf("%02X ", RxData[i]);
+        	USART3_Printf("%02X ", CAN.Rx_Buffer[i]);
         }
         USART3_Printf("\r\n");
     }
@@ -33,7 +33,7 @@ void CAN_SendMessage(uint16_t ID) {
     TxHeader.MessageMarker = 0;
 
     // Send Message
-    if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, TxData) != HAL_OK) {
+    if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, CAN.Tx_Buffer) != HAL_OK) {
         Error_Handler();
     }
 }

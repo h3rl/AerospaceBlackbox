@@ -32,7 +32,8 @@ Core/Src/CAN.o: ../Core/Src/CAN.c ../Core/Inc/main.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- ../Core/Inc/Misc.h ../Core/Inc/CAN.h ../Core/Inc/EX_Global_Var.h
+ ../Core/Inc/Misc.h ../Core/Inc/TypeDef.h ../Core/Inc/CAN.h \
+ ../Core/Inc/EX_Global_Var.h
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -68,5 +69,6 @@ Core/Src/CAN.o: ../Core/Src/CAN.c ../Core/Inc/main.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 ../Core/Inc/Misc.h:
+../Core/Inc/TypeDef.h:
 ../Core/Inc/CAN.h:
 ../Core/Inc/EX_Global_Var.h:

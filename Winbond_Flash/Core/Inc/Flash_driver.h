@@ -13,7 +13,7 @@
 #define numBYTES 2048  //Antall bytes per. side
 
 //Software
-void Read_Register(void);
+void Read_Register(SR_Data SR);
 void Write_to_page(void);
 void Write_Data(uint8_t* data, uint16_t lenght);
 void Read_Data(uint16_t page, uint8_t* data, uint16_t len);
@@ -23,11 +23,6 @@ void Read_Data_Cont(uint16_t len);
 void Flash_Init(uint8_t BUF);
 uint32_t Read_ID(void);
 uint8_t Read_Status_Register(uint8_t SR);
-
-typedef struct{
-	uint8_t Tx_Buffer[5];
-	uint8_t Rx_Buffer[5];
-}SPI_Data;
 
 void Write_Data_Flash(uint16_t Page_Addr);
 #endif /* INC_FLASH_DRIVER_H_ */

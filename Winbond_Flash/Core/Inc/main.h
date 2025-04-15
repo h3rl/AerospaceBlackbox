@@ -36,6 +36,7 @@ extern "C" {
 #include <unistd.h>
 #include <stdarg.h>
 #include "stdio.h"
+#include "TypeDef.h"
 
 /* USER CODE END Includes */
 
