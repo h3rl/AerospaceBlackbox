@@ -33,7 +33,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../Core/Inc/Misc.h ../Core/Inc/TypeDef.h ../Core/Inc/Global_Var.h \
- ../Core/Inc/Flash_driver.h ../Core/Inc/CAN.h
+ ../Core/Inc/Flash_driver.h ../Core/Inc/CAN.h ../Core/Inc/CAM_driver.h
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -73,3 +73,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/Global_Var.h:
 ../Core/Inc/Flash_driver.h:
 ../Core/Inc/CAN.h:
+../Core/Inc/CAM_driver.h:

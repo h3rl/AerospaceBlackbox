@@ -71,8 +71,6 @@ void delay_ns(uint32_t ns);
 #define LD3_GPIO_Port GPIOB
 #define LD2_Pin GPIO_PIN_7
 #define LD2_GPIO_Port GPIOB
-#define LD2E1_Pin GPIO_PIN_1
-#define LD2E1_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
 #define DELAY_NS 100

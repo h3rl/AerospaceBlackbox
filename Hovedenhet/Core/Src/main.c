@@ -24,6 +24,7 @@
 #include "Global_Var.h"
 #include "Flash_driver.h"
 #include "CAN.h"
+#include "CAM_driver.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,6 +48,9 @@ FDCAN_HandleTypeDef hfdcan1;
 
 SPI_HandleTypeDef hspi1;
 
+UART_HandleTypeDef huart5;
+UART_HandleTypeDef huart8;
+UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
@@ -60,6 +64,9 @@ static void MX_GPIO_Init(void);
 static void MX_FDCAN1_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART3_UART_Init(void);
+static void MX_UART5_Init(void);
+static void MX_UART8_Init(void);
+static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 static void init(void);
 /* USER CODE END PFP */
@@ -106,6 +113,9 @@ int main(void)
   MX_FDCAN1_Init();
   MX_SPI1_Init();
   MX_USART3_UART_Init();
+  MX_UART5_Init();
+  MX_UART8_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -123,28 +133,68 @@ int main(void)
 
 	  //Read
 	  if(command==0x31){
-		  command = 0;
 		  Read_Data_Cont(16);
+		  command = 0;
 	  }
 
 	  //Start
 	  if(command==0x32){
-		  command=0;
 		  Start_Flight_Recording=1;
 		  CAN_SendMessage(0x100);
+		  command=0;
 	  }
 
 	  //Stop
 	  if(command==0x33){
 		  Start_Flight_Recording=0;
-		  command=0;
 		  CAN_SendMessage(0x101);
+		  command=0;
 	  }
 
 	  //Erase
 	  if(command==0x34){
-		  command=0;
 		  Chip_Erase();
+		  command=0;
+	  }
+
+	  //CAM to IDLE
+	  if(command==0x35){
+		  command_cam(CAM1, IDLE);
+		  command_cam(CAM2, IDLE);
+		  command_cam(CAM3, IDLE);
+		  command=0;
+	  }
+
+	  //CAM to REC
+	  if(command==0x36){
+		  command_cam(CAM1, REC);
+		  command_cam(CAM2, REC);
+		  command_cam(CAM3, REC);
+		  command=0;
+	  }
+
+	  //CAM to FORMAT
+	  if(command==0x37){
+		  command_cam(CAM1, FORMAT);
+		  command_cam(CAM2, FORMAT);
+		  command_cam(CAM3, FORMAT);
+		  command=0;
+	  }
+
+	  //CAM to REBOOT
+	  if(command==0x38){
+		  command_cam(CAM1, REBOOT);
+		  command_cam(CAM2, REBOOT);
+		  command_cam(CAM3, REBOOT);
+		  command=0;
+	  }
+
+	  //CAM to DEB
+	  if(command==0x39){
+		  command_cam(CAM1, DEB);
+		  command_cam(CAM2, DEB);
+		  command_cam(CAM3, DEB);
+		  command=0;
 	  }
 
     /* USER CODE END WHILE */
@@ -322,6 +372,150 @@ static void MX_SPI1_Init(void)
 }
 
 /**
+  * @brief UART5 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_UART5_Init(void)
+{
+
+  /* USER CODE BEGIN UART5_Init 0 */
+
+  /* USER CODE END UART5_Init 0 */
+
+  /* USER CODE BEGIN UART5_Init 1 */
+
+  /* USER CODE END UART5_Init 1 */
+  huart5.Instance = UART5;
+  huart5.Init.BaudRate = 9600;
+  huart5.Init.WordLength = UART_WORDLENGTH_8B;
+  huart5.Init.StopBits = UART_STOPBITS_1;
+  huart5.Init.Parity = UART_PARITY_NONE;
+  huart5.Init.Mode = UART_MODE_TX_RX;
+  huart5.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart5.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart5.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart5.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart5.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart5, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart5, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN UART5_Init 2 */
+
+  /* USER CODE END UART5_Init 2 */
+
+}
+
+/**
+  * @brief UART8 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_UART8_Init(void)
+{
+
+  /* USER CODE BEGIN UART8_Init 0 */
+
+  /* USER CODE END UART8_Init 0 */
+
+  /* USER CODE BEGIN UART8_Init 1 */
+
+  /* USER CODE END UART8_Init 1 */
+  huart8.Instance = UART8;
+  huart8.Init.BaudRate = 9600;
+  huart8.Init.WordLength = UART_WORDLENGTH_8B;
+  huart8.Init.StopBits = UART_STOPBITS_1;
+  huart8.Init.Parity = UART_PARITY_NONE;
+  huart8.Init.Mode = UART_MODE_TX_RX;
+  huart8.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart8.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart8.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart8.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart8.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart8, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart8, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN UART8_Init 2 */
+
+  /* USER CODE END UART8_Init 2 */
+
+}
+
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 9600;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart2.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart2, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart2, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
   * @brief USART3 Initialization Function
   * @param None
   * @retval None
@@ -382,16 +576,33 @@ static void MX_GPIO_Init(void)
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(CS_PIN_GPIO_Port, CS_PIN_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GOPRO_GPIO_Port, GOPRO_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOG, YELLOW_LED_Pin|GREEN_LED_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : CAM2_PWR_Pin */
+  GPIO_InitStruct.Pin = CAM2_PWR_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(CAM2_PWR_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : CAM1_PWR_Pin */
+  GPIO_InitStruct.Pin = CAM1_PWR_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(CAM1_PWR_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : CS_PIN_Pin */
   GPIO_InitStruct.Pin = CS_PIN_Pin;
@@ -400,12 +611,25 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(CS_PIN_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : GREEN_LED_Pin */
-  GPIO_InitStruct.Pin = GREEN_LED_Pin;
+  /*Configure GPIO pin : CAM3_PWR_Pin */
+  GPIO_InitStruct.Pin = CAM3_PWR_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(CAM3_PWR_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : GOPRO_Pin */
+  GPIO_InitStruct.Pin = GOPRO_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GREEN_LED_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GOPRO_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : YELLOW_LED_Pin GREEN_LED_Pin */
+  GPIO_InitStruct.Pin = YELLOW_LED_Pin|GREEN_LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
@@ -436,6 +660,10 @@ static void init(void){
 
 	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;  // Enable DWT
 	DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;            // Enable cycle counter
+
+	CAM1.huart = &huart2;
+	CAM2.huart = &huart8;
+	CAM3.huart = &huart5;
 }
 /* USER CODE END 4 */
 

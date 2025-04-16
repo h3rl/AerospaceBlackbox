@@ -20,6 +20,9 @@ CAN_Data CAN;
 SPI_Data SPI;
 SR_Data SR;
 Flash_Data Flash;
+CAM_Data CAM1;
+CAM_Data CAM2;
+CAM_Data CAM3;
 FDCAN_RxHeaderTypeDef RxHeader;
 FDCAN_TxHeaderTypeDef TxHeader;
 

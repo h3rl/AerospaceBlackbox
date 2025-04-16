@@ -3,7 +3,8 @@ RxData[1]
 RxData[2]
 Page_Index
 Buffer_Index
-SR_1
-SR_2
-SR_3
 Start_Flight_Recording
+ID
+Flash.Page_Index
+CAN.Rx_Buffer[0]
+Flash.Buffer_Index

@@ -1,0 +1,13 @@
+/*
+ * CAM_driver.h
+ *
+ *  Created on: Apr 16, 2025
+ *      Author: Thomas
+ */
+
+#ifndef INC_CAM_DRIVER_H_
+#define INC_CAM_DRIVER_H_
+
+void command_cam(CAM_Data);
+
+#endif /* INC_CAM_DRIVER_H_ */
