@@ -3891,3 +3891,48 @@ org.eclipse.core.runtime.CoreException: attempt to set description for a project
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
 !SUBENTRY 1 org.eclipse.cdt.core 4 -1 2025-04-15 11:51:04.087
 !MESSAGE attempt to set description for a project which does not exist or not open
+!SESSION 2025-04-17 09:43:58.942 -----------------------------------------------
+eclipse.buildId=Version 1.18.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=no_NO
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-04-17 09:44:06.065
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-04-17 09:44:06.067
+!MESSAGE Log4j2 initialized with config file C:\Users\tlend\Documents\GitHub\ELEBAC\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-04-17 09:44:11.144
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.equinox.p2.touchpoint.natives 2 0 2025-04-17 09:52:44.610
+!MESSAGE Could not remove temporary backup directory (it is safe to manually delete it and its contents): C:\Users\tlend\AppData\Local\Temp\STM32CubeIDE_35f4b315-7ae6-4e39-b7a8-f27545b88ca4
+!SESSION 2025-04-17 09:52:50.057 -----------------------------------------------
+eclipse.buildId=Version 1.18.1
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=no_NO
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data file:/C:/Users/tlend/Documents/GitHub/ELEBAC/
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-04-17 09:52:58.936
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-04-17 09:52:58.937
+!MESSAGE Log4j2 initialized with config file C:\Users\tlend\Documents\GitHub\ELEBAC\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-04-17 09:53:06.522
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-04-17 15:29:46.364
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 6 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-04-17 15:29:46.365
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-04-17 15:29:46.368
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 6 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-04-17 15:29:46.368
+!MESSAGE Existing sessions are:

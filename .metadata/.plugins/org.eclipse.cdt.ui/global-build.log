@@ -1,11 +1,11 @@
-12:44:39 **** Clean-only build of configuration Debug for project Winbond_Flash ****
+19:41:05 **** Clean-only build of configuration Debug for project Hovedenhet ****
 make -j8 clean 
 rm -rf ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.su ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.cyclo ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.su
 rm -rf ./Core/Startup/startup_stm32h753zitx.d ./Core/Startup/startup_stm32h753zitx.o
 rm -rf ./Core/Src/CAN.cyclo ./Core/Src/CAN.d ./Core/Src/CAN.o ./Core/Src/CAN.su ./Core/Src/Flash_driver.cyclo ./Core/Src/Flash_driver.d ./Core/Src/Flash_driver.o ./Core/Src/Flash_driver.su ./Core/Src/Misc.cyclo ./Core/Src/Misc.d ./Core/Src/Misc.o ./Core/Src/Misc.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32h7xx_hal_msp.cyclo ./Core/Src/stm32h7xx_hal_msp.d ./Core/Src/stm32h7xx_hal_msp.o ./Core/Src/stm32h7xx_hal_msp.su ./Core/Src/stm32h7xx_it.cyclo ./Core/Src/stm32h7xx_it.d ./Core/Src/stm32h7xx_it.o ./Core/Src/stm32h7xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32h7xx.cyclo ./Core/Src/system_stm32h7xx.d ./Core/Src/system_stm32h7xx.o ./Core/Src/system_stm32h7xx.su
-rm -rf Winbond_Flash.elf Winbond_Flash.list Winbond_Flash.map default.size.stdout
+rm -rf Hovedenhet.elf Hovedenhet.list Hovedenhet.map default.size.stdout
  
-12:44:41 **** Build of configuration Debug for project Winbond_Flash ****
+19:41:07 **** Build of configuration Debug for project Hovedenhet ****
 make -j8 all 
 arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o"
 arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o"
@@ -38,104 +38,819 @@ arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -D
 arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
 arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
 arm-none-eabi-gcc "../Core/Src/system_stm32h7xx.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32h7xx.d" -MT"Core/Src/system_stm32h7xx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32h7xx.o"
-arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Winbond_Flash.elf
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
  
-arm-none-eabi-size  Winbond_Flash.elf 
-arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
    text	   data	    bss	    dec	    hex	filename
-  36852	   4200	   2472	  43524	   aa04	Winbond_Flash.elf
+  37168	     96	   6576	  43840	   ab40	Hovedenhet.elf
 Finished building: default.size.stdout
  
-Finished building: Winbond_Flash.list
+Finished building: Hovedenhet.list
  
-12:44:49 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+19:41:10 **** Incremental Build of configuration Debug for project Winbond_Flash ****
 make -j8 all 
 arm-none-eabi-size  Winbond_Flash.elf 
    text	   data	    bss	    dec	    hex	filename
-  36852	   4200	   2472	  43524	   aa04	Winbond_Flash.elf
+  37088	     96	   6576	  43760	   aaf0	Winbond_Flash.elf
 Finished building: default.size.stdout
  
-12:46:04 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+19:41:38 **** Incremental Build of configuration Debug for project Hovedenhet ****
 make -j8 all 
+arm-none-eabi-size  Hovedenhet.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37168	     96	   6576	  43840	   ab40	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+19:41:38 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37088	     96	   6576	  43760	   aaf0	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+12:45:53 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAN.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAN.d" -MT"Core/Src/CAN.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAN.o"
 arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
 arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Winbond_Flash.elf
  
 arm-none-eabi-size  Winbond_Flash.elf 
 arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
    text	   data	    bss	    dec	    hex	filename
-  36852	   4200	   2472	  43524	   aa04	Winbond_Flash.elf
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
 Finished building: default.size.stdout
  
 Finished building: Winbond_Flash.list
  
-12:53:08 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+12:50:26 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAN.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAN.d" -MT"Core/Src/CAN.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+12:50:44 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAN.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAN.d" -MT"Core/Src/CAN.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+12:51:32 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAN.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAN.d" -MT"Core/Src/CAN.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+12:55:20 **** Incremental Build of configuration Debug for project Winbond_Flash ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Core/Src/main.c:24:
-../Core/Inc/Global_Var.h:31:21: error: expected ':', ',', ';', '}' or '__attribute__' before '=' token
-   31 |         uint8_t SR_1=0;
-      |                     ^
-make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+13:07:52 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+13:09:36 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+13:14:42 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+13:38:20 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAM_drive.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAM_drive.d" -MT"Core/Src/CAM_drive.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAM_drive.o"
+arm-none-eabi-gcc "../Core/Src/CAN.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAN.d" -MT"Core/Src/CAN.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32h7xx.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32h7xx.d" -MT"Core/Src/system_stm32h7xx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32h7xx.o"
+arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Winbond_Flash.elf
+ 
+arm-none-eabi-size  Winbond_Flash.elf 
+arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+   text	   data	    bss	    dec	    hex	filename
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+Finished building: Winbond_Flash.list
+ 
+13:42:10 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+14:02:46 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+14:10:59 **** Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAM_drive.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAM_drive.d" -MT"Core/Src/CAM_drive.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAM_drive.o"
+arm-none-eabi-gcc "../Core/Src/CAN.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAN.d" -MT"Core/Src/CAN.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32h7xx.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32h7xx.d" -MT"Core/Src/system_stm32h7xx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32h7xx.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  37168	     96	   6576	  43840	   ab40	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:11:36 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+make -j8 all 
+arm-none-eabi-size  Winbond_Flash.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43460	     96	   7168	  50724	   c624	Winbond_Flash.elf
+Finished building: default.size.stdout
+ 
+14:12:03 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-size  Hovedenhet.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37168	     96	   6576	  43840	   ab40	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+14:31:41 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAN.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAN.d" -MT"Core/Src/CAN.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38312	     96	   7024	  45432	   b178	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:32:28 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAM_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAM_driver.d" -MT"Core/Src/CAM_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAM_driver.o"
+arm-none-eabi-gcc "../Core/Src/CAN.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAN.d" -MT"Core/Src/CAN.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32h7xx.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32h7xx.d" -MT"Core/Src/system_stm32h7xx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32h7xx.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38312	     96	   7024	  45432	   b178	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:39:27 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAM_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAM_driver.d" -MT"Core/Src/CAM_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAM_driver.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/CAM_driver.c: In function 'command_cam':
+../Core/Src/CAM_driver.c:17:6: warning: type of 'CAM_Data' defaults to 'int' [-Wimplicit-int]
+   17 | void command_cam(CAM_Data){
+      |      ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38312	     96	   7024	  45432	   b178	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:41:11 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38312	     96	   7024	  45432	   b178	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:41:30 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAM_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAM_driver.d" -MT"Core/Src/CAM_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAM_driver.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38312	     96	   7024	  45432	   b178	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:41:41 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAM_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAM_driver.d" -MT"Core/Src/CAM_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAM_driver.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38312	     96	   7024	  45432	   b178	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:46:51 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAM_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAM_driver.d" -MT"Core/Src/CAM_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAM_driver.o"
+arm-none-eabi-gcc "../Core/Src/CAN.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAN.d" -MT"Core/Src/CAN.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38380	     96	   7024	  45500	   b1bc	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:47:28 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38392	     96	   7032	  45520	   b1d0	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:48:05 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38420	     96	   7048	  45564	   b1fc	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:48:18 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'init':
+../Core/Src/main.c:649:22: error: incompatible types when assigning to type 'UART_HandleTypeDef *' {aka 'struct __UART_HandleTypeDef *'} from type 'UART_HandleTypeDef' {aka 'struct __UART_HandleTypeDef'}
+  649 |         CAM1.huart = huart2;
+      |                      ^~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
-12:53:45 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+14:48:32 **** Incremental Build of configuration Debug for project Hovedenhet ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Core/Src/main.c:24:
-../Core/Inc/Global_Var.h:32:21: error: expected ':', ',', ';', '}' or '__attribute__' before '=' token
-   32 |         uint8_t SR_2=0;
-      |                     ^
-make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38420	     96	   7048	  45564	   b1fc	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:50:15 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAM_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAM_driver.d" -MT"Core/Src/CAM_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAM_driver.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38420	     96	   7048	  45564	   b1fc	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:54:00 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:162:37: error: 'IDLE' undeclared (first use in this function)
+  162 |                   command_cam(CAM1, IDLE);
+      |                                     ^~~~
+../Core/Src/main.c:162:37: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:162:19: error: too many arguments to function 'command_cam'
+  162 |                   command_cam(CAM1, IDLE);
+      |                   ^~~~~~~~~~~
+In file included from ../Core/Src/main.c:27:
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:163:19: error: too many arguments to function 'command_cam'
+  163 |                   command_cam(CAM2, IDLE);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:164:19: error: too many arguments to function 'command_cam'
+  164 |                   command_cam(CAM3, IDLE);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:170:37: error: 'REC' undeclared (first use in this function); did you mean 'CEC'?
+  170 |                   command_cam(CAM1, REC);
+      |                                     ^~~
+      |                                     CEC
+../Core/Src/main.c:170:19: error: too many arguments to function 'command_cam'
+  170 |                   command_cam(CAM1, REC);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:171:19: error: too many arguments to function 'command_cam'
+  171 |                   command_cam(CAM2, REC);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:172:19: error: too many arguments to function 'command_cam'
+  172 |                   command_cam(CAM3, REC);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:178:37: error: 'FORMAT' undeclared (first use in this function)
+  178 |                   command_cam(CAM1, FORMAT);
+      |                                     ^~~~~~
+../Core/Src/main.c:178:19: error: too many arguments to function 'command_cam'
+  178 |                   command_cam(CAM1, FORMAT);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:179:19: error: too many arguments to function 'command_cam'
+  179 |                   command_cam(CAM2, FORMAT);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:180:19: error: too many arguments to function 'command_cam'
+  180 |                   command_cam(CAM3, FORMAT);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:186:37: error: 'REBOOT' undeclared (first use in this function)
+  186 |                   command_cam(CAM1, REBOOT);
+      |                                     ^~~~~~
+../Core/Src/main.c:186:19: error: too many arguments to function 'command_cam'
+  186 |                   command_cam(CAM1, REBOOT);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:187:19: error: too many arguments to function 'command_cam'
+  187 |                   command_cam(CAM2, REBOOT);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:188:19: error: too many arguments to function 'command_cam'
+  188 |                   command_cam(CAM3, REBOOT);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:194:37: error: 'DEB' undeclared (first use in this function)
+  194 |                   command_cam(CAM1, DEB);
+      |                                     ^~~
+../Core/Src/main.c:194:19: error: too many arguments to function 'command_cam'
+  194 |                   command_cam(CAM1, DEB);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:195:19: error: too many arguments to function 'command_cam'
+  195 |                   command_cam(CAM2, DEB);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:196:19: error: too many arguments to function 'command_cam'
+  196 |                   command_cam(CAM3, DEB);
+      |                   ^~~~~~~~~~~
+../Core/Inc/CAM_driver.h:11:6: note: declared here
+   11 | void command_cam(CAM_Data);
+      |      ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
-12:56:15 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+14:54:21 **** Incremental Build of configuration Debug for project Hovedenhet ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Winbond_Flash.elf
- 
-arm-none-eabi-size  Winbond_Flash.elf 
-arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
-   text	   data	    bss	    dec	    hex	filename
-  36852	   4200	   2472	  43524	   aa04	Winbond_Flash.elf
-Finished building: default.size.stdout
- 
-Finished building: Winbond_Flash.list
- 
-14:09:51 **** Incremental Build of configuration Debug for project Winbond_Flash ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Winbond_Flash.elf
- 
-arm-none-eabi-size  Winbond_Flash.elf 
-arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
-   text	   data	    bss	    dec	    hex	filename
-  36852	   4200	   2472	  43524	   aa04	Winbond_Flash.elf
-Finished building: default.size.stdout
- 
-Finished building: Winbond_Flash.list
- 
-14:09:56 **** Incremental Build of configuration Debug for project Winbond_Flash ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Core/Src/main.c:24:
-../Core/Inc/Global_Var.h:31:22: error: expected ':', ',', ';', '}' or '__attribute__' before '=' token
-   31 |         uint8_t SR_1 = 1;
-      |                      ^
-make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:162:37: error: 'IDLE' undeclared (first use in this function)
+  162 |                   command_cam(CAM1, IDLE);
+      |                                     ^~~~
+../Core/Src/main.c:162:37: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:170:37: error: 'REC' undeclared (first use in this function); did you mean 'CEC'?
+  170 |                   command_cam(CAM1, REC);
+      |                                     ^~~
+      |                                     CEC
+../Core/Src/main.c:178:37: error: 'FORMAT' undeclared (first use in this function)
+  178 |                   command_cam(CAM1, FORMAT);
+      |                                     ^~~~~~
+../Core/Src/main.c:186:37: error: 'REBOOT' undeclared (first use in this function)
+  186 |                   command_cam(CAM1, REBOOT);
+      |                                     ^~~~~~
+../Core/Src/main.c:194:37: error: 'DEB' undeclared (first use in this function)
+  194 |                   command_cam(CAM1, DEB);
+      |                                     ^~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
-14:10:22 **** Incremental Build of configuration Debug for project Winbond_Flash ****
+14:55:22 **** Incremental Build of configuration Debug for project Hovedenhet ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/CAM_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAM_driver.d" -MT"Core/Src/CAM_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAM_driver.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "Winbond_Flash.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Winbond_Flash\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Winbond_Flash.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Winbond_Flash.elf
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
  
-arm-none-eabi-size  Winbond_Flash.elf 
-arm-none-eabi-objdump -h -S Winbond_Flash.elf  > "Winbond_Flash.list"
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
    text	   data	    bss	    dec	    hex	filename
-  36852	   4200	   2472	  43524	   aa04	Winbond_Flash.elf
+  38664	     96	   7048	  45808	   b2f0	Hovedenhet.elf
 Finished building: default.size.stdout
  
-Finished building: Winbond_Flash.list
+Finished building: Hovedenhet.list
+ 
+09:53:56 **** Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/CAM_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAM_driver.d" -MT"Core/Src/CAM_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAM_driver.o"
+arm-none-eabi-gcc "../Core/Src/CAN.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAN.d" -MT"Core/Src/CAN.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32h7xx.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32h7xx.d" -MT"Core/Src/system_stm32h7xx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32h7xx.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38664	     96	   7048	  45808	   b2f0	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+09:54:43 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-size  Hovedenhet.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38664	     96	   7048	  45808	   b2f0	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+10:58:52 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-size  Hovedenhet.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38664	     96	   7048	  45808	   b2f0	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+12:01:54 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/CAM_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAM_driver.d" -MT"Core/Src/CAM_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAM_driver.o"
+arm-none-eabi-gcc "../Core/Src/CAN.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CAN.d" -MT"Core/Src/CAN.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/Flash_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Flash_driver.d" -MT"Core/Src/Flash_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Flash_driver.o"
+arm-none-eabi-gcc "../Core/Src/Misc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Misc.d" -MT"Core/Src/Misc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Misc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  38628	     96	   7056	  45780	   b2d4	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+12:03:03 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-size  Hovedenhet.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38628	     96	   7056	  45780	   b2d4	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+14:42:36 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  43632	     96	   7056	  50784	   c660	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:43:46 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  47032	     96	   7056	  54184	   d3a8	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:46:53 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+../Core/Src/stm32h7xx_it.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/stm32h7xx_it.c:279:28: warning: comparison of distinct pointer types lacks a cast
+  279 |         if(huart->Instance == CAM1.huart){
+      |                            ^~
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  47064	     96	   7056	  54216	   d3c8	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:48:40 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+../Core/Src/stm32h7xx_it.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/stm32h7xx_it.c:279:28: warning: comparison of distinct pointer types lacks a cast
+  279 |         if(huart->Instance == &CAM1.huart){
+      |                            ^~
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  47064	     96	   7056	  54216	   d3c8	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:49:25 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+../Core/Src/stm32h7xx_it.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/stm32h7xx_it.c:279:28: warning: comparison of distinct pointer types lacks a cast
+  279 |         if(huart->Instance == &huart2){
+      |                            ^~
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  47064	     96	   7056	  54216	   d3c8	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:50:46 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  47060	     96	   7056	  54212	   d3c4	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+14:51:47 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-size  Hovedenhet.elf 
+   text	   data	    bss	    dec	    hex	filename
+  47060	     96	   7056	  54212	   d3c4	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+15:02:44 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  47060	     96	   7056	  54212	   d3c4	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+15:02:54 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-size  Hovedenhet.elf 
+   text	   data	    bss	    dec	    hex	filename
+  47060	     96	   7056	  54212	   d3c4	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+15:25:55 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  47168	     96	   7056	  54320	   d430	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+15:28:53 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  47168	     96	   7056	  54320	   d430	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+15:29:21 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hovedenhet.elf
+ 
+arm-none-eabi-size  Hovedenhet.elf 
+arm-none-eabi-objdump -h -S Hovedenhet.elf  > "Hovedenhet.list"
+   text	   data	    bss	    dec	    hex	filename
+  47232	     96	   7056	  54384	   d470	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hovedenhet.list
+ 
+15:29:37 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-size  Hovedenhet.elf 
+   text	   data	    bss	    dec	    hex	filename
+  47232	     96	   7056	  54384	   d470	Hovedenhet.elf
+Finished building: default.size.stdout
+ 
+15:29:56 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
+arm-none-eabi-size  Hovedenhet.elf 
+   text	   data	    bss	    dec	    hex	filename
+  47232	     96	   7056	  54384	   d470	Hovedenhet.elf
+Finished building: default.size.stdout
  

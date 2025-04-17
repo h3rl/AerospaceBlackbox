@@ -1,0 +1,21 @@
+/*
+ * TypeDef.h
+ *
+ *  Created on: Apr 15, 2025
+ *      Author: Thomas
+ */
+
+#ifndef INC_TYPEDEF_H_
+#define INC_TYPEDEF_H_
+
+//Init TypeDef struct
+typedef struct{
+	uint8_t SR_1;
+	uint8_t SR_2;
+	uint8_t SR_3;
+	uint8_t SR_1_Addr;
+	uint8_t SR_2_Addr;
+	uint8_t SR_3_Addr;
+}SR_TypeDef;
+
+#endif /* INC_TYPEDEF_H_ */

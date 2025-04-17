@@ -1,10 +1,10 @@
-19:09:23 **** Incremental Build of configuration Debug for project Hovedenhet ****
-make -j8 all 
+15:29:56 **** Incremental Build of configuration Debug for project Hovedenhet ****
+make -j16 all 
 arm-none-eabi-size  Hovedenhet.elf 
    text	   data	    bss	    dec	    hex	filename
-  44996	   4204	   2476	  51676	   c9dc	Hovedenhet.elf
+  47232	     96	   7056	  54384	   d470	Hovedenhet.elf
 Finished building: default.size.stdout
  
 
-19:09:23 Build Finished. 0 errors, 0 warnings. (took 245ms)
+15:29:56 Build Finished. 0 errors, 0 warnings. (took 254ms)
 

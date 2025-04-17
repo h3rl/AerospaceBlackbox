@@ -10,31 +10,19 @@
 
 //Variabler
 extern uint8_t Start_Flight_Recording;
-extern uint16_t Page_Index;
-extern uint8_t TxData[8];
-extern uint8_t RxData[8];
 extern uint8_t command;
-extern uint32_t ID;
-
-//Buffer
-extern uint8_t write_data_0[2048];
-extern uint8_t write_data_1[2048];
-extern uint16_t Buffer_Index;
-extern uint16_t Block_Mem;
-extern uint8_t Buffer_flip;
 
 //Flag
 extern uint8_t Write_Flag;
-extern uint8_t Register_Flag;
 
-
-extern uint8_t SR_1;
-extern uint8_t SR_2;
-extern uint8_t SR_3;
-extern uint8_t SR_1_Addr;
-extern uint8_t SR_2_Addr;
-extern uint8_t SR_3_Addr;
 //TypeDef
+extern CAN_Data CAN;
+extern SPI_Data SPI;
+extern SR_Data SR;
+extern Flash_Data Flash;
+extern CAM_Data CAM1;
+extern CAM_Data CAM2;
+extern CAM_Data CAM3;
 extern FDCAN_RxHeaderTypeDef RxHeader;
 extern FDCAN_TxHeaderTypeDef TxHeader;
 extern FDCAN_HandleTypeDef hfdcan1;

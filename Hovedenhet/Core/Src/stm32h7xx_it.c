@@ -61,7 +61,9 @@ uint32_t CLK_SIM=0;		//CLK in ms
 
 /* External variables --------------------------------------------------------*/
 extern FDCAN_HandleTypeDef hfdcan1;
-extern UART_HandleTypeDef huart3;
+extern UART_HandleTypeDef huart5;
+extern UART_HandleTypeDef huart8;
+extern UART_HandleTypeDef huart2;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -224,23 +226,51 @@ void FDCAN1_IT0_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles USART3 global interrupt.
+  * @brief This function handles USART2 global interrupt.
   */
-void USART3_IRQHandler(void)
+void USART2_IRQHandler(void)
 {
-  /* USER CODE BEGIN USART3_IRQn 0 */
+  /* USER CODE BEGIN USART2_IRQn 0 */
 
-  /* USER CODE END USART3_IRQn 0 */
-  HAL_UART_IRQHandler(&huart3);
-  /* USER CODE BEGIN USART3_IRQn 1 */
+  /* USER CODE END USART2_IRQn 0 */
+  HAL_UART_IRQHandler(&huart2);
+  /* USER CODE BEGIN USART2_IRQn 1 */
 
-  /* USER CODE END USART3_IRQn 1 */
+  /* USER CODE END USART2_IRQn 1 */
+}
+
+/**
+  * @brief This function handles UART5 global interrupt.
+  */
+void UART5_IRQHandler(void)
+{
+  /* USER CODE BEGIN UART5_IRQn 0 */
+
+  /* USER CODE END UART5_IRQn 0 */
+  HAL_UART_IRQHandler(&huart5);
+  /* USER CODE BEGIN UART5_IRQn 1 */
+
+  /* USER CODE END UART5_IRQn 1 */
+}
+
+/**
+  * @brief This function handles UART8 global interrupt.
+  */
+void UART8_IRQHandler(void)
+{
+  /* USER CODE BEGIN UART8_IRQn 0 */
+
+  /* USER CODE END UART8_IRQn 0 */
+  HAL_UART_IRQHandler(&huart8);
+  /* USER CODE BEGIN UART8_IRQn 1 */
+
+  /* USER CODE END UART8_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
 
 void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs){
-	while(HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK){
+	while(HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, CAN.Rx_Buffer) == HAL_OK){
 		uint8_t Temp[16];
 
 		//Start byte
@@ -250,14 +280,14 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 		*(uint16_t*)&Temp[1] = (uint16_t)RxHeader.Identifier;
 
 		//8 bytes with CAN data
-		Temp[3]=RxData[0];
-		Temp[4]=RxData[1];
-		Temp[5]=RxData[2];
-		Temp[6]=RxData[3];
-		Temp[7]=RxData[4];
-		Temp[8]=RxData[5];
-		Temp[9]=RxData[6];
-		Temp[10]=RxData[7];
+		Temp[3]=CAN.Rx_Buffer[0];
+		Temp[4]=CAN.Rx_Buffer[1];
+		Temp[5]=CAN.Rx_Buffer[2];
+		Temp[6]=CAN.Rx_Buffer[3];
+		Temp[7]=CAN.Rx_Buffer[4];
+		Temp[8]=CAN.Rx_Buffer[5];
+		Temp[9]=CAN.Rx_Buffer[6];
+		Temp[10]=CAN.Rx_Buffer[7];
 
 		//Clock (uint32_t)
 		Temp[11]=(uint8_t)(CLK_SIM);
@@ -275,49 +305,9 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 	}
 }
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	if (huart->Instance == USART3){
-		HAL_UART_Receive_IT(&huart3, &command,1);
-	}
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+	if(huart == CAM1.huart)HAL_UART_Receive_IT(CAM1.huart, CAM1.Status, 2);
+	if(huart == CAM2.huart)HAL_UART_Receive_IT(CAM2.huart, CAM2.Status, 2);
+	if(huart == CAM3.huart)HAL_UART_Receive_IT(CAM3.huart, CAM3.Status, 2);
 }
-
-/* USART1 Error Callback */
-//void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart) {
-//    if (huart->Instance == USART1) {
-//        uint32_t error = HAL_UART_GetError(huart);
-//
-//        if (error & HAL_UART_ERROR_ORE) {
-//            // Overrun error occurred
-//            __HAL_UART_CLEAR_OREFLAG(huart);
-//        }
-//
-//        if (error & HAL_UART_ERROR_NE) {
-//            // Noise error occurred
-//        }
-//
-//        if (error & HAL_UART_ERROR_FE) {
-//            // Framing error occurred
-//        }
-//
-//        if (error & HAL_UART_ERROR_PE) {
-//            // Parity error occurred
-//        }
-//
-//        // Restart USART1 DMA Reception in case of an error
-//        memset(Rx_buffer, 0x00, sizeof(Rx_buffer));
-//        HAL_UART_AbortReceive(&huart1); // Abort current RX DMA transfer
-//        HAL_UART_Receive_DMA(&huart1, &Rx_buffer[0], sizeof(Rx_buffer));
-//    }
-//}
-
-//void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
-////	if(hspi->Instance == SPI1){
-////		csHIGH();
-////		SPI_DMA = 0;
-////		Write_Flag = 1;
-////		delay_ns(DELAY_NS);
-////	}
-//}
-
 /* USER CODE END 1 */

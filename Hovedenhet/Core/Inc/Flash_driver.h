@@ -13,7 +13,7 @@
 #define numBYTES 2048  //Antall bytes per. side
 
 //Software
-void Read_Register(void);
+void Read_Register(SR_Data SR);
 void Write_to_page(void);
 void Write_Data(uint8_t* data, uint16_t lenght);
 void Read_Data(uint16_t page, uint8_t* data, uint16_t len);

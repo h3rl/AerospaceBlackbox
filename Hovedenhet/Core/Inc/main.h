@@ -36,6 +36,7 @@ extern "C" {
 #include <unistd.h>
 #include <stdarg.h>
 #include "stdio.h"
+#include "TypeDef.h"
 
 /* USER CODE END Includes */
 
@@ -62,8 +63,18 @@ void delay_ns(uint32_t ns);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define CAM2_PWR_Pin GPIO_PIN_3
+#define CAM2_PWR_GPIO_Port GPIOE
+#define CAM1_PWR_Pin GPIO_PIN_1
+#define CAM1_PWR_GPIO_Port GPIOC
 #define CS_PIN_Pin GPIO_PIN_4
 #define CS_PIN_GPIO_Port GPIOA
+#define CAM3_PWR_Pin GPIO_PIN_11
+#define CAM3_PWR_GPIO_Port GPIOB
+#define GOPRO_Pin GPIO_PIN_10
+#define GOPRO_GPIO_Port GPIOD
+#define YELLOW_LED_Pin GPIO_PIN_3
+#define YELLOW_LED_GPIO_Port GPIOG
 #define GREEN_LED_Pin GPIO_PIN_4
 #define GREEN_LED_GPIO_Port GPIOG
 
