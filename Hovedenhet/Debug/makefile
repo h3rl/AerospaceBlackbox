@@ -60,8 +60,8 @@ all: main-build
 main-build: Hovedenhet.elf secondary-outputs
 
 # Tool invocations
-Hovedenhet.elf Hovedenhet.map: $(OBJS) $(USER_OBJS) C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\Thomas\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Hovedenhet.elf Hovedenhet.map: $(OBJS) $(USER_OBJS) C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Hovedenhet.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\tlend\Documents\GitHub\ELEBAC\Hovedenhet\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hovedenhet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -8,3 +8,5 @@ ID
 Flash.Page_Index
 CAN.Rx_Buffer[0]
 Flash.Buffer_Index
+CAM1.Status[0]
+CAM1.Status[1]

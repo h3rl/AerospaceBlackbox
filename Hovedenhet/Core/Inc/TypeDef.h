@@ -44,5 +44,6 @@ typedef struct{
 	uint8_t Tx_Buffer[2];
 	uint8_t Rx_Buffer[2];
 	UART_HandleTypeDef* huart;
+	uint8_t Status[2];
 }CAM_Data;
 #endif /* INC_TYPEDEF_H_ */
