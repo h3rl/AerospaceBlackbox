@@ -271,6 +271,25 @@ void UART8_IRQHandler(void)
 
 void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs){
 	while(HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, CAN.Rx_Buffer) == HAL_OK){
+		//CAN ID = 401 is CAN message for commands to black box
+		if(RxHeader.Identifier == 401){
+			if(CAN.Rx_Buffer[6] == CAN.Rx_Buffer[7]){
+				command = CAN.Rx_Buffer[6];
+			}
+
+		}
+		//CAN ID = 402 is CAN message for manual update of current page
+		if(RxHeader.Identifier == 402){
+			uint16_t Page = *(uint16_t*)&CAN.Rx_Buffer[6];
+
+			Automatic_Block_Managment(Page);
+
+			Flash.Buffer_Index=0;
+			Flash.Page_Index=Page;
+			Flash.Buffer_flip=0;
+			Flash.Buffer_p=Flash.Buffer_0;
+		}
+
 		uint8_t Temp[16];
 
 		//Start byte

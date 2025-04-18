@@ -3936,3 +3936,24 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data file:/C:/Users/t
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-04-17 15:29:46.368
 !MESSAGE Existing sessions are:
+!SESSION 2025-04-18 15:36:05.060 -----------------------------------------------
+eclipse.buildId=Version 1.18.1
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-04-18 15:36:09.094
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-04-18 15:36:09.095
+!MESSAGE Log4j2 initialized with config file C:\Users\Thomas\Documents\GitHub\ELEBAC\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2025-04-18 15:36:10.825
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.tm.terminal.view.ui.TerminalsView" id and the "Terminal" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2025-04-18 15:36:10.826
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.tcf.te.ui.terminals.TerminalsView" id and the "Terminals (Old)" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-04-18 15:36:12.548
+!MESSAGE Started RMI Server, listening on port 41337

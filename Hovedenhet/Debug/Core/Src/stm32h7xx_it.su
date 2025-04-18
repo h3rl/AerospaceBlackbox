@@ -11,5 +11,5 @@
 ../Core/Src/stm32h7xx_it.c:231:6:USART2_IRQHandler	8	static
 ../Core/Src/stm32h7xx_it.c:245:6:UART5_IRQHandler	8	static
 ../Core/Src/stm32h7xx_it.c:259:6:UART8_IRQHandler	8	static
-../Core/Src/stm32h7xx_it.c:272:6:HAL_FDCAN_RxFifo0Callback	32	static
-../Core/Src/stm32h7xx_it.c:308:6:HAL_UART_RxCpltCallback	16	static
+../Core/Src/stm32h7xx_it.c:272:6:HAL_FDCAN_RxFifo0Callback	40	static
+../Core/Src/stm32h7xx_it.c:327:6:HAL_UART_RxCpltCallback	16	static

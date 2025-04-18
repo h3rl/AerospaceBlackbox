@@ -134,34 +134,8 @@ int main(void)
 	  Read_Register(SR);
 	  HAL_UART_Receive(&huart3, &command,1, 100);
 
-	  //Read
-	  if(command==0x31){
-		  Read_Data_Cont(16);
-		  command = 0;
-	  }
-
-	  //Start
-	  if(command==0x32){
-		  Start_Flight_Recording=1;
-		  CAN_SendMessage(0x100);
-		  command=0;
-	  }
-
-	  //Stop
-	  if(command==0x33){
-		  Start_Flight_Recording=0;
-		  CAN_SendMessage(0x101);
-		  command=0;
-	  }
-
-	  //Erase
-	  if(command==0x34){
-		  Chip_Erase();
-		  command=0;
-	  }
-
 	  //CAM to IDLE
-	  if(command==0x35){
+	  if(command==0x41){
 		  command_cam(CAM1, IDLE);
 		  command_cam(CAM2, IDLE);
 		  command_cam(CAM3, IDLE);
@@ -169,7 +143,7 @@ int main(void)
 	  }
 
 	  //CAM to REC
-	  if(command==0x36){
+	  if(command==0x42){
 		  command_cam(CAM1, REC);
 		  command_cam(CAM2, REC);
 		  command_cam(CAM3, REC);
@@ -177,7 +151,7 @@ int main(void)
 	  }
 
 	  //CAM to FORMAT
-	  if(command==0x37){
+	  if(command==0x43){
 		  command_cam(CAM1, FORMAT);
 		  command_cam(CAM2, FORMAT);
 		  command_cam(CAM3, FORMAT);
@@ -185,7 +159,7 @@ int main(void)
 	  }
 
 	  //CAM to REBOOT
-	  if(command==0x38){
+	  if(command==0x44){
 		  command_cam(CAM1, REBOOT);
 		  command_cam(CAM2, REBOOT);
 		  command_cam(CAM3, REBOOT);
@@ -193,11 +167,35 @@ int main(void)
 	  }
 
 	  //CAM to DEB
-	  if(command==0x39){
+	  if(command==0x45){
 		  command_cam(CAM1, DEB);
 		  command_cam(CAM2, DEB);
 		  command_cam(CAM3, DEB);
 		  command=0;
+	  }
+
+	  //Erase flight REC
+	  if(command==0x4C){
+		  Chip_Erase();
+		  command=0;
+	  }
+
+	  //Start fligt REC
+	  if(command==0x4D){
+		  Start_Flight_Recording=1;
+		  command=0;
+	  }
+
+	  //Stop flight REC
+	  if(command==0x4E){
+		  Start_Flight_Recording=0;
+		  command=0;
+	  }
+
+	  //Read flight REC
+	  if(command==0x52){
+		  Read_Data_Cont(16);
+		  command = 0;
 	  }
 
     /* USER CODE END WHILE */
