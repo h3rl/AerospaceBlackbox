@@ -31,7 +31,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "Misc.h"
+#include "Funksjoner.h"
+#include "CAN.h"
 #include "string.h"
 #include <unistd.h>
 #include <stdarg.h>

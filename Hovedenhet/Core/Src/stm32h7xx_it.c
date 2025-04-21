@@ -286,7 +286,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 
 			Flash.Buffer_Index=0;
 			Flash.Page_Index=Page;
-			Flash.Buffer_flip=0;
+			Flash.Buffer_Select=0;
 			Flash.Buffer_p=Flash.Buffer_0;
 		}
 

@@ -23,7 +23,6 @@
 /* USER CODE BEGIN Includes */
 #include "Global_Var.h"
 #include "Flash_driver.h"
-#include "CAN.h"
 #include "CAM_driver.h"
 /* USER CODE END Includes */
 
@@ -653,7 +652,7 @@ static void init(void){
 	memset(pointer->Buffer_0, 0xFF, sizeof(pointer->Buffer_0));
 	memset(pointer->Buffer_1, 0xFF, sizeof(pointer->Buffer_1));
 	Flash.Buffer_Index = 0;
-	Flash.Buffer_flip = 0;
+	Flash.Buffer_Select = 0;
 	Flash.Block_Mem = 0;
 	Flash.Page_Index = 0;
 	Flash.ID = 0;

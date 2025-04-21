@@ -7,13 +7,12 @@
 #include "main.h"
 #include "EX_Global_Var.h"
 #include "Flash_driver.h"
-#include "Misc.h"
 
 //Private Function prototype
 uint8_t Read_Status_Register(uint8_t SR);
 void Write_Status_Register(uint8_t SR, uint8_t REG_DATA);
 void Write_Data_Buffer(uint16_t Buffer_Addr, uint8_t *Data, uint16_t len);
-void Write_Data_Flash(uint16_t Page_Addr);
+void Program_Page_Flash(uint16_t Page_Addr);
 void Select_Page_Read(uint16_t Page_Addr);
 void Read_Data_Buffer(uint8_t *Data, uint16_t len);
 void Block_Erase(uint16_t Page_Addr);
@@ -50,7 +49,6 @@ BUF=1-> Buffer Read
 BUF=0-> Continuous Read*/
 void Flash_Init(uint8_t BUF){
 	W25N_WaitForReady();
-	//HAL_Delay(1000);
 	//Retrive data from register 2 and set BUF=1
 	if(BUF){
 		uint8_t data = Read_Status_Register(SR.SR_2_Addr);
@@ -90,7 +88,7 @@ void Flash_Init(uint8_t BUF){
 			}
 		}
 
-		if(!(Page_Bit==0xFFFF)){
+		if(Page_Bit!=0xFFFF){
 			Temp_Page += 64;
 		}
 
@@ -98,9 +96,7 @@ void Flash_Init(uint8_t BUF){
 			if(Temp_Page == 0){
 				break;
 			}
-			else{
-				Temp_Page -= 64;
-			}
+			else Temp_Page -= 64;
 		}
 	}
 	Page_Bit=0x0000;
@@ -157,19 +153,19 @@ void Write_Data(uint8_t* data, uint16_t lenght){
 
 //Write data to buffer in flash IC, then write buffer to page
 void Write_to_page(void){
-	if(Flash.Buffer_flip==0){
-		Flash.Buffer_flip=1;
+	if(Flash.Buffer_Select==0){
+		Flash.Buffer_Select=1;
 		Flash.Buffer_p=Flash.Buffer_1;
 		Flash.Buffer_Index=0;
 		Write_Data_Buffer(0, Flash.Buffer_0, sizeof(Flash.Buffer_0));
 	}
 	else{
-		Flash.Buffer_flip=0;
+		Flash.Buffer_Select=0;
 		Flash.Buffer_p=Flash.Buffer_0;
 		Flash.Buffer_Index=0;
 		Write_Data_Buffer(0, Flash.Buffer_1, sizeof(Flash.Buffer_1));
 	}
-	Write_Data_Flash(Flash.Page_Index);
+	Program_Page_Flash(Flash.Page_Index);
 	Flash.Page_Index++;
 	Flash.Buffer_Index=0;
 	Automatic_Block_Managment(Flash.Page_Index);
@@ -206,7 +202,7 @@ void Chip_Erase(void){
 		Flash.Buffer_Index=0;
 		Flash.Page_Index=0;
 		Flash.Block_Mem=0;
-		Flash.Buffer_flip=0;
+		Flash.Buffer_Select=0;
 		Flash.Buffer_p=Flash.Buffer_0;
 
 		Flash_Data* pointer = &Flash;
@@ -324,8 +320,8 @@ void Write_Data_Buffer(uint16_t Buffer_Addr, uint8_t *Data, uint16_t len){
 	delay_ns(DELAY_NS);
 }
 
-//Write buffer data to page
-void Write_Data_Flash(uint16_t Page_Addr){
+//Program page with data in buffer
+void Program_Page_Flash(uint16_t Page_Addr){
 	Write_Enable();
 	SPI.Tx_Buffer[0]=OP_Program_Ex;
 	SPI.Tx_Buffer[1]=0x00;

@@ -1,4 +1,4 @@
-Core/Src/Misc.o: ../Core/Src/Misc.c ../Core/Inc/main.h \
+Core/Src/Funksjoner.o: ../Core/Src/Funksjoner.c ../Core/Inc/main.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -32,8 +32,8 @@ Core/Src/Misc.o: ../Core/Src/Misc.c ../Core/Inc/main.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- ../Core/Inc/Misc.h ../Core/Inc/TypeDef.h ../Core/Inc/EX_Global_var.h \
- ../Core/Inc/Misc.h ../Core/Inc/Flash_driver.h
+ ../Core/Inc/Funksjoner.h ../Core/Inc/CAN.h ../Core/Inc/TypeDef.h \
+ ../Core/Inc/EX_Global_var.h ../Core/Inc/Flash_driver.h
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -68,8 +68,8 @@ Core/Src/Misc.o: ../Core/Src/Misc.c ../Core/Inc/main.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-../Core/Inc/Misc.h:
+../Core/Inc/Funksjoner.h:
+../Core/Inc/CAN.h:
 ../Core/Inc/TypeDef.h:
 ../Core/Inc/EX_Global_var.h:
-../Core/Inc/Misc.h:
 ../Core/Inc/Flash_driver.h:

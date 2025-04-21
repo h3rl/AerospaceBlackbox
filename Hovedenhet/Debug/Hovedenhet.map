@@ -9,7 +9,7 @@ C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.external
 C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-stdio.o)
                               C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-findfp.o) (__sread)
 C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-vsnprintf.o)
-                              ./Core/Src/Misc.o (vsnprintf)
+                              ./Core/Src/Funksjoner.o (vsnprintf)
 C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-memset.o)
                               C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/crt0.o (memset)
 C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-closer.o)
@@ -33,7 +33,7 @@ C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.external
 C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-memcpy-stub.o)
                               ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.o (memcpy)
 C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-strlen.o)
-                              ./Core/Src/Misc.o (strlen)
+                              ./Core/Src/Funksjoner.o (strlen)
 C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-freer.o)
                               C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-reent.o) (_free_r)
 C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-mallocr.o)
@@ -260,7 +260,7 @@ Discarded input sections
                 0x00000000       0x28 ./Core/Src/CAN.o
  .debug_rnglists
                 0x00000000       0x19 ./Core/Src/CAN.o
- .debug_macro   0x00000000      0x3f4 ./Core/Src/CAN.o
+ .debug_macro   0x00000000      0x3f8 ./Core/Src/CAN.o
  .debug_macro   0x00000000      0xaf6 ./Core/Src/CAN.o
  .debug_macro   0x00000000      0x23e ./Core/Src/CAN.o
  .debug_macro   0x00000000       0x2e ./Core/Src/CAN.o
@@ -344,8 +344,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Core/Src/CAN.o
  .debug_macro   0x00000000      0x131 ./Core/Src/CAN.o
  .debug_macro   0x00000000       0x6a ./Core/Src/CAN.o
- .debug_line    0x00000000      0xa77 ./Core/Src/CAN.o
- .debug_str     0x00000000   0x163372 ./Core/Src/CAN.o
+ .debug_line    0x00000000      0xa7d ./Core/Src/CAN.o
+ .debug_str     0x00000000   0x163378 ./Core/Src/CAN.o
  .comment       0x00000000       0x44 ./Core/Src/CAN.o
  .debug_frame   0x00000000       0x58 ./Core/Src/CAN.o
  .ARM.attributes
@@ -522,182 +522,182 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Core/Src/Flash_driver.o
  .debug_macro   0x00000000      0x131 ./Core/Src/Flash_driver.o
  .debug_macro   0x00000000       0x6a ./Core/Src/Flash_driver.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .group         0x00000000        0xc ./Core/Src/Misc.o
- .text          0x00000000        0x0 ./Core/Src/Misc.o
- .data          0x00000000        0x0 ./Core/Src/Misc.o
- .bss           0x00000000        0x0 ./Core/Src/Misc.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .group         0x00000000        0xc ./Core/Src/Funksjoner.o
+ .text          0x00000000        0x0 ./Core/Src/Funksjoner.o
+ .data          0x00000000        0x0 ./Core/Src/Funksjoner.o
+ .bss           0x00000000        0x0 ./Core/Src/Funksjoner.o
  .text.send_uart
-                0x00000000       0x2c ./Core/Src/Misc.o
- .rodata        0x00000000        0x3 ./Core/Src/Misc.o
+                0x00000000       0x2c ./Core/Src/Funksjoner.o
+ .rodata        0x00000000        0x3 ./Core/Src/Funksjoner.o
  .text.send_byte_as_binary
-                0x00000000       0x64 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0xaf6 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x23e ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x2e ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x3b ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x22 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x8e ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x51 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x103 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x6a ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x1df ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x1c ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x22 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0xfb ./Core/Src/Misc.o
- .debug_macro   0x00000000     0x1305 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x11f ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x27 ./Core/Src/Misc.o
- .debug_macro   0x00000000    0x261cc ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x6d ./Core/Src/Misc.o
- .debug_macro   0x00000000     0x3d79 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x190 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x61 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x29 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x43 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x34 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x370 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x16 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x4a ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x34 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x10 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x58 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x8e ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x1c ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x185 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x19b ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x5d ./Core/Src/Misc.o
- .debug_macro   0x00000000     0x240e ./Core/Src/Misc.o
- .debug_macro   0x00000000     0x102c ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x154 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x114 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x3b6 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0xac ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x72d ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x228 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x66 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x3bb ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x3e4 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x275 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0xe42 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x3ca ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x408 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x51 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x4a ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x22c ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x67 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0xa5 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x1c4 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x25e ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x35 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x5e4 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0xc1 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x693 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0xa6 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x5ac ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x16 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x3c ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x20 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x16 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x10 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x1c ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x52 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x22 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x10 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x52 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0xcf ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x1c ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x3d ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x51a ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x58 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x1c ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x10 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x16 ./Core/Src/Misc.o
- .debug_macro   0x00000000      0x131 ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x6a ./Core/Src/Misc.o
- .debug_macro   0x00000000       0x1c ./Core/Src/Misc.o
+                0x00000000       0x64 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0xaf6 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x23e ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x2e ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x3b ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x22 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x8e ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x51 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x103 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x6a ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x1df ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x22 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0xfb ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000     0x1305 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x11f ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x27 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000    0x261cc ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x6d ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000     0x3d79 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x190 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x61 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x29 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x43 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x34 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x370 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x4a ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x34 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x58 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x8e ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x185 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x19b ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x5d ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000     0x240e ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000     0x102c ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x154 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x114 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x3b6 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0xac ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x72d ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x228 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x66 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x3bb ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x3e4 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x275 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0xe42 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x3ca ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x408 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x51 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x4a ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x22c ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x67 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0xa5 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x1c4 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x25e ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x35 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x5e4 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0xc1 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x693 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0xa6 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x5ac ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x3c ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x20 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x52 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x22 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x52 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0xcf ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x3d ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x51a ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x58 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000      0x131 ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x6a ./Core/Src/Funksjoner.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/Funksjoner.o
  .group         0x00000000        0xc ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/main.o
@@ -785,8 +785,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./Core/Src/main.o
  .data          0x00000000        0x0 ./Core/Src/main.o
  .bss           0x00000000        0x0 ./Core/Src/main.o
- .bss.Write_Flag
-                0x00000000        0x1 ./Core/Src/main.o
  .bss.TxHeader  0x00000000       0x24 ./Core/Src/main.o
  .debug_macro   0x00000000      0xaf6 ./Core/Src/main.o
  .debug_macro   0x00000000      0x23e ./Core/Src/main.o
@@ -5679,7 +5677,7 @@ LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 LOAD ./Core/Src/CAM_driver.o
 LOAD ./Core/Src/CAN.o
 LOAD ./Core/Src/Flash_driver.o
-LOAD ./Core/Src/Misc.o
+LOAD ./Core/Src/Funksjoner.o
 LOAD ./Core/Src/main.o
 LOAD ./Core/Src/stm32h7xx_hal_msp.o
 LOAD ./Core/Src/stm32h7xx_it.o
@@ -5799,9 +5797,9 @@ LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .text.Write_Data_Buffer
                 0x08000e10       0x78 ./Core/Src/Flash_driver.o
                 0x08000e10                Write_Data_Buffer
- .text.Write_Data_Flash
+ .text.Program_Page_Flash
                 0x08000e88       0x68 ./Core/Src/Flash_driver.o
-                0x08000e88                Write_Data_Flash
+                0x08000e88                Program_Page_Flash
  .text.Select_Page_Read
                 0x08000ef0       0x64 ./Core/Src/Flash_driver.o
                 0x08000ef0                Select_Page_Read
@@ -5812,13 +5810,13 @@ LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x08000fbc       0x68 ./Core/Src/Flash_driver.o
                 0x08000fbc                Block_Erase
  .text.delay_ns
-                0x08001024       0x54 ./Core/Src/Misc.o
+                0x08001024       0x54 ./Core/Src/Funksjoner.o
                 0x08001024                delay_ns
  .text.USART3_Printf
-                0x08001078       0x4c ./Core/Src/Misc.o
+                0x08001078       0x4c ./Core/Src/Funksjoner.o
                 0x08001078                USART3_Printf
  .text.W25N_WaitForReady
-                0x080010c4       0x30 ./Core/Src/Misc.o
+                0x080010c4       0x30 ./Core/Src/Funksjoner.o
                 0x080010c4                W25N_WaitForReady
  .text.main     0x080010f4      0x1e0 ./Core/Src/main.o
                 0x080010f4                main
@@ -6592,7 +6590,7 @@ LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .ARM.attributes
                 0x00000084       0x32 ./Core/Src/Flash_driver.o
  .ARM.attributes
-                0x000000b6       0x32 ./Core/Src/Misc.o
+                0x000000b6       0x32 ./Core/Src/Funksjoner.o
  .ARM.attributes
                 0x000000e8       0x32 ./Core/Src/main.o
  .ARM.attributes
@@ -6681,32 +6679,32 @@ LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a
 LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+dp/hard\libgcc.a
 
-.debug_info     0x00000000    0x19bec
+.debug_info     0x00000000    0x19bd9
  .debug_info    0x00000000      0x844 ./Core/Src/CAM_driver.o
- .debug_info    0x00000844     0x12bd ./Core/Src/Flash_driver.o
- .debug_info    0x00001b01      0xbb3 ./Core/Src/Misc.o
- .debug_info    0x000026b4     0x274c ./Core/Src/main.o
- .debug_info    0x00004e00     0x2124 ./Core/Src/stm32h7xx_hal_msp.o
- .debug_info    0x00006f24     0x1385 ./Core/Src/stm32h7xx_it.o
- .debug_info    0x000082a9      0x168 ./Core/Src/sysmem.o
- .debug_info    0x00008411      0xdb2 ./Core/Src/system_stm32h7xx.o
- .debug_info    0x000091c3       0x30 ./Core/Startup/startup_stm32h753zitx.o
- .debug_info    0x000091f3     0x1541 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
- .debug_info    0x0000a734     0x10b7 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
- .debug_info    0x0000b7eb      0xc31 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
- .debug_info    0x0000c41c     0x2baf ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.o
- .debug_info    0x0000efcb      0xc5a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
- .debug_info    0x0000fc25     0x1012 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
- .debug_info    0x00010c37      0xe6a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
- .debug_info    0x00011aa1     0x1225 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
- .debug_info    0x00012cc6     0x144a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o
- .debug_info    0x00014110     0x4b1d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.o
- .debug_info    0x00018c2d      0xfbf ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o
+ .debug_info    0x00000844     0x12bc ./Core/Src/Flash_driver.o
+ .debug_info    0x00001b00      0xbb3 ./Core/Src/Funksjoner.o
+ .debug_info    0x000026b3     0x273a ./Core/Src/main.o
+ .debug_info    0x00004ded     0x2124 ./Core/Src/stm32h7xx_hal_msp.o
+ .debug_info    0x00006f11     0x1385 ./Core/Src/stm32h7xx_it.o
+ .debug_info    0x00008296      0x168 ./Core/Src/sysmem.o
+ .debug_info    0x000083fe      0xdb2 ./Core/Src/system_stm32h7xx.o
+ .debug_info    0x000091b0       0x30 ./Core/Startup/startup_stm32h753zitx.o
+ .debug_info    0x000091e0     0x1541 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+ .debug_info    0x0000a721     0x10b7 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
+ .debug_info    0x0000b7d8      0xc31 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
+ .debug_info    0x0000c409     0x2baf ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.o
+ .debug_info    0x0000efb8      0xc5a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
+ .debug_info    0x0000fc12     0x1012 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
+ .debug_info    0x00010c24      0xe6a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
+ .debug_info    0x00011a8e     0x1225 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
+ .debug_info    0x00012cb3     0x144a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o
+ .debug_info    0x000140fd     0x4b1d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.o
+ .debug_info    0x00018c1a      0xfbf ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o
 
 .debug_abbrev   0x00000000     0x2e67
  .debug_abbrev  0x00000000      0x154 ./Core/Src/CAM_driver.o
  .debug_abbrev  0x00000154      0x324 ./Core/Src/Flash_driver.o
- .debug_abbrev  0x00000478      0x26b ./Core/Src/Misc.o
+ .debug_abbrev  0x00000478      0x26b ./Core/Src/Funksjoner.o
  .debug_abbrev  0x000006e3      0x322 ./Core/Src/main.o
  .debug_abbrev  0x00000a05      0x24c ./Core/Src/stm32h7xx_hal_msp.o
  .debug_abbrev  0x00000c51      0x296 ./Core/Src/stm32h7xx_it.o
@@ -6731,7 +6729,7 @@ LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_aranges
                 0x00000020       0xa8 ./Core/Src/Flash_driver.o
  .debug_aranges
-                0x000000c8       0x40 ./Core/Src/Misc.o
+                0x000000c8       0x40 ./Core/Src/Funksjoner.o
  .debug_aranges
                 0x00000108       0x78 ./Core/Src/main.o
  .debug_aranges
@@ -6774,7 +6772,7 @@ LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x00000013       0x7e ./Core/Src/Flash_driver.o
  .debug_rnglists
-                0x00000091       0x2b ./Core/Src/Misc.o
+                0x00000091       0x2b ./Core/Src/Funksjoner.o
  .debug_rnglists
                 0x000000bc       0x5f ./Core/Src/main.o
  .debug_rnglists
@@ -6810,162 +6808,162 @@ LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x00000cd5       0x7f ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o
 
-.debug_macro    0x00000000    0x39ab4
- .debug_macro   0x00000000      0x3ea ./Core/Src/CAM_driver.o
- .debug_macro   0x000003ea      0xaf6 ./Core/Src/CAM_driver.o
- .debug_macro   0x00000ee0      0x23e ./Core/Src/CAM_driver.o
- .debug_macro   0x0000111e       0x2e ./Core/Src/CAM_driver.o
- .debug_macro   0x0000114c       0x3b ./Core/Src/CAM_driver.o
- .debug_macro   0x00001187       0x22 ./Core/Src/CAM_driver.o
- .debug_macro   0x000011a9       0x8e ./Core/Src/CAM_driver.o
- .debug_macro   0x00001237       0x51 ./Core/Src/CAM_driver.o
- .debug_macro   0x00001288      0x103 ./Core/Src/CAM_driver.o
- .debug_macro   0x0000138b       0x6a ./Core/Src/CAM_driver.o
- .debug_macro   0x000013f5      0x1df ./Core/Src/CAM_driver.o
- .debug_macro   0x000015d4       0x1c ./Core/Src/CAM_driver.o
- .debug_macro   0x000015f0       0x22 ./Core/Src/CAM_driver.o
- .debug_macro   0x00001612       0xfb ./Core/Src/CAM_driver.o
- .debug_macro   0x0000170d     0x1305 ./Core/Src/CAM_driver.o
- .debug_macro   0x00002a12      0x11f ./Core/Src/CAM_driver.o
- .debug_macro   0x00002b31       0x27 ./Core/Src/CAM_driver.o
- .debug_macro   0x00002b58    0x261cc ./Core/Src/CAM_driver.o
- .debug_macro   0x00028d24       0x6d ./Core/Src/CAM_driver.o
- .debug_macro   0x00028d91     0x3d79 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002cb0a      0x190 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002cc9a       0x61 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002ccfb       0x29 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002cd24       0x43 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002cd67       0x34 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002cd9b      0x370 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002d10b       0x16 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002d121       0x4a ./Core/Src/CAM_driver.o
- .debug_macro   0x0002d16b       0x34 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002d19f       0x10 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002d1af       0x58 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002d207       0x8e ./Core/Src/CAM_driver.o
- .debug_macro   0x0002d295       0x1c ./Core/Src/CAM_driver.o
- .debug_macro   0x0002d2b1      0x185 ./Core/Src/CAM_driver.o
- .debug_macro   0x0002d436      0x19b ./Core/Src/CAM_driver.o
- .debug_macro   0x0002d5d1       0x5d ./Core/Src/CAM_driver.o
- .debug_macro   0x0002d62e     0x240e ./Core/Src/CAM_driver.o
- .debug_macro   0x0002fa3c     0x102c ./Core/Src/CAM_driver.o
- .debug_macro   0x00030a68      0x154 ./Core/Src/CAM_driver.o
- .debug_macro   0x00030bbc      0x114 ./Core/Src/CAM_driver.o
- .debug_macro   0x00030cd0      0x3b6 ./Core/Src/CAM_driver.o
- .debug_macro   0x00031086       0xac ./Core/Src/CAM_driver.o
- .debug_macro   0x00031132      0x72d ./Core/Src/CAM_driver.o
- .debug_macro   0x0003185f      0x228 ./Core/Src/CAM_driver.o
- .debug_macro   0x00031a87       0x66 ./Core/Src/CAM_driver.o
- .debug_macro   0x00031aed      0x3bb ./Core/Src/CAM_driver.o
- .debug_macro   0x00031ea8      0x3e4 ./Core/Src/CAM_driver.o
- .debug_macro   0x0003228c      0x275 ./Core/Src/CAM_driver.o
- .debug_macro   0x00032501      0xe42 ./Core/Src/CAM_driver.o
- .debug_macro   0x00033343      0x3ca ./Core/Src/CAM_driver.o
- .debug_macro   0x0003370d      0x408 ./Core/Src/CAM_driver.o
- .debug_macro   0x00033b15       0x51 ./Core/Src/CAM_driver.o
- .debug_macro   0x00033b66       0x4a ./Core/Src/CAM_driver.o
- .debug_macro   0x00033bb0      0x22c ./Core/Src/CAM_driver.o
- .debug_macro   0x00033ddc       0x67 ./Core/Src/CAM_driver.o
- .debug_macro   0x00033e43       0xa5 ./Core/Src/CAM_driver.o
- .debug_macro   0x00033ee8      0x1c4 ./Core/Src/CAM_driver.o
- .debug_macro   0x000340ac      0x25e ./Core/Src/CAM_driver.o
- .debug_macro   0x0003430a       0x35 ./Core/Src/CAM_driver.o
- .debug_macro   0x0003433f      0x5e4 ./Core/Src/CAM_driver.o
- .debug_macro   0x00034923       0xc1 ./Core/Src/CAM_driver.o
- .debug_macro   0x000349e4      0x693 ./Core/Src/CAM_driver.o
- .debug_macro   0x00035077       0xa6 ./Core/Src/CAM_driver.o
- .debug_macro   0x0003511d      0x5ac ./Core/Src/CAM_driver.o
- .debug_macro   0x000356c9       0x16 ./Core/Src/CAM_driver.o
- .debug_macro   0x000356df       0x3c ./Core/Src/CAM_driver.o
- .debug_macro   0x0003571b       0x20 ./Core/Src/CAM_driver.o
- .debug_macro   0x0003573b       0x16 ./Core/Src/CAM_driver.o
- .debug_macro   0x00035751       0x10 ./Core/Src/CAM_driver.o
- .debug_macro   0x00035761       0x1c ./Core/Src/CAM_driver.o
- .debug_macro   0x0003577d       0x52 ./Core/Src/CAM_driver.o
- .debug_macro   0x000357cf       0x22 ./Core/Src/CAM_driver.o
- .debug_macro   0x000357f1       0x10 ./Core/Src/CAM_driver.o
- .debug_macro   0x00035801       0x52 ./Core/Src/CAM_driver.o
- .debug_macro   0x00035853       0xcf ./Core/Src/CAM_driver.o
- .debug_macro   0x00035922       0x1c ./Core/Src/CAM_driver.o
- .debug_macro   0x0003593e       0x3d ./Core/Src/CAM_driver.o
- .debug_macro   0x0003597b      0x51a ./Core/Src/CAM_driver.o
- .debug_macro   0x00035e95       0x58 ./Core/Src/CAM_driver.o
- .debug_macro   0x00035eed       0x1c ./Core/Src/CAM_driver.o
- .debug_macro   0x00035f09       0x10 ./Core/Src/CAM_driver.o
- .debug_macro   0x00035f19       0x16 ./Core/Src/CAM_driver.o
- .debug_macro   0x00035f2f      0x131 ./Core/Src/CAM_driver.o
- .debug_macro   0x00036060       0x6a ./Core/Src/CAM_driver.o
- .debug_macro   0x000360ca      0x3f7 ./Core/Src/Flash_driver.o
- .debug_macro   0x000364c1       0x1c ./Core/Src/Flash_driver.o
- .debug_macro   0x000364dd      0x3f7 ./Core/Src/Misc.o
- .debug_macro   0x000368d4      0x407 ./Core/Src/main.o
- .debug_macro   0x00036cdb      0x3e0 ./Core/Src/stm32h7xx_hal_msp.o
- .debug_macro   0x000370bb      0x407 ./Core/Src/stm32h7xx_it.o
- .debug_macro   0x000374c2      0x112 ./Core/Src/sysmem.o
- .debug_macro   0x000375d4      0x23c ./Core/Src/sysmem.o
- .debug_macro   0x00037810      0x2b8 ./Core/Src/system_stm32h7xx.o
- .debug_macro   0x00037ac8      0x2e2 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
- .debug_macro   0x00037daa      0x2b8 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
- .debug_macro   0x00038062      0x30c ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
- .debug_macro   0x0003836e      0x37d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.o
- .debug_macro   0x000386eb      0x2bf ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
- .debug_macro   0x000389aa      0x2f1 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
- .debug_macro   0x00038c9b      0x2dc ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
- .debug_macro   0x00038f77      0x2d6 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
- .debug_macro   0x0003924d      0x2c0 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o
- .debug_macro   0x0003950d      0x2e3 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.o
- .debug_macro   0x000397f0      0x2c4 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o
+.debug_macro    0x00000000    0x39ad8
+ .debug_macro   0x00000000      0x3f4 ./Core/Src/CAM_driver.o
+ .debug_macro   0x000003f4      0xaf6 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00000eea      0x23e ./Core/Src/CAM_driver.o
+ .debug_macro   0x00001128       0x2e ./Core/Src/CAM_driver.o
+ .debug_macro   0x00001156       0x3b ./Core/Src/CAM_driver.o
+ .debug_macro   0x00001191       0x22 ./Core/Src/CAM_driver.o
+ .debug_macro   0x000011b3       0x8e ./Core/Src/CAM_driver.o
+ .debug_macro   0x00001241       0x51 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00001292      0x103 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00001395       0x6a ./Core/Src/CAM_driver.o
+ .debug_macro   0x000013ff      0x1df ./Core/Src/CAM_driver.o
+ .debug_macro   0x000015de       0x1c ./Core/Src/CAM_driver.o
+ .debug_macro   0x000015fa       0x22 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0000161c       0xfb ./Core/Src/CAM_driver.o
+ .debug_macro   0x00001717     0x1305 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00002a1c      0x11f ./Core/Src/CAM_driver.o
+ .debug_macro   0x00002b3b       0x27 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00002b62    0x261cc ./Core/Src/CAM_driver.o
+ .debug_macro   0x00028d2e       0x6d ./Core/Src/CAM_driver.o
+ .debug_macro   0x00028d9b     0x3d79 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002cb14      0x190 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002cca4       0x61 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002cd05       0x29 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002cd2e       0x43 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002cd71       0x34 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002cda5      0x370 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002d115       0x16 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002d12b       0x4a ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002d175       0x34 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002d1a9       0x10 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002d1b9       0x58 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002d211       0x8e ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002d29f       0x1c ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002d2bb      0x185 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002d440      0x19b ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002d5db       0x5d ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002d638     0x240e ./Core/Src/CAM_driver.o
+ .debug_macro   0x0002fa46     0x102c ./Core/Src/CAM_driver.o
+ .debug_macro   0x00030a72      0x154 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00030bc6      0x114 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00030cda      0x3b6 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00031090       0xac ./Core/Src/CAM_driver.o
+ .debug_macro   0x0003113c      0x72d ./Core/Src/CAM_driver.o
+ .debug_macro   0x00031869      0x228 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00031a91       0x66 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00031af7      0x3bb ./Core/Src/CAM_driver.o
+ .debug_macro   0x00031eb2      0x3e4 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00032296      0x275 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0003250b      0xe42 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0003334d      0x3ca ./Core/Src/CAM_driver.o
+ .debug_macro   0x00033717      0x408 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00033b1f       0x51 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00033b70       0x4a ./Core/Src/CAM_driver.o
+ .debug_macro   0x00033bba      0x22c ./Core/Src/CAM_driver.o
+ .debug_macro   0x00033de6       0x67 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00033e4d       0xa5 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00033ef2      0x1c4 ./Core/Src/CAM_driver.o
+ .debug_macro   0x000340b6      0x25e ./Core/Src/CAM_driver.o
+ .debug_macro   0x00034314       0x35 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00034349      0x5e4 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0003492d       0xc1 ./Core/Src/CAM_driver.o
+ .debug_macro   0x000349ee      0x693 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035081       0xa6 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035127      0x5ac ./Core/Src/CAM_driver.o
+ .debug_macro   0x000356d3       0x16 ./Core/Src/CAM_driver.o
+ .debug_macro   0x000356e9       0x3c ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035725       0x20 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035745       0x16 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0003575b       0x10 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0003576b       0x1c ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035787       0x52 ./Core/Src/CAM_driver.o
+ .debug_macro   0x000357d9       0x22 ./Core/Src/CAM_driver.o
+ .debug_macro   0x000357fb       0x10 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0003580b       0x52 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0003585d       0xcf ./Core/Src/CAM_driver.o
+ .debug_macro   0x0003592c       0x1c ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035948       0x3d ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035985      0x51a ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035e9f       0x58 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035ef7       0x1c ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035f13       0x10 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035f23       0x16 ./Core/Src/CAM_driver.o
+ .debug_macro   0x00035f39      0x131 ./Core/Src/CAM_driver.o
+ .debug_macro   0x0003606a       0x6a ./Core/Src/CAM_driver.o
+ .debug_macro   0x000360d4      0x3fd ./Core/Src/Flash_driver.o
+ .debug_macro   0x000364d1       0x1c ./Core/Src/Flash_driver.o
+ .debug_macro   0x000364ed      0x3fd ./Core/Src/Funksjoner.o
+ .debug_macro   0x000368ea      0x407 ./Core/Src/main.o
+ .debug_macro   0x00036cf1      0x3ea ./Core/Src/stm32h7xx_hal_msp.o
+ .debug_macro   0x000370db      0x40b ./Core/Src/stm32h7xx_it.o
+ .debug_macro   0x000374e6      0x112 ./Core/Src/sysmem.o
+ .debug_macro   0x000375f8      0x23c ./Core/Src/sysmem.o
+ .debug_macro   0x00037834      0x2b8 ./Core/Src/system_stm32h7xx.o
+ .debug_macro   0x00037aec      0x2e2 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+ .debug_macro   0x00037dce      0x2b8 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
+ .debug_macro   0x00038086      0x30c ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
+ .debug_macro   0x00038392      0x37d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.o
+ .debug_macro   0x0003870f      0x2bf ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
+ .debug_macro   0x000389ce      0x2f1 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
+ .debug_macro   0x00038cbf      0x2dc ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
+ .debug_macro   0x00038f9b      0x2d6 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
+ .debug_macro   0x00039271      0x2c0 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o
+ .debug_macro   0x00039531      0x2e3 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.o
+ .debug_macro   0x00039814      0x2c4 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o
 
-.debug_line     0x00000000    0x1867d
- .debug_line    0x00000000      0xa16 ./Core/Src/CAM_driver.o
- .debug_line    0x00000a16      0xe46 ./Core/Src/Flash_driver.o
- .debug_line    0x0000185c      0xb08 ./Core/Src/Misc.o
- .debug_line    0x00002364      0xeef ./Core/Src/main.o
- .debug_line    0x00003253      0xc23 ./Core/Src/stm32h7xx_hal_msp.o
- .debug_line    0x00003e76      0xc4d ./Core/Src/stm32h7xx_it.o
- .debug_line    0x00004ac3      0x588 ./Core/Src/sysmem.o
- .debug_line    0x0000504b      0xaf2 ./Core/Src/system_stm32h7xx.o
- .debug_line    0x00005b3d       0x7b ./Core/Startup/startup_stm32h753zitx.o
- .debug_line    0x00005bb8      0xecb ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
- .debug_line    0x00006a83      0xeb5 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
- .debug_line    0x00007938     0x284c ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
- .debug_line    0x0000a184     0x2956 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.o
- .debug_line    0x0000cada      0xd54 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
- .debug_line    0x0000d82e     0x104f ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
- .debug_line    0x0000e87d     0x1572 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
- .debug_line    0x0000fdef     0x1e7e ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
- .debug_line    0x00011c6d     0x225d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o
- .debug_line    0x00013eca     0x3952 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.o
- .debug_line    0x0001781c      0xe61 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o
+.debug_line     0x00000000    0x186cb
+ .debug_line    0x00000000      0xa25 ./Core/Src/CAM_driver.o
+ .debug_line    0x00000a25      0xe55 ./Core/Src/Flash_driver.o
+ .debug_line    0x0000187a      0xb1d ./Core/Src/Funksjoner.o
+ .debug_line    0x00002397      0xef5 ./Core/Src/main.o
+ .debug_line    0x0000328c      0xc32 ./Core/Src/stm32h7xx_hal_msp.o
+ .debug_line    0x00003ebe      0xc53 ./Core/Src/stm32h7xx_it.o
+ .debug_line    0x00004b11      0x588 ./Core/Src/sysmem.o
+ .debug_line    0x00005099      0xaf2 ./Core/Src/system_stm32h7xx.o
+ .debug_line    0x00005b8b       0x7b ./Core/Startup/startup_stm32h753zitx.o
+ .debug_line    0x00005c06      0xecb ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+ .debug_line    0x00006ad1      0xeb5 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
+ .debug_line    0x00007986     0x284c ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
+ .debug_line    0x0000a1d2     0x2956 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.o
+ .debug_line    0x0000cb28      0xd54 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
+ .debug_line    0x0000d87c     0x104f ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
+ .debug_line    0x0000e8cb     0x1572 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
+ .debug_line    0x0000fe3d     0x1e7e ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
+ .debug_line    0x00011cbb     0x225d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o
+ .debug_line    0x00013f18     0x3952 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.o
+ .debug_line    0x0001786a      0xe61 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o
 
-.debug_str      0x00000000   0x16a594
- .debug_str     0x00000000   0x16a594 ./Core/Src/CAM_driver.o
-                             0x1632b8 (size before relaxing)
- .debug_str     0x0016a594   0x163921 ./Core/Src/Flash_driver.o
- .debug_str     0x0016a594   0x1634af ./Core/Src/Misc.o
- .debug_str     0x0016a594   0x164459 ./Core/Src/main.o
- .debug_str     0x0016a594   0x164858 ./Core/Src/stm32h7xx_hal_msp.o
- .debug_str     0x0016a594   0x163a9f ./Core/Src/stm32h7xx_it.o
- .debug_str     0x0016a594     0x77d9 ./Core/Src/sysmem.o
- .debug_str     0x0016a594   0x160fa2 ./Core/Src/system_stm32h7xx.o
- .debug_str     0x0016a594       0x7d ./Core/Startup/startup_stm32h753zitx.o
- .debug_str     0x0016a594   0x161e88 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
- .debug_str     0x0016a594   0x1618c3 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
- .debug_str     0x0016a594   0x16169d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
- .debug_str     0x0016a594   0x162c51 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.o
- .debug_str     0x0016a594   0x160f1a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
- .debug_str     0x0016a594   0x1613db ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
- .debug_str     0x0016a594   0x1612fe ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
- .debug_str     0x0016a594   0x1617df ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
- .debug_str     0x0016a594   0x161622 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o
- .debug_str     0x0016a594   0x161e3f ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.o
- .debug_str     0x0016a594   0x1613ff ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o
+.debug_str      0x00000000   0x16a599
+ .debug_str     0x00000000   0x16a599 ./Core/Src/CAM_driver.o
+                             0x1632ca (size before relaxing)
+ .debug_str     0x0016a599   0x163937 ./Core/Src/Flash_driver.o
+ .debug_str     0x0016a599   0x1634c7 ./Core/Src/Funksjoner.o
+ .debug_str     0x0016a599   0x164456 ./Core/Src/main.o
+ .debug_str     0x0016a599   0x16486a ./Core/Src/stm32h7xx_hal_msp.o
+ .debug_str     0x0016a599   0x163aa7 ./Core/Src/stm32h7xx_it.o
+ .debug_str     0x0016a599     0x77d9 ./Core/Src/sysmem.o
+ .debug_str     0x0016a599   0x160fa2 ./Core/Src/system_stm32h7xx.o
+ .debug_str     0x0016a599       0x7d ./Core/Startup/startup_stm32h753zitx.o
+ .debug_str     0x0016a599   0x161e88 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+ .debug_str     0x0016a599   0x1618c3 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
+ .debug_str     0x0016a599   0x16169d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
+ .debug_str     0x0016a599   0x162c51 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.o
+ .debug_str     0x0016a599   0x160f1a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
+ .debug_str     0x0016a599   0x1613db ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
+ .debug_str     0x0016a599   0x1612fe ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
+ .debug_str     0x0016a599   0x1617df ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
+ .debug_str     0x0016a599   0x161622 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o
+ .debug_str     0x0016a599   0x161e3f ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.o
+ .debug_str     0x0016a599   0x1613ff ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Core/Src/CAM_driver.o
                                  0x44 (size before relaxing)
  .comment       0x00000043       0x44 ./Core/Src/Flash_driver.o
- .comment       0x00000043       0x44 ./Core/Src/Misc.o
+ .comment       0x00000043       0x44 ./Core/Src/Funksjoner.o
  .comment       0x00000043       0x44 ./Core/Src/main.o
  .comment       0x00000043       0x44 ./Core/Src/stm32h7xx_hal_msp.o
  .comment       0x00000043       0x44 ./Core/Src/stm32h7xx_it.o
@@ -6986,7 +6984,7 @@ LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 .debug_frame    0x00000000     0x4e28
  .debug_frame   0x00000000       0x38 ./Core/Src/CAM_driver.o
  .debug_frame   0x00000038      0x28c ./Core/Src/Flash_driver.o
- .debug_frame   0x000002c4       0xd8 ./Core/Src/Misc.o
+ .debug_frame   0x000002c4       0xd8 ./Core/Src/Funksjoner.o
  .debug_frame   0x0000039c      0x188 ./Core/Src/main.o
  .debug_frame   0x00000524      0x11c ./Core/Src/stm32h7xx_hal_msp.o
  .debug_frame   0x00000640      0x1bc ./Core/Src/stm32h7xx_it.o
