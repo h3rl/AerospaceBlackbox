@@ -46,6 +46,7 @@
 /* USER CODE BEGIN PV */
 
 uint32_t CLK_SIM=0;		//CLK in ms
+uint32_t GoPro_timer=0;
 
 /* USER CODE END PV */
 
@@ -200,6 +201,15 @@ void SysTick_Handler(void)
   }
   else{
 	  CLK_SIM=0;
+  }
+
+  if(GoPro){
+	  GoPro_timer++;
+	  if(GoPro>=GOPRO_MAX){
+		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_RESET);
+		  GoPro_timer=0;
+		  GoPro=0;
+	  }
   }
   /* USER CODE END SysTick_IRQn 1 */
 }

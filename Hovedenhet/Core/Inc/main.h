@@ -81,6 +81,7 @@ void delay_ns(uint32_t ns);
 
 /* USER CODE BEGIN Private defines */
 #define DELAY_NS 100
+#define GOPRO_MAX 100
 #define csLOW() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_RESET)
 #define csHIGH() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_SET)
 /* USER CODE END Private defines */

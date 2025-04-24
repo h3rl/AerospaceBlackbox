@@ -13,7 +13,7 @@ extern uint8_t Start_Flight_Recording;
 extern uint8_t command;
 
 //Flag
-extern uint8_t Write_Flag;
+extern uint8_t GoPro;
 
 //TypeDef
 extern CAN_Data CAN;
