@@ -24,7 +24,6 @@
 /* USER CODE BEGIN Includes */
 #include "EX_Global_var.h"
 #include "Flash_driver.h"
-#include "CAN.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,6 +46,7 @@
 
 uint32_t CLK_SIM=0;		//CLK in ms
 uint32_t GoPro_timer=0;
+uint16_t blink=0;
 
 /* USER CODE END PV */
 
@@ -192,6 +192,11 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
+	blink++;
+	if(blink>=500){
+		GPIOG->ODR^=GPIO_PIN_3;
+		blink=0;
+	}
 
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
@@ -205,7 +210,7 @@ void SysTick_Handler(void)
 
   if(GoPro){
 	  GoPro_timer++;
-	  if(GoPro>=GOPRO_MAX){
+	  if(GoPro_timer>=GOPRO_MAX){
 		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_RESET);
 		  GoPro_timer=0;
 		  GoPro=0;

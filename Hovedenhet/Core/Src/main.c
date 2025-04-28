@@ -187,24 +187,24 @@ int main(void)
 
 	  //Stop GoPro filming
 	  if(command==0x49){
-	  		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
-	  		  GoPro=1;
-	  		  command=0;
-	  	  }
+		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
+		  GoPro=1;
+		  command=0;
+	  }
 
 	  //Turn on GoPro
 	  if(command==0x4A){
-	  		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
-	  		  GoPro=1;
-	  		  command=0;
-	  	  }
+		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
+		  GoPro=1;
+		  command=0;
+	  }
 
 	  //Turn off GoPro
 	  if(command==0x4B){
-	  		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
-	  		  GoPro=1;
-	  		  command=0;
-	  	  }
+		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
+		  GoPro=1;
+		  command=0;
+	  }
 
 	  //Erase flight REC
 	  if(command==0x4C){
@@ -214,6 +214,7 @@ int main(void)
 
 	  //Start fligt REC
 	  if(command==0x4D){
+		  CAN_SendMessage(0x100);
 		  Start_Flight_Recording=1;
 		  command=0;
 	  }
