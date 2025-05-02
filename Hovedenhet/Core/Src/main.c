@@ -175,6 +175,7 @@ int main(void)
 
 	  //Reboot MCU
 	  if(command==0x47){
+		  NVIC_SystemReset();
 		  command=0;
 	  }
 

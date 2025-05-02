@@ -84,15 +84,11 @@ void Flash_Init(uint8_t BUF){
 				Page_Bit |= 0x01 << i;
 			}
 		}
-
 		if(Page_Bit!=0xFFFF){
 			Temp_Page += 64;
 		}
-
 		else{
-			if(Temp_Page == 0){
-				break;
-			}
+			if(Temp_Page == 0) break;
 			else Temp_Page -= 64;
 		}
 	}
