@@ -44,7 +44,6 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
-uint32_t CLK_SIM=0;		//CLK in ms
 uint32_t GoPro_timer=0;
 uint16_t blink=0;
 
@@ -192,6 +191,7 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
+	Local_Time++;
 	blink++;
 	if(blink>=500){
 		GPIOG->ODR^=GPIO_PIN_3;
@@ -201,12 +201,6 @@ void SysTick_Handler(void)
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-  if(Start_Flight_Recording){
-	  CLK_SIM++;
-  }
-  else{
-	  CLK_SIM=0;
-  }
 
   if(GoPro){
 	  GoPro_timer++;
@@ -286,6 +280,18 @@ void UART8_IRQHandler(void)
 
 void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs){
 	while(HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, CAN.Rx_Buffer) == HAL_OK){
+
+		//CAN ID = 201 is CAN message with GNSS time from flight estimator used to update local time
+		if(RxHeader.Identifier == 201){
+			uint32_t GNSS_time = *(uint32_t*)&CAN.Rx_Buffer[0];
+
+			uint32_t H = GNSS_time/10000000;
+			uint32_t M = (GNSS_time/100000) % 100;
+			uint32_t S = (GNSS_time/1000) % 100;
+			uint32_t MS = GNSS_time % 1000;
+
+			Local_Time = ((H*3600UL + M*60UL + S)*1000UL) + MS;
+		}
 		//CAN ID = 401 is CAN message for commands to black box
 		if(RxHeader.Identifier == 401){
 			if(CAN.Rx_Buffer[6] == CAN.Rx_Buffer[7]){
@@ -324,10 +330,10 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 		Temp[10]=CAN.Rx_Buffer[7];
 
 		//Clock (uint32_t)
-		Temp[11]=(uint8_t)(CLK_SIM);
-		Temp[12]=(uint8_t)(CLK_SIM>>8);
-		Temp[13]=(uint8_t)(CLK_SIM>>16);
-		Temp[14]=(uint8_t)(CLK_SIM>>24);
+		Temp[11]=(uint8_t)(Local_Time);
+		Temp[12]=(uint8_t)(Local_Time>>8);
+		Temp[13]=(uint8_t)(Local_Time>>16);
+		Temp[14]=(uint8_t)(Local_Time>>24);
 
 		//Stop byte
 		Temp[15]=0x0F;

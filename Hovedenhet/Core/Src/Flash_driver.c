@@ -184,28 +184,20 @@ void Automatic_Block_Managment(uint16_t Page_Index){
 
 //Erase all flash memory on IC
 void Chip_Erase(void){
-	USART3_Printf("Vil du slette alt minne for lagra flydata? Y/N\r\n");
-	HAL_UART_Receive(&huart3, &command, 1, HAL_MAX_DELAY);
-	//ASCII for Y
-	if(command == 0x59){
-		USART3_Printf("Sletter minne ...\r\n");
-		for(int i = 0; i <= 1024; i++){
-			Block_Erase(i*64);
-		}
-		Flash.Buffer_Index=0;
-		Flash.Page_Index=0;
-		Flash.Block_Mem=0;
-		Flash.Buffer_Select=0;
-		Flash.Buffer_p=Flash.Buffer_0;
+	USART3_Printf("Sletter minne ...\r\n");
+	for(int i = 0; i <= 1024; i++){
+		Block_Erase(i*64);
+	}
+	Flash.Buffer_Index=0;
+	Flash.Page_Index=0;
+	Flash.Block_Mem=0;
+	Flash.Buffer_Select=0;
+	Flash.Buffer_p=Flash.Buffer_0;
 
-		Flash_Data* pointer = &Flash;
-		memset(pointer->Buffer_0, 0xFF, sizeof(pointer->Buffer_0));
-		memset(pointer->Buffer_1, 0xFF, sizeof(pointer->Buffer_1));
-		USART3_Printf("Ferdig\r\n");
-	}
-	else{
-		USART3_Printf("Sletter IKKE minne\r\n");
-	}
+	Flash_Data* pointer = &Flash;
+	memset(pointer->Buffer_0, 0xFF, sizeof(pointer->Buffer_0));
+	memset(pointer->Buffer_1, 0xFF, sizeof(pointer->Buffer_1));
+	USART3_Printf("Ferdig\r\n");
 }
 
 //Read data continuous from IC, then print data to Virtual COM PORT
@@ -226,7 +218,7 @@ void Read_Data_Cont(uint16_t len){
 	uint32_t Data_Temp = *(uint32_t*)&Data_Buffer[3];
 	uint32_t Time_Temp = *(uint32_t*)&Data_Buffer[11];
 
-	while((Data_Buffer[0]==0xF0)&&(Data_Buffer[15]==0x0F)){
+	while((Data_Buffer[0]==0xF0)&&(Data_Buffer[len-1]==0x0F)){
 		USART3_Printf("CANID:%u, DATA:%u, Time:%u\r\n", (unsigned int)CAN_Temp, (unsigned int)Data_Temp, (unsigned int)Time_Temp);
 		HAL_SPI_Receive(&hspi1, Data_Buffer, len, HAL_MAX_DELAY);
 

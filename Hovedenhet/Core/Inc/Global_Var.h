@@ -11,6 +11,7 @@
 //Variabel
 uint8_t Start_Flight_Recording=0;
 uint8_t command = 0;
+uint32_t Local_Time = 0;
 
 //Flag
 uint8_t GoPro=0;

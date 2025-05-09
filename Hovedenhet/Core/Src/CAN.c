@@ -37,3 +37,9 @@ void CAN_SendMessage(uint16_t ID) {
         Error_Handler();
     }
 }
+
+void CAN_SendStatus(void){
+	uint8_t DataFrame[8];
+
+	*(uint32_t*)&DataFrame[4] = Flash.Page_Index;
+}

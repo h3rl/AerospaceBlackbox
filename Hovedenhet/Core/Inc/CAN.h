@@ -10,4 +10,5 @@
 
 void CAN_ReceiveMessage(void);
 void CAN_SendMessage(uint16_t ID);
+void CAN_SendStatus(void);
 #endif /* INC_CAN_H_ */

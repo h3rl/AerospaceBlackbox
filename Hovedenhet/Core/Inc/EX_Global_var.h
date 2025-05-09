@@ -11,6 +11,7 @@
 //Variabler
 extern uint8_t Start_Flight_Recording;
 extern uint8_t command;
+extern uint32_t Local_Time;
 
 //Flag
 extern uint8_t GoPro;
