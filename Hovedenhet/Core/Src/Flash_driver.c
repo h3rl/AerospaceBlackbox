@@ -133,6 +133,10 @@ void Write_Data(uint8_t* data, uint16_t lenght){
 	}
 	uint16_t count=0;
 	while(count<lenght){
+		if(Flash.Memory_Full == 1){
+			return;
+		}
+
 		*Flash.Buffer_p=*data;
 		Flash.Buffer_p++;
 		data++;
@@ -146,6 +150,24 @@ void Write_Data(uint8_t* data, uint16_t lenght){
 
 //Write data to buffer in flash IC, then write buffer to page
 void Write_to_page(void){
+
+	//Check if it is the last page
+	if(Flash.Page_Index >= 0xFFFF){
+
+		//Set memory full flag and disable flight recording
+		Flash.Memory_Full = 1;
+		Start_Flight_Recording = 0;
+
+		//Store data to the last page and return
+		if(Flash.Buffer_Select==0){
+			Write_Data_Buffer(0, Flash.Buffer_0, sizeof(Flash.Buffer_0));
+		}
+		else{
+			Write_Data_Buffer(0, Flash.Buffer_1, sizeof(Flash.Buffer_1));
+		}
+		Program_Page_Flash(Flash.Page_Index);
+		return;
+	}
 	if(Flash.Buffer_Select==0){
 		Flash.Buffer_Select=1;
 		Flash.Buffer_p=Flash.Buffer_1;
@@ -192,6 +214,7 @@ void Chip_Erase(void){
 	Flash.Page_Index=0;
 	Flash.Block_Mem=0;
 	Flash.Buffer_Select=0;
+	Flash.Memory_Full=0;
 	Flash.Buffer_p=Flash.Buffer_0;
 
 	Flash_Data* pointer = &Flash;

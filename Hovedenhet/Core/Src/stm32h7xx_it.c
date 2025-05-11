@@ -46,6 +46,8 @@
 
 uint32_t GoPro_timer=0;
 uint16_t blink=0;
+uint16_t Status_timer=0;
+uint16_t CAN_Timeout=0;
 
 /* USER CODE END PV */
 
@@ -193,6 +195,12 @@ void SysTick_Handler(void)
   /* USER CODE BEGIN SysTick_IRQn 0 */
 	Local_Time++;
 	blink++;
+	Status_timer++;
+
+	if(CAN_Timeout <= 1000){
+		CAN_Timeout++;
+	}
+
 	if(blink>=500){
 		GPIOG->ODR^=GPIO_PIN_3;
 		blink=0;
@@ -209,6 +217,11 @@ void SysTick_Handler(void)
 		  GoPro_timer=0;
 		  GoPro=0;
 	  }
+  }
+
+  if(Status_timer >= 1000){
+	  CAN_SendStatus(CAN_Timeout >= 1000);
+	  Status_timer = 0;
   }
   /* USER CODE END SysTick_IRQn 1 */
 }
@@ -280,6 +293,7 @@ void UART8_IRQHandler(void)
 
 void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs){
 	while(HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, CAN.Rx_Buffer) == HAL_OK){
+		CAN_Timeout = 0;
 
 		//CAN ID = 201 is CAN message with GNSS time from flight estimator used to update local time
 		if(RxHeader.Identifier == 201){

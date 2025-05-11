@@ -215,8 +215,9 @@ int main(void)
 
 	  //Start fligt REC
 	  if(command==0x4D){
-		  CAN_SendMessage(0x100);
-		  Start_Flight_Recording=1;
+		  if(Flash.Memory_Full == 0){
+			  Start_Flight_Recording=1;
+		  }
 		  command=0;
 	  }
 
@@ -688,6 +689,7 @@ static void init(void){
 	memset(pointer->Buffer_1, 0xFF, sizeof(pointer->Buffer_1));
 	Flash.Buffer_Index = 0;
 	Flash.Buffer_Select = 0;
+	Flash.Memory_Full = 0;
 	Flash.Block_Mem = 0;
 	Flash.Page_Index = 0;
 	Flash.ID = 0;

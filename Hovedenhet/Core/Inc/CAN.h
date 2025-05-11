@@ -10,5 +10,5 @@
 
 void CAN_ReceiveMessage(void);
 void CAN_SendMessage(uint16_t ID);
-void CAN_SendStatus(void);
+void CAN_SendStatus(uint8_t CAN_Timeout);
 #endif /* INC_CAN_H_ */

@@ -1,3 +1,3 @@
 ../Core/Src/CAN.c:13:6:CAN_ReceiveMessage	16	static
 ../Core/Src/CAN.c:23:6:CAN_SendMessage	16	static
-../Core/Src/CAN.c:41:6:CAN_SendStatus	16	static
+../Core/Src/CAN.c:41:6:CAN_SendStatus	24	static

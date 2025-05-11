@@ -32,6 +32,7 @@ typedef struct{
 	uint8_t Buffer_0[2048];	//Data buffer 0
 	uint8_t Buffer_1[2048];	//Data buffer 1
 	uint8_t Buffer_Select;	//Buffer Select (0 or 1)
+	uint8_t Memory_Full;	//Flag to set when memory is full
 	uint16_t Block_Mem;		//Block memory. Used to detect block change
 	uint16_t Page_Index;	//Page index. Used to track current page
 	uint16_t Buffer_Index;	//BUffer index. Used to control when buffer is full

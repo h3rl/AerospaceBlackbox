@@ -38,8 +38,35 @@ void CAN_SendMessage(uint16_t ID) {
     }
 }
 
-void CAN_SendStatus(void){
-	uint8_t DataFrame[8];
+void CAN_SendStatus(uint8_t CAN_Timeout){
+	uint32_t Status = 0;
 
-	*(uint32_t*)&DataFrame[4] = Flash.Page_Index;
+	if(HAL_GPIO_ReadPin(GPIOC, CAM1_PWR_Pin)){
+		Status |= (1 << 0);
+	}
+	if(HAL_GPIO_ReadPin(GPIOE, CAM2_PWR_Pin)){
+		Status |= (1 << 1);
+	}
+	if(HAL_GPIO_ReadPin(GPIOB, CAM3_PWR_Pin)){
+		Status |= (1 << 2);
+	}
+	if(CAM1.Status[0] == 0x42){
+		Status |= (1 << 3);
+	}
+	if(CAM2.Status[0] == 0x42){
+		Status |= (1 << 4);
+	}
+	if(CAM3.Status[0] == 0x42){
+		Status |= (1 << 5);
+	}
+	if(CAN_Timeout){
+		Status |= (1 << 6);
+	}
+	if(Start_Flight_Recording){
+		Status |= (1 << 7);
+	}
+
+	*(uint32_t*)&CAN.Tx_Buffer[0] = Status;
+	*(uint16_t*)&CAN.Tx_Buffer[4] = Flash.Page_Index;
+	CAN_SendMessage(400);
 }
