@@ -31,13 +31,13 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "Funksjoner.h"
-#include "CAN.h"
-#include "string.h"
+#include "util.h"
+
 #include <unistd.h>
 #include <stdarg.h>
-#include "stdio.h"
-#include "TypeDef.h"
+#include <string.h>
+#include <stdio.h>
+#include <assert.h>
 
 /* USER CODE END Includes */
 
@@ -48,11 +48,15 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
+#define DELAY_NS 100
+#define GOPRO_MAX 100
 
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
+#define csLOW() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_RESET)
+#define csHIGH() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_SET)
 
 /* USER CODE END EM */
 
@@ -60,7 +64,6 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-void delay_ns(uint32_t ns);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -80,10 +83,8 @@ void delay_ns(uint32_t ns);
 #define GREEN_LED_GPIO_Port GPIOG
 
 /* USER CODE BEGIN Private defines */
-#define DELAY_NS 100
-#define GOPRO_MAX 100
-#define csLOW() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_RESET)
-#define csHIGH() HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_SET)
+#define ENABLE_SERIAL_PRINTF // Enables printf to console via huart
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

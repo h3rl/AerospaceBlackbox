@@ -18,12 +18,22 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "fdcan.h"
+#include "memorymap.h"
+#include "spi.h"
+#include "usart.h"
+#include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "Global_Var.h"
-#include "Flash_driver.h"
-#include "CAM_driver.h"
+#include "flash_driver.h"
+#include "camera_driver.h"
+#include "fdcan_impl.h"
+#include "util.h"
+
+#include <sys/unistd.h>
+#include <errno.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,37 +53,260 @@
 
 /* Private variables ---------------------------------------------------------*/
 
-FDCAN_HandleTypeDef hfdcan1;
-
-SPI_HandleTypeDef hspi1;
-
-UART_HandleTypeDef huart5;
-UART_HandleTypeDef huart8;
-UART_HandleTypeDef huart2;
-UART_HandleTypeDef huart3;
-
 /* USER CODE BEGIN PV */
+static uint32_t g_local_time = 0;
+static uint8_t g_flash_logging_enabled = 0;
+static uint32_t g_gopro_release_timestamp = 0; // timestamp(ms) when the gopro button should be released
+static uint32_t g_last_can_message_timestamp = 0; // timestamp(ms) when the last canmessage was recieved
 
+static camera_data_t CAM1 = {0};
+static camera_data_t CAM2 = {0};
+static camera_data_t CAM3 = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MPU_Config(void);
-static void MX_GPIO_Init(void);
-static void MX_FDCAN1_Init(void);
-static void MX_SPI1_Init(void);
-static void MX_USART3_UART_Init(void);
-static void MX_UART5_Init(void);
-static void MX_UART8_Init(void);
-static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-static void init(void);
+void process_incomming_commands(uint8_t command);
+void send_status(void);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+/* fdcan parse message, called for every message recieved */
+/* this is a callback function that is called by the fdcan fifo handler */
+void FDCAN_parse_message(uint32_t id, void* pData, uint8_t size)
+{
+	g_last_can_message_timestamp = HAL_GetTick();
+	uint8_t* pbData = (uint8_t*)pData;
 
+	// Logging to console
+	print("Received CAN Message: ");
+    for (int i = 0; i < 8; i++) {
+    	print("%02X ", pbData[i]);
+    }
+    print("\r\n");
+
+	switch(id){
+	//CAN ID = 201 is CAN message with GNSS time from flight estimator used to update local time
+	case 201:
+		uint32_t GNSS_time = *(uint32_t*)pData;
+
+		uint32_t H = GNSS_time/10000000;
+		uint32_t M = (GNSS_time/100000) % 100;
+		uint32_t S = (GNSS_time/1000) % 100;
+		uint32_t MS = GNSS_time % 1000;
+
+		g_local_time = ((H*3600UL + M*60UL + S)*1000UL) + MS;
+		break;
+	//CAN ID = 401 is CAN message for commands to black box
+	case 401:
+
+		if(pbData[6] == pbData[7]){
+			uint8_t command = pbData[6];
+			process_incomming_commands(command);
+		}
+		break;
+	//CAN ID = 402 is CAN message for manual update of current page
+	case 402:
+		uint16_t page_index = *(uint16_t*)(pData+6);
+
+		Automatic_Block_Managment(page_index);
+		flash.Buffer_Index=0;
+		flash.Page_Index=page_index;
+		flash.Buffer_Select=0;
+		flash.Buffer_p=flash.Buffer_0;
+		break;
+	default:
+		break;
+	}
+
+	if(g_flash_logging_enabled != 0){
+		// Save message to flash
+		uint8_t buffer[16] = {0};
+		uint8_t* ptr = buffer;
+
+		//Start byte
+		*ptr = 0xF0;
+		ptr++;
+
+		//CAN ID Stored in 2 first bytes
+		*ptr = (uint16_t)(id & 0xFFFF);
+		ptr += sizeof(uint16_t);
+
+		//8 bytes with CAN data
+		memcpy(ptr, pData, 8);
+		ptr += 8;
+
+		//Clock (uint32_t)
+		//uint32_t t = g_local_time;
+		uint32_t t = HAL_GetTick();
+		memcpy(ptr, &t, sizeof(t));
+		ptr += sizeof(uint32_t);
+
+		//Stop byte
+		*ptr = 0x0F;
+		ptr++;
+
+		//Write to flash
+		Write_Data(buffer, sizeof(buffer));
+	}
+}
+
+void send_status(void)
+{
+	uint32_t status = 0;
+
+	if(HAL_GPIO_ReadPin(GPIOC, CAM1_PWR_Pin)){
+		status |= (1 << 0);
+	}
+	if(HAL_GPIO_ReadPin(GPIOE, CAM2_PWR_Pin)){
+		status |= (1 << 1);
+	}
+	if(HAL_GPIO_ReadPin(GPIOB, CAM3_PWR_Pin)){
+		status |= (1 << 2);
+	}
+	if(CAM1.status[0] == 0x42){
+		status |= (1 << 3);
+	}
+	if(CAM2.status[0] == 0x42){
+		status |= (1 << 4);
+	}
+	if(CAM3.status[0] == 0x42){
+		status |= (1 << 5);
+	}
+	if(g_last_can_message_timestamp + 1000 < HAL_GetTick()){
+		status |= (1 << 6);
+	}
+	if(g_flash_logging_enabled){
+		status |= (1 << 7);
+	}
+
+	uint8_t buffer[6];
+	*(uint32_t*)(buffer+0) = status;
+	*(uint16_t*)(buffer+4) = flash.Page_Index;
+
+	FDCAN_sendmsg(400, buffer, sizeof(buffer));
+}
+
+void process_incomming_commands(uint8_t command)
+{
+    switch (command) {
+	//CAM to IDLE - stop recording cameras
+      case 0x41:
+        CAM_send_command(&CAM1, CAMERA_IDLE);
+        CAM_send_command(&CAM2, CAMERA_IDLE);
+        CAM_send_command(&CAM3, CAMERA_IDLE);
+        break;
+  	  //CAM to REC - start recording cameras
+	    case 0x42:
+        CAM_send_command(&CAM1, CAMERA_RECORDING);
+        CAM_send_command(&CAM2, CAMERA_RECORDING);
+        CAM_send_command(&CAM3, CAMERA_RECORDING);
+        break;
+
+	  //CAM to FORMAT - format sd card
+	    case 0x43:
+        CAM_send_command(&CAM1, CAMERA_FORMAT);
+        CAM_send_command(&CAM2, CAMERA_FORMAT);
+        CAM_send_command(&CAM3, CAMERA_FORMAT);
+        break;
+
+	  //CAM to REBOOT - restart cameras
+      case 0x44:
+        CAM_send_command(&CAM1, CAMERA_REBOOT);
+        CAM_send_command(&CAM3, CAMERA_REBOOT);
+        CAM_send_command(&CAM2, CAMERA_REBOOT);
+        break;
+
+	  //CAM to DEBUG - enable wifimodule for cameras
+    case 0x45:
+		  CAM_send_command(&CAM1, CAMERA_DEBUG);
+		  CAM_send_command(&CAM2, CAMERA_DEBUG);
+		  CAM_send_command(&CAM3, CAMERA_DEBUG);
+      break;
+
+	  //Reboot MCU - reset self
+	  case 0x47:
+		  NVIC_SystemReset();
+      break;
+
+	  //Start GoPro filming
+    case 0x48:
+      HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
+	  g_gopro_release_timestamp = HAL_GetTick()+1000;
+      break;
+
+	  //Stop GoPro filming
+    case 0x49:
+		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
+		  g_gopro_release_timestamp = HAL_GetTick()+1000;
+      break;
+
+	  //Turn on GoPro
+	  case 0x4A:
+		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
+		  g_gopro_release_timestamp = HAL_GetTick()+5000;
+      break;
+
+	  //Turn off GoPro
+	  case 0x4B:
+		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
+		  g_gopro_release_timestamp = HAL_GetTick()+5000;
+      break;
+
+	  //Erase flight REC
+	  case 0x4C:
+		  Chip_Erase();
+		  break;
+
+	  //Start fligt REC
+	  case 0x4D:
+		  if(flash.Memory_Full == 0){
+			  g_flash_logging_enabled=1;
+		  }
+		  break;
+
+	  //Stop flight REC
+	  case 0x4E:
+		  g_flash_logging_enabled=0;
+		  break;
+
+	  //Read flight REC
+	  case 0x52:
+		  Read_Data_Cont(16);
+		  break;
+
+		  // No command
+	  case 0:
+		  break;
+
+    default:
+    	print("unknown command 0x%X\r\n", command);
+      break;
+    }
+    command = 0;
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+	camera_data_t* cam = 0;
+
+	if(huart->Instance == CAM1.huart->Instance)
+		cam = &CAM1;
+	else if(huart->Instance == CAM2.huart->Instance)
+		cam = &CAM2;
+	else if(huart->Instance == CAM3.huart->Instance)
+		cam = &CAM3;
+
+	if(cam != 0)
+	{
+		// receive status
+		HAL_UART_Receive_IT(cam->huart, cam->status, 2);
+	}
+}
 
 /* USER CODE END 0 */
 
@@ -85,7 +318,29 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	//Assigning status register addresses
+	flash.SR_1 = 0;
+	flash.SR_2 = 0;
+	flash.SR_3 = 0;
 
+	memset(&flash.Buffer_0, 0xFF, sizeof(flash.Buffer_0));
+	memset(&flash.Buffer_1, 0xFF, sizeof(flash.Buffer_1));
+
+	flash.Buffer_Index = 0;
+	flash.Buffer_Select = 0;
+	flash.Memory_Full = 0;
+	flash.Block_Mem = 0;
+	flash.Page_Index = 0;
+	flash.ID = 0;
+	flash.Buffer_p = flash.Buffer_0;
+
+	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;  // Enable DWT
+	DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;            // Enable cycle counter
+
+
+  /* Disable I/O buffering for STDOUT stream, so that
+   * chars are sent out as soon as they are printed. */
+  setvbuf(stdout, NULL, _IONBF, 0);
   /* USER CODE END 1 */
 
   /* MPU Configuration--------------------------------------------------------*/
@@ -104,7 +359,6 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-  init();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -116,132 +370,67 @@ int main(void)
   MX_UART8_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  FDCAN_init(&hfdcan1);
 
-  HAL_UART_Receive_IT(CAM1.huart, CAM1.Status, 2);
-  HAL_UART_Receive_IT(CAM2.huart, CAM2.Status, 2);
-  HAL_UART_Receive_IT(CAM3.huart, CAM3.Status, 2);
+	CAM_init(&CAM1, &huart2);
+	CAM_init(&CAM2, &huart8);
+	CAM_init(&CAM3, &huart5);
+
+// TODO: check if its necessary to get camstatus on startup. i think these are retrieved via interrupt anyways (might check later)
+  HAL_UART_Receive_IT(CAM1.huart, CAM1.status, 2);
+  HAL_UART_Receive_IT(CAM2.huart, CAM2.status, 2);
+  HAL_UART_Receive_IT(CAM3.huart, CAM3.status, 2);
+
+  Flash_Init(0);
+  flash.ID=Read_ID();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
+  uint32_t lasttime_ledblink = HAL_GetTick();
+  uint32_t lasttime_statussendt = HAL_GetTick();
+  uint32_t lasttime_flash_status_checked = HAL_GetTick();
 
-  Flash_Init(0);
-  Flash.ID=Read_ID();
   while (1)
   {
-	  Read_Register(SR);
-	  HAL_StatusTypeDef status = HAL_UART_Receive(&huart3, &command,1, 100);
+	  uint32_t now = HAL_GetTick();
+
+	  // Blink led
+	  if(lasttime_ledblink + 500 > now)
+	  {
+		  lasttime_ledblink = now;
+		  HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_3);
+	  }
+
+	  // Check if gopro button has been pressed for long enough
+	  if(g_gopro_release_timestamp != 0 && g_gopro_release_timestamp < now){
+		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_RESET);
+		  g_gopro_release_timestamp = 0;
+	  }
+
+	  // Read status registers from flash memory
+	  if(lasttime_flash_status_checked + 1000 > now)
+	  {
+		  lasttime_flash_status_checked = now;
+		  Read_All_Status_Register();
+	  }
+
+	  // Send status
+	  if(lasttime_statussendt + 1000 > now)
+	  {
+		  lasttime_statussendt = now;
+		  send_status();
+	  }
+
+	  uint8_t command = 0;
+	  HAL_StatusTypeDef status = HAL_UART_Receive(&huart3, &command,1, 20);
 	  if (status == HAL_OK) {
 	      // Data received successfully
 	      // 'command' contains the received byte
-		  USART3_Printf("Received: 0x%02X\r\n", command);
-	  } else if (status == HAL_TIMEOUT) {
-
-	      // No data received before timeout
-		  //USART3_Printf("No data received (timeout).\r\n");
-	  } else {
-	      // Some other error occurred
-		  USART3_Printf("UART error: %d\r\n", status);
+		  print("Received: 0x%02X\r\n", command);
 	  }
 
-
-    CAN_ReceiveMessage();
-
-    switch (command) {
-    // no new command
-    case 0x0:
-    	break;
-	    //CAM to IDLE - stop recording cameras
-      case 0x41:
-        command_cam(CAM1, IDLE);
-        command_cam(CAM2, IDLE);
-        command_cam(CAM3, IDLE);
-        break;
-  	  //CAM to REC - start recording cameras
-	    case 0x42:
-        command_cam(CAM1, REC);
-        command_cam(CAM2, REC);
-        command_cam(CAM3, REC);
-        break;
-
-	  //CAM to FORMAT - format sd card
-	    case 0x43:
-        command_cam(CAM1, FORMAT);
-        command_cam(CAM2, FORMAT);
-        command_cam(CAM3, FORMAT);
-        break;
-
-	  //CAM to REBOOT - restart cameras
-      case 0x44:
-        command_cam(CAM1, REBOOT);
-        command_cam(CAM2, REBOOT);
-        command_cam(CAM3, REBOOT);
-        break;
-
-	  //CAM to DEBUG - enable wifimodule for cameras
-    case 0x45:
-		  command_cam(CAM1, DEB);
-		  command_cam(CAM2, DEB);
-		  command_cam(CAM3, DEB);
-      break;
-
-	  //Reboot MCU - reset self
-	  case 0x47:
-		  NVIC_SystemReset();
-      break;
-
-	  //Start GoPro filming
-    case 0x48:
-      HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
-		  GoPro=1;
-      break;
-
-	  //Stop GoPro filming
-    case 0x49:
-		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
-		  GoPro=1;
-      break;
-
-	  //Turn on GoPro
-	  case 0x4A:
-		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
-		  GoPro=1;
-      break;
-
-	  //Turn off GoPro
-	  case 0x4B:
-		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
-		  GoPro=1;
-      break;
-
-	  //Erase flight REC
-	  case 0x4C:
-		  Chip_Erase();
-		  break;
-
-	  //Start fligt REC
-	  case 0x4D:
-		  if(Flash.Memory_Full == 0){
-			  Start_Flight_Recording=1;
-		  }
-		  break;
-
-	  //Stop flight REC
-	  case 0x4E:
-		  Start_Flight_Recording=0;
-		  break;
-
-	  //Read flight REC
-	  case 0x52:
-		  Read_Data_Cont(16);
-		  break;
-
-    default:
-    	USART3_Printf("unknown command 0x%X\r\n", command);
-      break;
-    }
-    command = 0;
 
     /* USER CODE END WHILE */
 
@@ -309,409 +498,38 @@ void SystemClock_Config(void)
   }
 }
 
-/**
-  * @brief FDCAN1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_FDCAN1_Init(void)
-{
-
-  /* USER CODE BEGIN FDCAN1_Init 0 */
-	__HAL_RCC_FDCAN_CLK_ENABLE();
-  /* USER CODE END FDCAN1_Init 0 */
-
-  /* USER CODE BEGIN FDCAN1_Init 1 */
-
-  /* USER CODE END FDCAN1_Init 1 */
-  hfdcan1.Instance = FDCAN1;
-  hfdcan1.Init.FrameFormat = FDCAN_FRAME_CLASSIC;
-  hfdcan1.Init.Mode = FDCAN_MODE_NORMAL;
-  hfdcan1.Init.AutoRetransmission = DISABLE;
-  hfdcan1.Init.TransmitPause = DISABLE;
-  hfdcan1.Init.ProtocolException = DISABLE;
-  hfdcan1.Init.NominalPrescaler = 1;
-  hfdcan1.Init.NominalSyncJumpWidth = 10;
-  hfdcan1.Init.NominalTimeSeg1 = 57;
-  hfdcan1.Init.NominalTimeSeg2 = 22;
-  hfdcan1.Init.DataPrescaler = 1;
-  hfdcan1.Init.DataSyncJumpWidth = 1;
-  hfdcan1.Init.DataTimeSeg1 = 1;
-  hfdcan1.Init.DataTimeSeg2 = 1;
-  hfdcan1.Init.MessageRAMOffset = 0;
-  hfdcan1.Init.StdFiltersNbr = 12;
-  hfdcan1.Init.ExtFiltersNbr = 0;
-  hfdcan1.Init.RxFifo0ElmtsNbr = 64;
-  hfdcan1.Init.RxFifo0ElmtSize = FDCAN_DATA_BYTES_8;
-  hfdcan1.Init.RxFifo1ElmtsNbr = 0;
-  hfdcan1.Init.RxFifo1ElmtSize = FDCAN_DATA_BYTES_8;
-  hfdcan1.Init.RxBuffersNbr = 1;
-  hfdcan1.Init.RxBufferSize = FDCAN_DATA_BYTES_8;
-  hfdcan1.Init.TxEventsNbr = 0;
-  hfdcan1.Init.TxBuffersNbr = 0;
-  hfdcan1.Init.TxFifoQueueElmtsNbr = 2;
-  hfdcan1.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
-  hfdcan1.Init.TxElmtSize = FDCAN_DATA_BYTES_8;
-  if (HAL_FDCAN_Init(&hfdcan1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN FDCAN1_Init 2 */
-
-  if (HAL_FDCAN_Start(&hfdcan1) != HAL_OK) {
-      Error_Handler();
-  }
-
-  if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK) {
-      Error_Handler();
-  }
-  /* USER CODE END FDCAN1_Init 2 */
-
-}
-
-/**
-  * @brief SPI1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_SPI1_Init(void)
-{
-
-  /* USER CODE BEGIN SPI1_Init 0 */
-
-  /* USER CODE END SPI1_Init 0 */
-
-  /* USER CODE BEGIN SPI1_Init 1 */
-
-  /* USER CODE END SPI1_Init 1 */
-  /* SPI1 parameter configuration*/
-  hspi1.Instance = SPI1;
-  hspi1.Init.Mode = SPI_MODE_MASTER;
-  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
-  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi1.Init.CRCPolynomial = 0x0;
-  hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
-  hspi1.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
-  hspi1.Init.FifoThreshold = SPI_FIFO_THRESHOLD_01DATA;
-  hspi1.Init.TxCRCInitializationPattern = SPI_CRC_INITIALIZATION_ALL_ZERO_PATTERN;
-  hspi1.Init.RxCRCInitializationPattern = SPI_CRC_INITIALIZATION_ALL_ZERO_PATTERN;
-  hspi1.Init.MasterSSIdleness = SPI_MASTER_SS_IDLENESS_00CYCLE;
-  hspi1.Init.MasterInterDataIdleness = SPI_MASTER_INTERDATA_IDLENESS_00CYCLE;
-  hspi1.Init.MasterReceiverAutoSusp = SPI_MASTER_RX_AUTOSUSP_DISABLE;
-  hspi1.Init.MasterKeepIOState = SPI_MASTER_KEEP_IO_STATE_DISABLE;
-  hspi1.Init.IOSwap = SPI_IO_SWAP_DISABLE;
-  if (HAL_SPI_Init(&hspi1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN SPI1_Init 2 */
-
-  /* USER CODE END SPI1_Init 2 */
-
-}
-
-/**
-  * @brief UART5 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_UART5_Init(void)
-{
-
-  /* USER CODE BEGIN UART5_Init 0 */
-
-  /* USER CODE END UART5_Init 0 */
-
-  /* USER CODE BEGIN UART5_Init 1 */
-
-  /* USER CODE END UART5_Init 1 */
-  huart5.Instance = UART5;
-  huart5.Init.BaudRate = 9600;
-  huart5.Init.WordLength = UART_WORDLENGTH_8B;
-  huart5.Init.StopBits = UART_STOPBITS_1;
-  huart5.Init.Parity = UART_PARITY_NONE;
-  huart5.Init.Mode = UART_MODE_TX_RX;
-  huart5.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart5.Init.OverSampling = UART_OVERSAMPLING_16;
-  huart5.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-  huart5.Init.ClockPrescaler = UART_PRESCALER_DIV1;
-  huart5.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_UART_Init(&huart5) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetTxFifoThreshold(&huart5, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetRxFifoThreshold(&huart5, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_DisableFifoMode(&huart5) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN UART5_Init 2 */
-
-  /* USER CODE END UART5_Init 2 */
-
-}
-
-/**
-  * @brief UART8 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_UART8_Init(void)
-{
-
-  /* USER CODE BEGIN UART8_Init 0 */
-
-  /* USER CODE END UART8_Init 0 */
-
-  /* USER CODE BEGIN UART8_Init 1 */
-
-  /* USER CODE END UART8_Init 1 */
-  huart8.Instance = UART8;
-  huart8.Init.BaudRate = 9600;
-  huart8.Init.WordLength = UART_WORDLENGTH_8B;
-  huart8.Init.StopBits = UART_STOPBITS_1;
-  huart8.Init.Parity = UART_PARITY_NONE;
-  huart8.Init.Mode = UART_MODE_TX_RX;
-  huart8.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart8.Init.OverSampling = UART_OVERSAMPLING_16;
-  huart8.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-  huart8.Init.ClockPrescaler = UART_PRESCALER_DIV1;
-  huart8.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_UART_Init(&huart8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetTxFifoThreshold(&huart8, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetRxFifoThreshold(&huart8, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_DisableFifoMode(&huart8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN UART8_Init 2 */
-
-  /* USER CODE END UART8_Init 2 */
-
-}
-
-/**
-  * @brief USART2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_USART2_UART_Init(void)
-{
-
-  /* USER CODE BEGIN USART2_Init 0 */
-
-  /* USER CODE END USART2_Init 0 */
-
-  /* USER CODE BEGIN USART2_Init 1 */
-
-  /* USER CODE END USART2_Init 1 */
-  huart2.Instance = USART2;
-  huart2.Init.BaudRate = 9600;
-  huart2.Init.WordLength = UART_WORDLENGTH_8B;
-  huart2.Init.StopBits = UART_STOPBITS_1;
-  huart2.Init.Parity = UART_PARITY_NONE;
-  huart2.Init.Mode = UART_MODE_TX_RX;
-  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-  huart2.Init.ClockPrescaler = UART_PRESCALER_DIV1;
-  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_UART_Init(&huart2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetTxFifoThreshold(&huart2, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetRxFifoThreshold(&huart2, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_DisableFifoMode(&huart2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USART2_Init 2 */
-
-  /* USER CODE END USART2_Init 2 */
-
-}
-
-/**
-  * @brief USART3 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_USART3_UART_Init(void)
-{
-
-  /* USER CODE BEGIN USART3_Init 0 */
-
-  /* USER CODE END USART3_Init 0 */
-
-  /* USER CODE BEGIN USART3_Init 1 */
-
-  /* USER CODE END USART3_Init 1 */
-  huart3.Instance = USART3;
-  huart3.Init.BaudRate = 112500;
-  huart3.Init.WordLength = UART_WORDLENGTH_8B;
-  huart3.Init.StopBits = UART_STOPBITS_1;
-  huart3.Init.Parity = UART_PARITY_NONE;
-  huart3.Init.Mode = UART_MODE_TX_RX;
-  huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart3.Init.OverSampling = UART_OVERSAMPLING_16;
-  huart3.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-  huart3.Init.ClockPrescaler = UART_PRESCALER_DIV1;
-  huart3.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_UART_Init(&huart3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetTxFifoThreshold(&huart3, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetRxFifoThreshold(&huart3, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_DisableFifoMode(&huart3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USART3_Init 2 */
-
-  /* USER CODE END USART3_Init 2 */
-
-}
-
-/**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_GPIO_Init(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  /* USER CODE BEGIN MX_GPIO_Init_1 */
-
-  /* USER CODE END MX_GPIO_Init_1 */
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOE_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
-  __HAL_RCC_GPIOG_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(CS_PIN_GPIO_Port, CS_PIN_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GOPRO_GPIO_Port, GOPRO_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOG, YELLOW_LED_Pin|GREEN_LED_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : CAM2_PWR_Pin */
-  GPIO_InitStruct.Pin = CAM2_PWR_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(CAM2_PWR_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : CAM1_PWR_Pin */
-  GPIO_InitStruct.Pin = CAM1_PWR_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(CAM1_PWR_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : CS_PIN_Pin */
-  GPIO_InitStruct.Pin = CS_PIN_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(CS_PIN_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : CAM3_PWR_Pin */
-  GPIO_InitStruct.Pin = CAM3_PWR_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(CAM3_PWR_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : GOPRO_Pin */
-  GPIO_InitStruct.Pin = GOPRO_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GOPRO_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : YELLOW_LED_Pin GREEN_LED_Pin */
-  GPIO_InitStruct.Pin = YELLOW_LED_Pin|GREEN_LED_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
-
-  /* USER CODE BEGIN MX_GPIO_Init_2 */
-
-  /* USER CODE END MX_GPIO_Init_2 */
-}
-
 /* USER CODE BEGIN 4 */
-static void init(void){
 
-	//Assigning status register addresses
-	SR.SR_1 = 0;
-	SR.SR_1_Addr = 0xA0;
-	SR.SR_2 = 0;
-	SR.SR_2_Addr = 0xB0;
-	SR.SR_3 = 0;
-	SR.SR_3_Addr = 0xC0;
+// For printf function to work
+int _write(int fd, char* ptr, int len) {
+  HAL_StatusTypeDef hstatus;
 
-	Flash_Data* pointer = &Flash;
-
-	memset(pointer->Buffer_0, 0xFF, sizeof(pointer->Buffer_0));
-	memset(pointer->Buffer_1, 0xFF, sizeof(pointer->Buffer_1));
-	Flash.Buffer_Index = 0;
-	Flash.Buffer_Select = 0;
-	Flash.Memory_Full = 0;
-	Flash.Block_Mem = 0;
-	Flash.Page_Index = 0;
-	Flash.ID = 0;
-	Flash.Buffer_p = Flash.Buffer_0;
-
-	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;  // Enable DWT
-	DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;            // Enable cycle counter
-
-	CAM1.huart = &huart2;
-	CAM2.huart = &huart8;
-	CAM3.huart = &huart5;
+  if (fd == STDOUT_FILENO || fd == STDERR_FILENO) {
+    hstatus = HAL_UART_Transmit(&huart3,(uint8_t *) ptr, len, HAL_MAX_DELAY);
+    if (hstatus == HAL_OK)
+      return len;
+    else
+      return EIO;
+  }
+  errno = EBADF;
+  return -1;
 }
+
+int _read(int fd, char* ptr, int len) {
+  (void)len;
+  HAL_StatusTypeDef hstatus;
+
+  if (fd == STDIN_FILENO) {
+    hstatus = HAL_UART_Receive(&huart3, (uint8_t *) ptr, 1, HAL_MAX_DELAY);
+    if (hstatus == HAL_OK)
+      return 1;
+    else
+      return EIO;
+  }
+  errno = EBADF;
+  return -1;
+}
+
 /* USER CODE END 4 */
 
  /* MPU Configuration */
@@ -751,11 +569,12 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-	HAL_FDCAN_Start(&hfdcan1);
-  //__disable_irq();
-  //while (1)
-  //{
-  //}
+  // HAL_FDCAN_Start(&hfdcan1);
+  __disable_irq();
+  printf("Error_Handler!\r\n");
+  while (1)
+  {
+  }
   /* USER CODE END Error_Handler_Debug */
 }
 
@@ -772,6 +591,8 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  printf("Assertion failed: file %s on line %lu\r\n", file, line);
+  Error_Handler();
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

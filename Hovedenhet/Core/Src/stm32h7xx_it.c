@@ -22,8 +22,7 @@
 #include "stm32h7xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "EX_Global_var.h"
-#include "Flash_driver.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,7 +42,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-
 uint32_t GoPro_timer=0;
 uint16_t blink=0;
 uint16_t Status_timer=0;
@@ -193,36 +191,11 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-	Local_Time++;
-	blink++;
-	Status_timer++;
-
-	if(CAN_Timeout <= 1000){
-		CAN_Timeout++;
-	}
-
-	if(blink>=500){
-		GPIOG->ODR^=GPIO_PIN_3;
-		blink=0;
-	}
 
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
-  if(GoPro){
-	  GoPro_timer++;
-	  if(GoPro_timer>=GOPRO_MAX){
-		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_RESET);
-		  GoPro_timer=0;
-		  GoPro=0;
-	  }
-  }
-
-  if(Status_timer >= 1000){
-	  CAN_SendStatus(CAN_Timeout >= 1000);
-	  Status_timer = 0;
-  }
   /* USER CODE END SysTick_IRQn 1 */
 }
 
@@ -290,78 +263,4 @@ void UART8_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-
-void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs){
-	while(HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, CAN.Rx_Buffer) == HAL_OK){
-		CAN_Timeout = 0;
-
-		//CAN ID = 201 is CAN message with GNSS time from flight estimator used to update local time
-		if(RxHeader.Identifier == 201){
-			uint32_t GNSS_time = *(uint32_t*)&CAN.Rx_Buffer[0];
-
-			uint32_t H = GNSS_time/10000000;
-			uint32_t M = (GNSS_time/100000) % 100;
-			uint32_t S = (GNSS_time/1000) % 100;
-			uint32_t MS = GNSS_time % 1000;
-
-			Local_Time = ((H*3600UL + M*60UL + S)*1000UL) + MS;
-		}
-		//CAN ID = 401 is CAN message for commands to black box
-		if(RxHeader.Identifier == 401){
-			if(CAN.Rx_Buffer[6] == CAN.Rx_Buffer[7]){
-				command = CAN.Rx_Buffer[6];
-			}
-
-		}
-		//CAN ID = 402 is CAN message for manual update of current page
-		if(RxHeader.Identifier == 402){
-			uint16_t Page = *(uint16_t*)&CAN.Rx_Buffer[6];
-
-			Automatic_Block_Managment(Page);
-
-			Flash.Buffer_Index=0;
-			Flash.Page_Index=Page;
-			Flash.Buffer_Select=0;
-			Flash.Buffer_p=Flash.Buffer_0;
-		}
-
-		uint8_t Temp[16];
-
-		//Start byte
-		Temp[0]=0xF0;
-
-		//CAN ID Stored in 2 first bytes
-		*(uint16_t*)&Temp[1] = (uint16_t)RxHeader.Identifier;
-
-		//8 bytes with CAN data
-		Temp[3]=CAN.Rx_Buffer[0];
-		Temp[4]=CAN.Rx_Buffer[1];
-		Temp[5]=CAN.Rx_Buffer[2];
-		Temp[6]=CAN.Rx_Buffer[3];
-		Temp[7]=CAN.Rx_Buffer[4];
-		Temp[8]=CAN.Rx_Buffer[5];
-		Temp[9]=CAN.Rx_Buffer[6];
-		Temp[10]=CAN.Rx_Buffer[7];
-
-		//Clock (uint32_t)
-		Temp[11]=(uint8_t)(Local_Time);
-		Temp[12]=(uint8_t)(Local_Time>>8);
-		Temp[13]=(uint8_t)(Local_Time>>16);
-		Temp[14]=(uint8_t)(Local_Time>>24);
-
-		//Stop byte
-		Temp[15]=0x0F;
-
-		//Write to flash
-		if(Start_Flight_Recording==1){
-			Write_Data(Temp, sizeof(Temp));
-		}
-	}
-}
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-	if(huart == CAM1.huart)HAL_UART_Receive_IT(CAM1.huart, CAM1.Status, 2);
-	if(huart == CAM2.huart)HAL_UART_Receive_IT(CAM2.huart, CAM2.Status, 2);
-	if(huart == CAM3.huart)HAL_UART_Receive_IT(CAM3.huart, CAM3.Status, 2);
-}
 /* USER CODE END 1 */

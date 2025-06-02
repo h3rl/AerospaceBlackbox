@@ -2,6 +2,16 @@
 
 This project is a firmware for an STM32-based BlackBox data recorder that controls multiple cameras (e.g. GoPro) and logs flight data. Commands are received over **UART3 (STLink Virtual COM Port)** using **HUART3**.
 
+## TODOS
+* currently there are no checks for how long goprobutton is pressed (so all gopro commands are basicly the same). Think turning on/off, start stop have different timings.
+* Get gopro button timings for start,stop,turnon,turnoff.
+* write tests in tests.c/h
+* refactor flash driver(low priority)
+
+## Good to know
+* canbus is setup with callbacks. So no need to call any get message function etc.
+* logging via serial can be enabled in main.h (ENABLE_SERIAL_PRINTF)
+* 
 ## Features
 
 - Camera control: Start/stop recording, format, reboot, debug
@@ -9,7 +19,7 @@ This project is a firmware for an STM32-based BlackBox data recorder that contro
 - Flash memory logging and management
 - System reset
 - FDCAN interface for vehicle communication
-- SPI flash memory driver
+- SPI flash memory driver for W25N01GVSFIG
 
 ## Serial Communication
 
