@@ -131,107 +131,117 @@ int main(void)
   while (1)
   {
 	  Read_Register(SR);
-	  HAL_UART_Receive(&huart3, &command,1, 100);
+	  HAL_StatusTypeDef status = HAL_UART_Receive(&huart3, &command,1, 100);
+	  if (status == HAL_OK) {
+	      // Data received successfully
+	      // 'command' contains the received byte
+		  USART3_Printf("Received: 0x%02X\r\n", command);
+	  } else if (status == HAL_TIMEOUT) {
 
-	  //CAM to IDLE
-	  if(command==0x41){
-		  command_cam(CAM1, IDLE);
-		  command_cam(CAM2, IDLE);
-		  command_cam(CAM3, IDLE);
-		  command=0;
+	      // No data received before timeout
+		  //USART3_Printf("No data received (timeout).\r\n");
+	  } else {
+	      // Some other error occurred
+		  USART3_Printf("UART error: %d\r\n", status);
 	  }
 
-	  //CAM to REC
-	  if(command==0x42){
-		  command_cam(CAM1, REC);
-		  command_cam(CAM2, REC);
-		  command_cam(CAM3, REC);
-		  command=0;
-	  }
 
-	  //CAM to FORMAT
-	  if(command==0x43){
-		  command_cam(CAM1, FORMAT);
-		  command_cam(CAM2, FORMAT);
-		  command_cam(CAM3, FORMAT);
-		  command=0;
-	  }
+    CAN_ReceiveMessage();
 
-	  //CAM to REBOOT
-	  if(command==0x44){
-		  command_cam(CAM1, REBOOT);
-		  command_cam(CAM2, REBOOT);
-		  command_cam(CAM3, REBOOT);
-		  command=0;
-	  }
+    switch (command) {
+    // no new command
+    case 0x0:
+    	break;
+	    //CAM to IDLE - stop recording cameras
+      case 0x41:
+        command_cam(CAM1, IDLE);
+        command_cam(CAM2, IDLE);
+        command_cam(CAM3, IDLE);
+        break;
+  	  //CAM to REC - start recording cameras
+	    case 0x42:
+        command_cam(CAM1, REC);
+        command_cam(CAM2, REC);
+        command_cam(CAM3, REC);
+        break;
 
-	  //CAM to DEB
-	  if(command==0x45){
+	  //CAM to FORMAT - format sd card
+	    case 0x43:
+        command_cam(CAM1, FORMAT);
+        command_cam(CAM2, FORMAT);
+        command_cam(CAM3, FORMAT);
+        break;
+
+	  //CAM to REBOOT - restart cameras
+      case 0x44:
+        command_cam(CAM1, REBOOT);
+        command_cam(CAM2, REBOOT);
+        command_cam(CAM3, REBOOT);
+        break;
+
+	  //CAM to DEBUG - enable wifimodule for cameras
+    case 0x45:
 		  command_cam(CAM1, DEB);
 		  command_cam(CAM2, DEB);
 		  command_cam(CAM3, DEB);
-		  command=0;
-	  }
+      break;
 
-	  //Reboot MCU
-	  if(command==0x47){
+	  //Reboot MCU - reset self
+	  case 0x47:
 		  NVIC_SystemReset();
-		  command=0;
-	  }
+      break;
 
 	  //Start GoPro filming
-	  if(command==0x48){
-		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
+    case 0x48:
+      HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
 		  GoPro=1;
-		  command=0;
-	  }
+      break;
 
 	  //Stop GoPro filming
-	  if(command==0x49){
+    case 0x49:
 		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
 		  GoPro=1;
-		  command=0;
-	  }
+      break;
 
 	  //Turn on GoPro
-	  if(command==0x4A){
+	  case 0x4A:
 		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
 		  GoPro=1;
-		  command=0;
-	  }
+      break;
 
 	  //Turn off GoPro
-	  if(command==0x4B){
+	  case 0x4B:
 		  HAL_GPIO_WritePin (GPIOD, GOPRO_Pin, GPIO_PIN_SET);
 		  GoPro=1;
-		  command=0;
-	  }
+      break;
 
 	  //Erase flight REC
-	  if(command==0x4C){
+	  case 0x4C:
 		  Chip_Erase();
-		  command=0;
-	  }
+		  break;
 
 	  //Start fligt REC
-	  if(command==0x4D){
+	  case 0x4D:
 		  if(Flash.Memory_Full == 0){
 			  Start_Flight_Recording=1;
 		  }
-		  command=0;
-	  }
+		  break;
 
 	  //Stop flight REC
-	  if(command==0x4E){
+	  case 0x4E:
 		  Start_Flight_Recording=0;
-		  command=0;
-	  }
+		  break;
 
 	  //Read flight REC
-	  if(command==0x52){
+	  case 0x52:
 		  Read_Data_Cont(16);
-		  command = 0;
-	  }
+		  break;
+
+    default:
+    	USART3_Printf("unknown command 0x%X\r\n", command);
+      break;
+    }
+    command = 0;
 
     /* USER CODE END WHILE */
 
@@ -567,7 +577,7 @@ static void MX_USART3_UART_Init(void)
 
   /* USER CODE END USART3_Init 1 */
   huart3.Instance = USART3;
-  huart3.Init.BaudRate = 230400;
+  huart3.Init.BaudRate = 112500;
   huart3.Init.WordLength = UART_WORDLENGTH_8B;
   huart3.Init.StopBits = UART_STOPBITS_1;
   huart3.Init.Parity = UART_PARITY_NONE;
