@@ -1,2 +1,0 @@
-../Core/Src/CAN.c:13:6:CAN_ReceiveMessage	3
-../Core/Src/CAN.c:23:6:CAN_SendMessage	2

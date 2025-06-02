@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Hovedenhet/Core/Src/CAM_drive.c&apos; to &apos;CAM_driver.c&apos;" description="Rename resource &apos;CAM_drive.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/CAM_drive.c" name="CAM_driver.c" stamp="1744806740922" updateReferences="true"/>
-</session>

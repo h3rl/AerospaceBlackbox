@@ -1,9 +1,0 @@
-../Core/Src/Flash_driver.c:44:6:Flash_Init	24	static
-../Core/Src/Flash_driver.c:55:9:Read_Status_Register	16	static
-../Core/Src/Flash_driver.c:65:6:Write_Status_Register	16	static
-../Core/Src/Flash_driver.c:74:10:Read_ID	16	static
-../Core/Src/Flash_driver.c:83:6:Block_Erase	24	static
-../Core/Src/Flash_driver.c:94:6:Write_Enable	8	static
-../Core/Src/Flash_driver.c:100:6:Write_Disable	8	static
-../Core/Src/Flash_driver.c:106:6:Load_Data	16	static
-../Core/Src/Flash_driver.c:117:6:Load_Data_Flash	16	static

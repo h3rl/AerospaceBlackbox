@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Hovedenhet/Core/Inc/Misc.h&apos;" deleteContents="false" description="Delete resource &apos;Hovedenhet/Core/Inc/Misc.h&apos;" element1="/Hovedenhet/Core/Inc/Misc.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1745232675048"/>&#x0A;<refactoring comment="Delete resource &apos;Hovedenhet/Core/Src/Misc.c&apos;" deleteContents="false" description="Delete resource &apos;Hovedenhet/Core/Src/Misc.c&apos;" element1="/Hovedenhet/Core/Src/Misc.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1745232740843"/>
-</session>
